@@ -1,16 +1,6 @@
 using UnityEngine;
 
-public class OrderCounter : MonoBehaviour
+public class OrderCounter : Interactable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
