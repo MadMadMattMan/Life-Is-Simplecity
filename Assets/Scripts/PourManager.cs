@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using UnityEngine;
 
 public class PourManager : MonoBehaviour {
@@ -25,7 +24,7 @@ public class PourManager : MonoBehaviour {
 
 
     [Header("Testing")]
-    public int c = 0;
+    [Range(0, 2)] public int c = 0;
     public bool u = false;
 
     private void Start() {
