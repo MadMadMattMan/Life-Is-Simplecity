@@ -39,7 +39,8 @@ public class PlayerController : MonoBehaviour
     public GameObject PlaceItem()
     {
         GameObject item = inventoryItem;
-        TrashItem();
+        item.transform.SetParent(null);
+        inventoryItem = null;
         return item;
     }
     public void TrashItem()
