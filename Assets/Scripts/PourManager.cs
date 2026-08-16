@@ -29,8 +29,10 @@ public class PourManager : Interactable {
     public bool u = false;
 
     private void Start() {
-        ConnectCauldron(ConnectedCauldron);
-        update = true;
+        if (ConnectedCauldron != null) {
+            ConnectCauldron(ConnectedCauldron);
+            update = true;
+        }
     }
 
     public void ConnectCauldron(GameObject obj) {
@@ -45,6 +47,7 @@ public class PourManager : Interactable {
     public void DisconnectCauldron() {
         newColor = oldColor = connectedCauldronLiquid.color;
         cManager.SetColor(new Vector3(newColor.r, newColor.g, newColor.b));
+        ConnectedCauldron = null;
     }
 
     public void AddColor(int color) {

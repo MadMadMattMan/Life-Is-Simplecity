@@ -81,7 +81,7 @@ public class NPCBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(upTime / order.numberOfItems);
         speechBubble.sprite = white;
-        speechBubble.color = order.Liquid;
+        speechBubble.color = new Color(order.Liquid.x, order.Liquid.y, order.Liquid.z);
         for (int i = 0; i < order.Contents.Length; i++)
         {
             yield return new WaitForSeconds(upTime / order.numberOfItems);
