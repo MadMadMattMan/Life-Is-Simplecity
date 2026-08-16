@@ -6,8 +6,9 @@ public class PourManager : MonoBehaviour {
     [SerializeField] ParticleSystem BluePourParticles;
 
 
-    public GameObject connectedCauldronLiquid;
-    Material flaskMaterial;
+    public GameObject ConnectedCauldron;
+    CauldronManager cManager;
+    Material connectedCauldronLiquid;
 
     Color oldColor = new Color(0.8f, 0.85f, 1f);
     [SerializeField] Vector3 newColorVector = new Vector3(0.8f, 0.85f, 1f);
@@ -28,10 +29,22 @@ public class PourManager : MonoBehaviour {
     public bool u = false;
 
     private void Start() {
-        flaskMaterial = connectedCauldronLiquid.GetComponent<MeshRenderer>().material;
-        oldColor = newColor;
-        flaskMaterial.color = newColor;
+        ConnectCauldron(ConnectedCauldron);
         update = true;
+    }
+
+    public void ConnectCauldron(GameObject obj) {
+        ConnectedCauldron = obj;
+        connectedCauldronLiquid = obj.GetComponentInChildren<MeshRenderer>().material;
+        cManager = obj.GetComponent<CauldronManager>();
+
+        newColor = connectedCauldronLiquid.color;
+        oldColor = newColor;
+    }
+
+    public void DisconnectCauldron() {
+        newColor = oldColor = connectedCauldronLiquid.color;
+        cManager.SetColor(new Vector3(newColor.r, newColor.g, newColor.b));
     }
 
     public void AddColor(int color) {
@@ -78,7 +91,7 @@ public class PourManager : MonoBehaviour {
         if (lerpingColor) {
             Debug.Log("Lerping");
             potionColor = Color.Lerp(oldColor, newColor, enlapsedTime/colorLerpTime);
-            flaskMaterial.color = potionColor;
+            connectedCauldronLiquid.color = potionColor;
 
             enlapsedTime += Time.deltaTime;
             if (enlapsedTime >= colorLerpTime) {
@@ -87,32 +100,4 @@ public class PourManager : MonoBehaviour {
             }
         }
     }
-
-
-
-    #region Fill Stuff (tbd) 
-    /**
-    private void connectFlask(GameObject flask) {
-        if (flask == null) {
-            Debug.LogError("Failed to get flask object");
-            return;
-        }
-        connectedFlask = flask;
-        flaskMaterial = flask.GetComponent<MeshRenderer>().material;
-        if (flaskMaterial == null) {
-            Debug.LogError("Failed to get Material from flask: " + connectedFlask);
-            return;
-        }
-
-        flaskMaterial.SetVector(Shader.PropertyToID("Object Height"), 
-            new Vector2(-connectedFlask.transform.localScale.y / 2, 
-                        connectedFlask.transform.localScale.y / 2));
-        flaskMaterial.SetFloat("Fill Volume", 0f);
-    }
-
-    private void Update() {
-        flaskMaterial.SetFloat("Fill Volume", fillLevel);
-    }
-    */
-#endregion
 }

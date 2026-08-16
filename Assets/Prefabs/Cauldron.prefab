@@ -143,10 +143,10 @@ Transform:
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 4121177113312431102}
   - {fileID: 6404309771954974577}
   - {fileID: 5842756814712119403}
   - {fileID: 2429976295495617311}
-  - {fileID: 4121177113312431102}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &3546688210929134974
@@ -163,6 +163,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CauldronManager
   baseColor: {x: 1, y: 1, z: 1}
   addedIngredients: 
+  brewPercent: 0
+  brewQuality: 1
 --- !u!1 &7829670537417964591
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,8 +191,8 @@ Transform:
   m_GameObject: {fileID: 7829670537417964591}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.006, z: -9e-15}
-  m_LocalScale: {x: 1.4056821, y: 1.4056821, z: 1.4056821}
+  m_LocalPosition: {x: 0, y: -0.127, z: -9e-15}
+  m_LocalScale: {x: 1.119921, y: 1.119921, z: 1.119921}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5870138163613732365}
@@ -243,7 +245,7 @@ Transform:
   m_GameObject: {fileID: 8207867624041492634}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0.17333484, z: 0.039500713}
+  m_LocalPosition: {x: 0, y: 0.17333484, z: 0.039500713}
   m_LocalScale: {x: 110.63354, y: 116.811386, z: 76.99318}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -282,7 +284,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3f233ef2bb125d34ba519274dd460cee, type: 2}
+  - {fileID: -876546973899608171, guid: 52a6d7013a93142a1a92a2fe872bc7a4, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

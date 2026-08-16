@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class IngredientManager : MonoBehaviour {
@@ -15,4 +14,3 @@ public class IngredientManager : MonoBehaviour {
     }
     
 }
-
