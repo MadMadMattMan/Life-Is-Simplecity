@@ -6,7 +6,7 @@ public class PourManager : MonoBehaviour {
     [SerializeField] ParticleSystem BluePourParticles;
 
 
-    public GameObject connectedFlask;
+    public GameObject connectedCauldronLiquid;
     Material flaskMaterial;
 
     Color oldColor = new Color(0.8f, 0.85f, 1f);
@@ -28,7 +28,9 @@ public class PourManager : MonoBehaviour {
     public bool u = false;
 
     private void Start() {
-        flaskMaterial = connectedFlask.GetComponent<MeshRenderer>().material;
+        flaskMaterial = connectedCauldronLiquid.GetComponent<MeshRenderer>().material;
+        oldColor = newColor;
+        flaskMaterial.color = newColor;
         update = true;
     }
 
@@ -82,7 +84,6 @@ public class PourManager : MonoBehaviour {
             if (enlapsedTime >= colorLerpTime) {
                 oldColor = newColor;
                 lerpingColor = false;
-                RedPourParticles.Stop();
             }
         }
     }

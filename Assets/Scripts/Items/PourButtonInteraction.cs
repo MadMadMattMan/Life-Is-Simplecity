@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class PourButtonInteraction : iItemInteraction {
+public class PourButtonInteraction : MonoBehaviour, iItemInteraction {
 
     [SerializeField] PourManager manager;
-    [Range(0, 3)][SerializeField] int colorInt = 0;
+    [Range(0, 2)][SerializeField] int colorInt = 0;
 
     public void click() {
         manager.AddColor(colorInt);
