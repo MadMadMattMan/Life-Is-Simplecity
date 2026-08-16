@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PourManager : MonoBehaviour {
+public class PourManager : Interactable {
     [SerializeField] ParticleSystem RedPourParticles;
     [SerializeField] ParticleSystem GreenPourParticles;
     [SerializeField] ParticleSystem BluePourParticles;
@@ -78,7 +78,6 @@ public class PourManager : MonoBehaviour {
         }
 
         if (update) {
-            Debug.Log("updated");
             oldColor = potionColor;
             newColorVector += (addedColor*2 + new Vector3(-0.5f, -0.5f, -0.5f)).normalized;
             newColorVector.Normalize();
@@ -89,7 +88,6 @@ public class PourManager : MonoBehaviour {
         }
 
         if (lerpingColor) {
-            Debug.Log("Lerping");
             potionColor = Color.Lerp(oldColor, newColor, enlapsedTime/colorLerpTime);
             connectedCauldronLiquid.color = potionColor;
 

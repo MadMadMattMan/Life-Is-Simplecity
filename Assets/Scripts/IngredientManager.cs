@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IngredientManager : MonoBehaviour {
+public class IngredientManager : Interactable {
 
     [SerializeField] GameObject[] ingredientSpawns;
     [SerializeField] GameObject[] ingredients;

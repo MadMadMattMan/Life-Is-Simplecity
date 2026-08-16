@@ -35,6 +35,7 @@ public class OrderCounter : Interactable
     }
     public override void OnUninteract()
     {
+        if (isShowingOrder) return;
         base.OnUninteract();
         isInteractedWith = false;
         isShowingOrder = false;

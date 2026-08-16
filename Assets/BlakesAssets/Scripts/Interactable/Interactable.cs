@@ -4,21 +4,17 @@ using UnityEngine.InputSystem;
 public class Interactable : MonoBehaviour
 {
     [Header("Inherited")]
-    private Camera cam;
+    [SerializeField] private Camera cam;
     private bool interactable;
-    public bool beingInteractedWith;
+    [HideInInspector] public bool beingInteractedWith;
     public GameObject interactionPopup;
     public Transform camTarget;
     public InputAction interactAction;
     public InputAction uninteractAction;
     private float smoothTime = 0.3f;
-    private float degreesPerSecond = 90.0f;
+    private float degreesPerSecond = 360.0f;
     private Transform camParent;
     private Vector3 currentVelocity = Vector3.zero;
-    private void Start()
-    {
-        cam = Camera.main;
-    }
     private void OnEnable()
     {
         interactAction.started += Interact;
