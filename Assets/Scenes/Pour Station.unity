@@ -423,6 +423,14 @@ PrefabInstance:
       propertyPath: ConnectedCauldron
       value: 
       objectReference: {fileID: 1147528405}
+    - target: {fileID: 8923204907237632128, guid: a8ad71682647b7543a0c8d2b794a11b4, type: 3}
+      propertyPath: interactAction.m_Name
+      value: Interact
+      objectReference: {fileID: 0}
+    - target: {fileID: 8923204907237632128, guid: a8ad71682647b7543a0c8d2b794a11b4, type: 3}
+      propertyPath: uninteractAction.m_Name
+      value: Uninteract
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
