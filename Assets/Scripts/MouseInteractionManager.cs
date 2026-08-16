@@ -43,15 +43,12 @@ public class MouseInteractionManager : MonoBehaviour {
         Debug.DrawRay(raycast.origin, raycast.direction * raycastDistance, Color.wheat, 0.1f);
         if (Physics.Raycast(raycast, out RaycastHit hitInfo, raycastDistance, LayerMask.GetMask("MouseInteractable"))) {
             GameObject obj = hitInfo.collider.gameObject;
-            try {
-                iScript = obj.GetComponent<iItemInteraction>();
-                mouseWorldspace = raycast.GetPoint(dragDistance);
-            }
-            catch {
-                Debug.LogWarning("Failed to get iItemInteraction script from layerd object " + obj.name);
-                return false;
-            }
-            return true;
+            iScript = obj.GetComponent<iItemInteraction>();
+            mouseWorldspace = raycast.GetPoint(dragDistance);
+            if (iScript != null && mouseWorldspace != Vector3.zero) 
+                return true;
+            Debug.LogWarning("Failed to get iItemInteraction script from layerd object " + obj.name);
+            return false;
         }
         return false;
     }
@@ -65,7 +62,7 @@ public class MouseInteractionManager : MonoBehaviour {
         }
     }
 
-    void mouseRelease(){
+    void mouseRelease() {
         isPressed = false;
 
         if (raycastToMouse(out iItemInteraction iScript, out Vector3 mouseWorldspace)) {

@@ -1277,6 +1277,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4121177113312431102, guid: 55e2b0983f8430e48a32e9611c8d23ab, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4801258509846959749, guid: 55e2b0983f8430e48a32e9611c8d23ab, type: 3}
       propertyPath: m_Name
       value: Cauldron

@@ -6,6 +6,9 @@ public class CauldronManager : MonoBehaviour {
     public Vector3 baseColor = Vector3.one;
     public List<Ingredient> addedIngredients = new List<Ingredient>();
 
+    public float brewPercent = 0f;
+    public float brewQuality = 1f;
+
 
     public void SetColor(Vector3 c) {
         baseColor = c;
