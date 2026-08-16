@@ -70,6 +70,7 @@ public class NPCBehaviour : MonoBehaviour
         speechBubble.sprite = ThermometerIcon;
         yield return new WaitForSeconds(upTime / order.numberOfItems);
         HideOrder();
+        OrderCounter.Instance.isShowingOrder = false;
         NPCManager.Instance.NPCTakeOrder();
     }
     public void HideOrder()
