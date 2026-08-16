@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     private CharacterController cc;
     public float MoveSpeed = 10f, RotationSpeed = 5f;
-    public float maxRayDistance = 50f;
+    public float maxRayDistance = 1.5f;
     private float yRotation = 0f;
     private float xRotation = 0f;
     public bool isActive = true;
@@ -21,17 +21,19 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        if (Physics.Raycast(ray, out hit, maxRayDistance))
+        foreach (Interactable i in interactables)
         {
-            Interactable interactable;
-            if (hit.transform.TryGetComponent(out interactable))
+            if (Physics.Raycast(ray, out hit, maxRayDistance))
             {
-                foreach (Interactable i in interactables)
+                Interactable interactable;
+                if (hit.transform.TryGetComponent(out interactable))
                 {
                     if (i == interactable) interactable.HoverInteraction();
                     else interactable.UnhoverInteraction();
                 }
+                else i.UnhoverInteraction();
             }
+            else i.UnhoverInteraction();
         }
     }
     public void Move(Vector2 dir)
