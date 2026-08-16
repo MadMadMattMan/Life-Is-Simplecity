@@ -86,7 +86,7 @@ public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEn
     }
     IEnumerator PrintOrder(float upTime)
     {
-        OrderNumber.text = "Order " + Order.OrderNumber;
+        OrderNumber.text = "Order " + order.OrderNumber;
         yield return new WaitForSeconds(upTime/order.numberOfItems);
         LiquidColour.enabled = true;
         LiquidColour.color = order.Liquid;

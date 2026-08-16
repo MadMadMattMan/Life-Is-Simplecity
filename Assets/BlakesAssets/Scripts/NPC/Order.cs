@@ -12,7 +12,8 @@ public enum Ingredient
 
 public class Order : MonoBehaviour
 {
-    public static int OrderNumber = 0;
+    public static int OrderCounter = 0;
+    public int OrderNumber = 0;
     public bool OrderComplete;
     public float timeElapsed;
     public int numberOfItems;
@@ -27,12 +28,14 @@ public class Order : MonoBehaviour
     }
     public void InitilizeOrder(Color32 Liquid, Ingredient[] Contents, float BrewTime, float Tempreture)
     {
-        OrderNumber++;
+        OrderCounter++;
+        OrderNumber = OrderCounter;
         numberOfItems = 3 + Contents.Length;
         this.Liquid = Liquid;
         this.Contents = Contents;
         this.BrewTime = BrewTime;
         this.Tempreture = Tempreture;
+        GameManager.Instance.activeOrders.Add(this);
         //printOrder();
     }
     public void printOrder()
