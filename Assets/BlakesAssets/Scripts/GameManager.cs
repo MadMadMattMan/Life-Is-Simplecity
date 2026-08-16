@@ -9,22 +9,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private NPCSettings[] SettingsList;
     [SerializeField] private NPCSettings CurrentSettings;
     [Range(0, 5)] public float StarRating;
-    public GameObject[] Stars;
+    public GameObject Stars;
     public void Start()
     {
         Invoke("SpawnNPC", 5f);
     }
     private void FixedUpdate()
     {
-        for (int i = 0; i < Mathf.CeilToInt(StarRating); i++)
-        {
-            if (i == Mathf.CeilToInt(StarRating))
-            {
-                Stars[i].GetComponent<Image>().fillAmount = StarRating - Mathf.Floor(StarRating);
-                return;
-            }
-            Stars[i].GetComponent<Image>().fillAmount = 1;
-        }
+        Stars.GetComponent<Image>().fillAmount = Mathf.Lerp(0.1f,0.9f,StarRating/5);
     }
     public void WriteTicket(float upTime, Order order)
     {
