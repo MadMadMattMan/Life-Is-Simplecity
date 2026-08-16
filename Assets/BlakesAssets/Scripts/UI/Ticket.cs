@@ -96,7 +96,7 @@ public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEn
         OrderNumber.text = "Order " + order.OrderNumber;
         yield return new WaitForSeconds(upTime/order.numberOfItems);
         LiquidColour.enabled = true;
-        LiquidColour.color = order.Liquid;
+        LiquidColour.color = new Color(order.Liquid.x, order.Liquid.y, order.Liquid.z);
         yield return new WaitForSeconds(upTime / order.numberOfItems);
         Ingredient3.enabled = true;
         Ingredient3.sprite = ingredientSprites[(int)order.Contents[0]];

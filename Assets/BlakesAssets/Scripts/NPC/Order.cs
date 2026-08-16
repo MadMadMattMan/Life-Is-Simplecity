@@ -17,7 +17,7 @@ public class Order : MonoBehaviour
     public bool OrderComplete;
     public float timeElapsed;
     public int numberOfItems;
-    public Color32 Liquid;
+    public Vector3 Liquid;
     public Ingredient[] Contents;
     public float BrewTime;
     public float Tempreture;
@@ -26,7 +26,7 @@ public class Order : MonoBehaviour
         if (OrderComplete) return;
         timeElapsed += Time.fixedDeltaTime;
     }
-    public void InitilizeOrder(Color32 Liquid, Ingredient[] Contents, float BrewTime, float Tempreture)
+    public void InitilizeOrder(Vector3 Liquid, Ingredient[] Contents, float BrewTime, float Tempreture)
     {
         OrderCounter++;
         OrderNumber = OrderCounter;
@@ -49,7 +49,7 @@ public class Order : MonoBehaviour
         Debug.Log("=============Order Debug==============" + "\n" +
             "Completed: " + OrderComplete + "\n" +
             "Time elapsed since NPC spawn: " + timeElapsed + "\n" +
-            "Colour: r:" + Liquid.r + " g: " + Liquid.g + " b: " + Liquid.b + "\n" +
+            "Colour: r:" + Liquid.x + " g: " + Liquid.y + " b: " + Liquid.z + "\n" +
             "Ingredients:\n" + string.Join("\n", temp) + "\n" +
             "Brew Time: " + BrewTime + "\n" +
             "Tempreture: " + Tempreture + "\n" +

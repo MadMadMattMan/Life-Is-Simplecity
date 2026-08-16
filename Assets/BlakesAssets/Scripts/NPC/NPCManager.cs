@@ -8,7 +8,7 @@ public struct OrderCompletion
 }
 public struct OrderLayout
 {
-    public Color32 Liquid;
+    public Vector3 Liquid;
     public Ingredient[] Contents;
     public float BrewTime;
     public float Tempreture;
@@ -48,7 +48,7 @@ public class NPCManager : MonoBehaviour
         List<Ingredient> contents = new List<Ingredient>();
         float timeToBrew = currentSettings.defaultTimeToBrew;
         float tempreture = currentSettings.defaultTempreture;
-        layout.Liquid = new Color32(randomColourValue(), randomColourValue(), randomColourValue(),255);
+        layout.Liquid = randomColourValue();
         for (int i = 0; i < Mathf.Clamp(currentSettings.minIngredients + extraIngredient(), 2,3); i++)
         {
             int randomInt = UnityEngine.Random.Range(0, (int)Ingredient.Count);
@@ -68,9 +68,23 @@ public class NPCManager : MonoBehaviour
         if (rand <= currentSettings.chanceOfExtraIngredient*100) return 1;
         return 0;
     }
-    private byte randomColourValue()
+    private Vector3 randomColourValue()
     {
-        return (byte) UnityEngine.Random.Range(0, 255);
+        List<Vector3> colors = new List<Vector3>();
+        colors.Add(new Vector3(0.4047886f, 0.4956911f, 0.7683987f));
+        colors.Add((colors[0] + new Vector3(1.5f, -0.5f, -0.5f)).normalized); //1r0g0b
+        colors.Add((colors[1] + new Vector3(-0.5f, 1.5f, -0.5f)).normalized); //1r1g0b
+        colors.Add((colors[2] + new Vector3(-0.5f, -0.5f, 1.5f)).normalized); //1r1g1b
+        colors.Add((colors[1] + new Vector3(-0.5f, -0.5f, 1.5f)).normalized); //1r0g1b
+
+        colors.Add((colors[0] + new Vector3(-0.5f, 1.5f, -0.5f)).normalized); //0r1g0b
+        colors.Add((colors[5] + new Vector3(-0.5f, -0.5f, 1.5f)).normalized); //0r1g1b
+
+
+        colors.Add((colors[0] + new Vector3(-0.5f, -0.5f, 1.5f)).normalized); //0r0g1b
+
+
+        return colors[UnityEngine.Random.Range(0, colors.Count - 1)];
     }
     public NPCBehaviour GetFirstNPC()
     {
