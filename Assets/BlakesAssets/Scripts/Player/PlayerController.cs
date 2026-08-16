@@ -36,6 +36,12 @@ public class PlayerController : MonoBehaviour
         item.transform.localRotation = Quaternion.Euler(0, 0, 0);
         item.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
     }
+    public GameObject PlaceItem()
+    {
+        GameObject item = inventoryItem;
+        TrashItem();
+        return item;
+    }
     public void TrashItem()
     {
         Destroy(inventoryItem);
