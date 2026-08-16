@@ -2,12 +2,27 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Audio;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 public class SettingsManager : MonoBehaviour
 {
+    private bool open;
+    private bool wasMouseVisable;
+    private CursorLockMode previousCursorLockMode;
     public GameObject settings;
     public AudioMixer audioMixer;
     public TMP_Dropdown resolutionDropdown;
+    public InputAction interactAction;
     Resolution[] resolutions;
+    private void OnEnable()
+    {
+        interactAction.started += OpenSettings;
+        interactAction.Enable();
+    }
+    private void OnDisable()
+    {
+        interactAction.started -= OpenSettings;
+        interactAction.Disable();
+    }
     public void Start()
     {
         resolutions = Screen.resolutions;
@@ -28,13 +43,31 @@ public class SettingsManager : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
         CloseSettings();
     }
-    public void OpenSettings()
+    public void OpenSettings(InputAction.CallbackContext context)
     {
-        settings.SetActive(true);
+        if (context.started && !open)
+        {
+            Time.timeScale = 0;
+            settings.SetActive(true);
+            wasMouseVisable = Cursor.visible;
+            Cursor.visible = true;
+            previousCursorLockMode = Cursor.lockState;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else if (context.started)
+        {
+            Time.timeScale = 1;
+            settings.SetActive(false);
+            Cursor.lockState = previousCursorLockMode;
+            Cursor.visible = wasMouseVisable;
+        }
     }
     public void CloseSettings()
     {
+        Time.timeScale = 1;
         settings.SetActive(false);
+        Cursor.lockState = previousCursorLockMode;
+        Cursor.visible = wasMouseVisable;
     }
     public void SetVolume(float _newVolume)
     {

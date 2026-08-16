@@ -10,12 +10,14 @@ public class PlayerController : MonoBehaviour
     public bool isActive = true;
     List<Interactable> interactables = new List<Interactable>();
     CauldronStack cauldronStack;
+    TrashCan trashCan;
     public GameObject inventorySlot;
     public GameObject inventoryItem;
     private void Start()
     {
         cc = GetComponent<CharacterController>();
         cauldronStack = FindAnyObjectByType<CauldronStack>();
+        trashCan = FindAnyObjectByType<TrashCan>();
         foreach (Interactable i in FindObjectsByType<Interactable>())
         {
             interactables.Add(i);
@@ -33,6 +35,11 @@ public class PlayerController : MonoBehaviour
         item.transform.localPosition = Vector3.zero;
         item.transform.localRotation = Quaternion.Euler(0, 0, 0);
         item.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+    }
+    public void TrashItem()
+    {
+        Destroy(inventoryItem);
+        inventoryItem = null;
     }
     private void Update()
     {
@@ -66,6 +73,19 @@ public class PlayerController : MonoBehaviour
             {
                 cauldronStack.UnhoverInteraction();
             }
+            TrashCan trash = null;
+            if (hit.transform.parent != null)
+            {
+                hit.transform.parent.TryGetComponent(out trash);
+            }
+            if (trash != null)
+            {
+                trash.HoverInteraction();
+            }
+            else
+            {
+                trashCan.UnhoverInteraction();
+            }
         }
         else
         {
@@ -74,6 +94,7 @@ public class PlayerController : MonoBehaviour
                 i.UnhoverInteraction();
             }
             cauldronStack.UnhoverInteraction();
+            trashCan.UnhoverInteraction();
         }
     }
     public void Move(Vector2 dir)
