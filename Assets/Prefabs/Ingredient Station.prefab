@@ -87,18 +87,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ca7dc3f19c71a4a9c7f5b6d22951a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  ingredientSpawns:
-  - {fileID: 8119054844193180497}
-  - {fileID: 8231190629580176226}
-  - {fileID: 9122046253328376264}
-  - {fileID: 7488742058460266773}
-  - {fileID: 7233792118715027517}
-  ingredients:
-  - {fileID: 3594130666313136546}
-  - {fileID: 3669014528851895570}
-  - {fileID: 4976885830494078528}
-  - {fileID: 9106835017223313666}
-  - {fileID: 6098375628826094723}
+  ingredientSpawns: []
+  ingredients: []
 --- !u!1 &2797609063233172428
 GameObject:
   m_ObjectHideFlags: 0
