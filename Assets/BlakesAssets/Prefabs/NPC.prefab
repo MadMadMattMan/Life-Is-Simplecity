@@ -482,15 +482,11 @@ MonoBehaviour:
   graphicRaycaster: {fileID: 0}
   eventSystem: {fileID: 0}
   IngredientSprites:
-  - {fileID: 21300000, guid: f43d5992544e93547b4cc9e9c986cc0f, type: 3}
-  - {fileID: 21300000, guid: b873eb7a92712d74aa194ade79d8545e, type: 3}
-  - {fileID: 0}
   - {fileID: 21300000, guid: 984e2f99a34dc9a439b3ac668b290e3e, type: 3}
-  - {fileID: 21300000, guid: d5f5cd9dd45d0f64b81905ae3776a01a, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: f43d5992544e93547b4cc9e9c986cc0f, type: 3}
   - {fileID: 21300000, guid: 0bbbec717a9655f4f80bddd69249e1b3, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: b873eb7a92712d74aa194ade79d8545e, type: 3}
+  - {fileID: 21300000, guid: d5f5cd9dd45d0f64b81905ae3776a01a, type: 3}
   ThermometerIcon: {fileID: 21300000, guid: 48543ace9b573ab46abc3e987e7a91af, type: 3}
   white: {fileID: 21300000, guid: 127279d577f25ac4ea17dae3782e5074, type: 3}
   speechBubbleCanvas: {fileID: 3519667407828474882}
@@ -513,7 +509,9 @@ MonoBehaviour:
   OrderComplete: 0
   timeElapsed: 0
   numberOfItems: 0
-  Liquid: {r: 0, g: 0, b: 0, a: 0}
+  Liquid:
+    serializedVersion: 2
+    rgba: 0
   Contents: 
   BrewTime: 0
   Tempreture: 0

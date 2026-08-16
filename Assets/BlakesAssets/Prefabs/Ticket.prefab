@@ -280,15 +280,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragDrop
   ingredientSprites:
-  - {fileID: 21300000, guid: f43d5992544e93547b4cc9e9c986cc0f, type: 3}
-  - {fileID: 21300000, guid: b873eb7a92712d74aa194ade79d8545e, type: 3}
-  - {fileID: 0}
   - {fileID: 21300000, guid: 984e2f99a34dc9a439b3ac668b290e3e, type: 3}
-  - {fileID: 21300000, guid: d5f5cd9dd45d0f64b81905ae3776a01a, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: f43d5992544e93547b4cc9e9c986cc0f, type: 3}
   - {fileID: 21300000, guid: 0bbbec717a9655f4f80bddd69249e1b3, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: b873eb7a92712d74aa194ade79d8545e, type: 3}
+  - {fileID: 21300000, guid: d5f5cd9dd45d0f64b81905ae3776a01a, type: 3}
   order: {fileID: 0}
   OrderNumber: {fileID: 9014858655516588529}
   Ingredient1: {fileID: 7895435360783223584}

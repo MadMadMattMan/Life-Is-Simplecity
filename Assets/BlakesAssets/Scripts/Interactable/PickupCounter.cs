@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class PickupCounter : MonoBehaviour
+public class PickupCounter : Interactable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GameObject OrderUI;
+    public override void OnInteract()
     {
-        
+        base.OnInteract();
+        OrderUI.SetActive(true);
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void OnUninteract()
     {
-        
+        base.OnUninteract();
+        OrderUI.SetActive(false);
     }
 }

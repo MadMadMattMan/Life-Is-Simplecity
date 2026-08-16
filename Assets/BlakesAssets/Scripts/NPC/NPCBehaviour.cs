@@ -3,12 +3,11 @@ using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
-using System.Collections.Generic;
 public class NPCBehaviour : MonoBehaviour
 {
     [SerializeField] private GraphicRaycaster graphicRaycaster;
     [SerializeField] private EventSystem eventSystem;
-    public Sprite[] IngredientSprites = new Sprite[9];
+    public Sprite[] IngredientSprites = new Sprite[5];
     public Sprite ThermometerIcon;
     public Sprite white;
     public GameObject speechBubbleCanvas;

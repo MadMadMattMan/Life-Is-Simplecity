@@ -33,7 +33,7 @@ public class Order : MonoBehaviour
         this.Contents = Contents;
         this.BrewTime = BrewTime;
         this.Tempreture = Tempreture;
-        printOrder();
+        //printOrder();
     }
     public void printOrder()
     {

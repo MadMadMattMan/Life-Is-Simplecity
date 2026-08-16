@@ -21,19 +21,28 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        foreach (Interactable i in interactables)
+        if (Physics.Raycast(ray, out hit, maxRayDistance))
         {
-            if (Physics.Raycast(ray, out hit, maxRayDistance))
+            Interactable interactable;
+            hit.transform.TryGetComponent(out interactable);
+            if (interactable != null)
             {
-                Interactable interactable;
-                if (hit.transform.TryGetComponent(out interactable))
-                {
-                    if (i == interactable) interactable.HoverInteraction();
-                    else interactable.UnhoverInteraction();
-                }
-                else i.UnhoverInteraction();
+                interactable.HoverInteraction();
             }
-            else i.UnhoverInteraction();
+            else
+            {
+                foreach (Interactable i in interactables)
+                {
+                    i.UnhoverInteraction();
+                }
+            }
+        }
+        else
+        {
+            foreach (Interactable i in interactables)
+            {
+                i.UnhoverInteraction();
+            }
         }
     }
     public void Move(Vector2 dir)

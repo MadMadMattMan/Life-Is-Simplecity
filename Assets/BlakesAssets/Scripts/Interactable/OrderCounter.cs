@@ -33,6 +33,8 @@ public class OrderCounter : Interactable
     public override void OnUninteract()
     {
         base.OnUninteract();
+        isInteractedWith = false;
+        isShowingOrder = false;
         OrderUI.SetActive(false);
         currentNPC.HideOrder();
     }

@@ -444,32 +444,23 @@ MonoBehaviour:
   currentSettings: {fileID: 11400000, guid: 72223f3f693e7f443b5086adfac9ddd8, type: 2}
   IngredientSettings:
   - ingredient: 0
-    addedTime: 5
-    addedTemp: 10
+    addedTime: -5
+    addedTemp: 0.1
   - ingredient: 1
-    addedTime: 4
+    addedTime: -1
     addedTemp: 0
   - ingredient: 2
-    addedTime: 7
-    addedTemp: 5
-  - ingredient: 3
     addedTime: 5
-    addedTemp: 5
+    addedTemp: -0.05
+  - ingredient: 3
+    addedTime: -2
+    addedTemp: 0.05
   - ingredient: 4
-    addedTime: 2
-    addedTemp: 10
+    addedTime: 5
+    addedTemp: -0.1
   - ingredient: 5
-    addedTime: 4
-    addedTemp: 0
-  - ingredient: 6
-    addedTime: 3
-    addedTemp: 5
-  - ingredient: 7
     addedTime: 0
-    addedTemp: 10
-  - ingredient: 8
-    addedTime: 1
-    addedTemp: 5
+    addedTemp: 0
 --- !u!4 &103715981
 Transform:
   m_ObjectHideFlags: 0
@@ -523,6 +514,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4cd61acfc889a14db7470de065d67ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupCounter
+  beingInteractedWith: 0
+  interactionPopup: {fileID: 347885120}
+  camTarget: {fileID: 1269560639}
+  interactAction:
+    m_Name: Interact
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 5535bf36-71e0-41f8-acaf-9fa846268a9c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: b603c268-6757-4c7d-8a0b-4b62455a6e07
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact
+      m_Flags: 0
+    m_Flags: 0
+  uninteractAction:
+    m_Name: Uninteract
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 6788a7eb-3565-4fd0-bdd7-b422361c0b36
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 2a5daabf-947b-4e90-80fa-c1588e87e026
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Uninteract
+      m_Flags: 0
+    m_Flags: 0
+  OrderUI: {fileID: 426475329}
 --- !u!65 &106359759
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1696,14 +1725,6 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 2a5daabf-947b-4e90-80fa-c1588e87e026
       m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Uninteract
-      m_Flags: 0
-    - m_Name: 
-      m_Id: ed7e3cf9-fb86-414e-8cbe-7c95bc30c15a
-      m_Path: <Keyboard>/escape
       m_Interactions: 
       m_Processors: 
       m_Groups: 

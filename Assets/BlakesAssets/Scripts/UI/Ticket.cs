@@ -7,7 +7,7 @@ using System.Collections;
 public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     private TicketSlot currentSlot;
-    public Sprite[] ingredientSprites = new Sprite[9];
+    public Sprite[] ingredientSprites = new Sprite[5];
     public Order order;
     public TMP_Text OrderNumber;
     public Image Ingredient1;
