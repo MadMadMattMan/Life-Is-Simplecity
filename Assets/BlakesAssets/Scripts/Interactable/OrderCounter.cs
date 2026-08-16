@@ -36,6 +36,6 @@ public class OrderCounter : Interactable
         isInteractedWith = false;
         isShowingOrder = false;
         OrderUI.SetActive(false);
-        currentNPC.HideOrder();
+        if (currentNPC!=null) currentNPC.HideOrder();
     }
 }
