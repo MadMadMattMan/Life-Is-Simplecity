@@ -12,5 +12,4 @@ public class IngredientManager : Interactable {
         ingredients[i].GetComponent<Rigidbody>().rotation = ingredientSpawns[i].transform.rotation;
         ingredients[i].GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
     }
-    
 }
