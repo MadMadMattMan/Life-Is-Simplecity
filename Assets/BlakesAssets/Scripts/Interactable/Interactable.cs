@@ -7,6 +7,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] private Camera cam;
     private bool interactable;
     [HideInInspector] public bool beingInteractedWith;
+    [HideInInspector] public bool playerLock = false;
     public GameObject interactionPopup;
     public Transform camTarget;
     public InputAction interactAction;
@@ -51,7 +52,7 @@ public class Interactable : MonoBehaviour
     }
     public void Uninteract(InputAction.CallbackContext context)
     {
-        if (context.started && beingInteractedWith)
+        if (context.started && beingInteractedWith && !playerLock)
         {
             OnUninteract();
             StartCoroutine(nameof(UninteractionSequence));

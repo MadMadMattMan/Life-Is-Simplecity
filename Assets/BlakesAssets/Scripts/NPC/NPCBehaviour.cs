@@ -93,6 +93,7 @@ public class NPCBehaviour : MonoBehaviour
         yield return new WaitForSeconds(upTime / order.numberOfItems);
         HideOrder();
         OrderCounter.Instance.isShowingOrder = false;
+        OrderCounter.Instance.playerLock = false;
         NPCManager.Instance.NPCTakeOrder();
     }
     public void HideOrder()

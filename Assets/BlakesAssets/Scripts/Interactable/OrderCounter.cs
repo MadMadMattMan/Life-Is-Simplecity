@@ -24,11 +24,13 @@ public class OrderCounter : Interactable
                     currentNPC = NPCManager.Instance.GetFirstNPC();
                     currentNPC.ShowOrder();
                     isShowingOrder = true;
+                    playerLock = true;
                 }
                 else
                 {
                     currentNPC = null;
                     isShowingOrder = false;
+                    playerLock = false;
                 }
             }
         }
