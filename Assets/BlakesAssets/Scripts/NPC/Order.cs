@@ -1,16 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
-public enum Ingredient
+public enum Ingredient 
 {
-    GrowMushroom,
-    MoonFlower,
-    FrogSlime,
     CrowFeather,
+    GrowMushroom,
+    Eyeball,
+    MoonFlower, 
     ToenailClippings,
-    SnailShell,
-    FairyDust,
-    WitchsEye,
-    Flour,
     Count
 }
 
