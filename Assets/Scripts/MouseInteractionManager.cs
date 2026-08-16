@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 public class MouseInteractionManager : MonoBehaviour {
 
     public bool isEnabled = true;
-    public float mouseDistance = 1.5f;
+    public float dragDistance = 1.5f;
+    public float raycastDistance = 3f;
 
     InputAction click;
 
@@ -39,12 +40,12 @@ public class MouseInteractionManager : MonoBehaviour {
         Vector3 mousePos = Mouse.current.position.ReadValue();
         Ray raycast = mainCamera.ScreenPointToRay(mousePos);
 
-        Debug.DrawRay(raycast.origin, raycast.direction * 5, Color.wheat, 0.1f);
-        if (Physics.Raycast(raycast, out RaycastHit hitInfo, 2f, LayerMask.GetMask("MouseInteractable"))) {
+        Debug.DrawRay(raycast.origin, raycast.direction * raycastDistance, Color.wheat, 0.1f);
+        if (Physics.Raycast(raycast, out RaycastHit hitInfo, raycastDistance, LayerMask.GetMask("MouseInteractable"))) {
             GameObject obj = hitInfo.collider.gameObject;
             try {
                 iScript = obj.GetComponent<iItemInteraction>();
-                mouseWorldspace = raycast.GetPoint(mouseDistance);
+                mouseWorldspace = raycast.GetPoint(dragDistance);
             }
             catch {
                 Debug.LogWarning("Failed to get iItemInteraction script from layerd object " + obj.name);
@@ -73,10 +74,10 @@ public class MouseInteractionManager : MonoBehaviour {
         }
     }
 
-    iItemInteraction snappedItem;
+    [SerializeField] iItemInteraction snappedItem;
     private void mouseDrag() {
         if (snappedItem != null)
-            snappedItem.drag(getMouseWorldspace(mouseDistance));
+            snappedItem.drag(getMouseWorldspace(dragDistance));
     }
 
     private Vector3 getMouseWorldspace(float distance) {
