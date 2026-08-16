@@ -27,7 +27,7 @@ public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEn
     }
     public void EnableDragging(bool statement)
     {
-        DraggingEnabled = !statement;
+        DraggingEnabled = statement;
     }
     public void SetTicketSlot(TicketSlot slot)
     {
@@ -108,5 +108,6 @@ public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEn
         yield return new WaitForSeconds(upTime / order.numberOfItems);
         TicketSlot closest = GetClosestSlot();
         closest.SnapTo(gameObject);
+        EnableDragging(true);
     }
 }
