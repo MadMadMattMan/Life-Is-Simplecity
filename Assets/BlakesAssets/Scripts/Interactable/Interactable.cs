@@ -33,17 +33,17 @@ public class Interactable : MonoBehaviour
         uninteractAction.Disable();
         interactAction.Disable();
     }
-    public virtual void UnhoverInteraction()
+    public void UnhoverInteraction()
     {
         interactionPopup.SetActive(false);
         interactable = false;
     }
-    public virtual void HoverInteraction()
+    public void HoverInteraction()
     {
         interactionPopup.SetActive(true);
         interactable = true;
     }
-    public virtual void Interact(InputAction.CallbackContext context)
+    public void Interact(InputAction.CallbackContext context)
     {
         if (context.started && interactable && !beingInteractedWith)
         {
@@ -53,10 +53,11 @@ public class Interactable : MonoBehaviour
             StartCoroutine(nameof(InteractionSequence));
         }
     }
-    public virtual void Uninteract(InputAction.CallbackContext context)
+    public void Uninteract(InputAction.CallbackContext context)
     {
         if (context.started && beingInteractedWith)
         {
+            OnUninteract();
             StartCoroutine(nameof(UninteractionSequence));
         }
     }
@@ -68,7 +69,7 @@ public class Interactable : MonoBehaviour
             cam.transform.rotation = Quaternion.RotateTowards(cam.transform.rotation, camTarget.rotation, degreesPerSecond * Time.deltaTime);
             yield return null;
         }
-        beingInteractedWith = true;
+        OnInteract();
     }
     public IEnumerator UninteractionSequence()
     {
@@ -81,5 +82,16 @@ public class Interactable : MonoBehaviour
         cam.transform.SetParent(camParent);
         beingInteractedWith = false;
         PlayerController.Instance.isActive = true;
+    }
+    public virtual void OnInteract()
+    {
+        beingInteractedWith = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+    public virtual void OnUninteract()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

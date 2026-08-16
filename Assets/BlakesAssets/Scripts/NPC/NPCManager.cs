@@ -8,7 +8,7 @@ public struct OrderCompletion
 }
 public struct OrderLayout
 {
-    public Color Liquid;
+    public Color32 Liquid;
     public Ingredient[] Contents;
     public float BrewTime;
     public float Tempreture;
@@ -23,23 +23,24 @@ public class NPCManager : MonoBehaviour
         public float addedTemp;
     }
     public UnityEvent<OrderCompletion> OnOrderCompleted;
-    public UnityEvent OnOrderTaken;
     public GameObject NPCPrefab;
     public Transform SpawnPointPos;
     public Transform OrderCounterPos;
     public Transform WaitingLinePos;
     public Transform PickUpCounterPos;
     public Vector3 QueueSeperation;
-    [SerializeField] private List<GameObject> OrderQueue = new List<GameObject>();
-    [SerializeField] private List<GameObject> WaitingQueue = new List<GameObject>();
+    public List<GameObject> OrderQueue { get; private set; }
+    public List<GameObject> WaitingQueue { get; private set; }
 
     [Header("Settings")]
     public NPCSettings currentSettings;
     [SerializeField] private List<IngredientMap> IngredientSettings = new List<IngredientMap>();
     public void Start()
     {
-        OnOrderTaken.AddListener(NPCOrderTaken);
+        OrderQueue = new List<GameObject>();
+        WaitingQueue = new List<GameObject>();
         Invoke("MoveNPCInOrderQueue", 1f);
+        Invoke("MoveNPCInWaitingQueue", 1f);
     }
     private OrderLayout GenerateOrderContents()
     {
@@ -47,7 +48,7 @@ public class NPCManager : MonoBehaviour
         List<Ingredient> contents = new List<Ingredient>();
         float timeToBrew = currentSettings.defaultTimeToBrew;
         float tempreture = currentSettings.defaultTempreture;
-        layout.Liquid = new Color(randomColourValue(), randomColourValue(), randomColourValue());
+        layout.Liquid = new Color32(randomColourValue(), randomColourValue(), randomColourValue(),255);
         for (int i = 0; i < currentSettings.minIngredients; i++)
         {
             int randomInt = UnityEngine.Random.Range(0, (int)Ingredient.Count);
@@ -61,17 +62,21 @@ public class NPCManager : MonoBehaviour
         layout.Tempreture = tempreture;
         return layout;
     }
-    private int randomColourValue()
+    private byte randomColourValue()
     {
-        return UnityEngine.Random.Range(0, 255);
+        return (byte) UnityEngine.Random.Range(0, 255);
     }
-    public void NPCOrderTaken()
+    public NPCBehaviour GetFirstNPC()
     {
-        if (OrderQueue.Count <= 0) { PopupManager.Instance.CreatePopup("Not a person in sight");  return; }
+        GameObject NPC = OrderQueue[0];
+        NPCBehaviour behaviour = NPC.GetComponent<NPCBehaviour>();
+        return behaviour;
+    }
+    public void NPCTakeOrder()
+    {
         GameObject NPC = OrderQueue[0];
         OrderQueue.Remove(NPC);
         WaitingQueue.Add(NPC);
-        NPCBehaviour behaviour = NPC.GetComponent<NPCBehaviour>();
     }
     public void NPCWaitInQueue()
     {
@@ -84,6 +89,20 @@ public class NPCManager : MonoBehaviour
         Order order = NPC.GetComponent<Order>();
         OrderLayout layout = GenerateOrderContents();
         order.InitilizeOrder(layout.Liquid,layout.Contents,layout.BrewTime,layout.Tempreture);
+    }
+    public void MoveNPCInWaitingQueue()
+    {
+        for (int i = 0; i < WaitingQueue.Count; i++)
+        {
+            GameObject NPC = WaitingQueue[i];
+            Vector3 currentPos = NPC.transform.position;
+            Vector3 targetPos = WaitingLinePos.position + QueueSeperation * i;
+            if ((currentPos - targetPos).sqrMagnitude >= 0.5f)
+            {
+                NPC.GetComponent<NPCBehaviour>().goTo(targetPos);
+            }
+        }
+        Invoke("MoveNPCInWaitingQueue", 1f);
     }
     private void MoveNPCInOrderQueue()
     {

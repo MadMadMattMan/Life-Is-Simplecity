@@ -1,14 +1,23 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    
+    public List<Order> activeOrders = new List<Order>();
+    public GameObject ticketPrefab;
     [SerializeField] private NPCSettings[] SettingsList;
     [SerializeField] private NPCSettings CurrentSettings;
     [Range(0, 5)] public float StarRating;
     public void Start()
     {
         Invoke("SpawnNPC", 5f);
+    }
+    public void WriteTicket(float upTime, Order order)
+    {
+        GameObject ticket = Instantiate(ticketPrefab, ticketPrefab.transform.position, ticketPrefab.transform.rotation);
+        ticket.transform.SetParent(transform.GetChild(0));
+        ticket.GetComponent<Ticket>().TakeOrder(upTime, order);
     }
     public void SpawnNPC()
     {

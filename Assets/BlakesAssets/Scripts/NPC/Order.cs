@@ -12,24 +12,28 @@ public enum Ingredient
 
 public class Order : MonoBehaviour
 {
+    public static int OrderNumber = 0;
     public bool OrderComplete;
     public float timeElapsed;
-    public Color Liquid { get; private set; }
-    public Ingredient[] Contents { get; private set; }
-    public float BrewTime { get; private set; }
-    public float Tempreture { get; private set; }
+    public int numberOfItems;
+    public Color32 Liquid;
+    public Ingredient[] Contents;
+    public float BrewTime;
+    public float Tempreture;
     public void FixedUpdate()
     {
         if (OrderComplete) return;
         timeElapsed += Time.fixedDeltaTime;
     }
-    public void InitilizeOrder(Color Liquid, Ingredient[] Contents, float BrewTime, float Tempreture)
+    public void InitilizeOrder(Color32 Liquid, Ingredient[] Contents, float BrewTime, float Tempreture)
     {
+        OrderNumber++;
+        numberOfItems = 3 + Contents.Length;
         this.Liquid = Liquid;
         this.Contents = Contents;
         this.BrewTime = BrewTime;
         this.Tempreture = Tempreture;
-        //printOrder();
+        printOrder();
     }
     public void printOrder()
     {
