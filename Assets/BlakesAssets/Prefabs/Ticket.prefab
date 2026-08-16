@@ -264,7 +264,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1310, y: 392}
+  m_AnchoredPosition: {x: 1544, y: 362.8}
   m_SizeDelta: {x: 100, y: 168.2735}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3377514139747132564
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6358946967922843672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49bb49361b105f746aaaeebb2e2cf3b3, type: 3}
+  m_Script: {fileID: 11500000, guid: b1acc5a3dd6f2ac47b087060f5e8fb0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragDrop
   ingredientSprites:

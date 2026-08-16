@@ -5,7 +5,7 @@ public class OrderCounter : Interactable
     public GameObject OrderUI;
     public NPCBehaviour currentNPC;
     private bool isInteractedWith = false;
-    private bool isShowingOrder = false;
+    public bool isShowingOrder = false;
     public override void OnInteract()
     {
         base.OnInteract();
@@ -15,18 +15,21 @@ public class OrderCounter : Interactable
     }
     private void Update()
     {
-        if (isInteractedWith && !isShowingOrder)
+        if (isInteractedWith)
         {
-            if (NPCManager.Instance.OrderQueue.Count > 0)
+            if (!isShowingOrder)
             {
-                currentNPC = NPCManager.Instance.GetFirstNPC();
-                currentNPC.ShowOrder();
-                isShowingOrder = true;
-            }
-            else
-            {
-                currentNPC = null;
-                isShowingOrder = false;
+                if (NPCManager.Instance.OrderQueue.Count > 0)
+                {
+                    currentNPC = NPCManager.Instance.GetFirstNPC();
+                    currentNPC.ShowOrder();
+                    isShowingOrder = true;
+                }
+                else
+                {
+                    currentNPC = null;
+                    isShowingOrder = false;
+                }
             }
         }
     }
@@ -37,5 +40,11 @@ public class OrderCounter : Interactable
         isShowingOrder = false;
         OrderUI.SetActive(false);
         if (currentNPC!=null) currentNPC.HideOrder();
+    }
+    public static OrderCounter Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 }

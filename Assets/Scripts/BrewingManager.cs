@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -12,9 +13,11 @@ public class BrewingManager : MonoBehaviour {
 
 
     [Header("Tracking")]
+    public float currentTemp = 0f;
     public float timerValue = -1f;
     public float degradeValue = -1f;
     public bool inZone = false;
+    public bool belowZero;
 
     public bool doTimerCount = false;
     public CauldronManager attachedCauldron;
@@ -35,6 +38,7 @@ public class BrewingManager : MonoBehaviour {
 
     private void Update() {
         if (u) {
+            timerValue = timerStart;
             UpdateStation();
             u = false;
             doTimerCount = true;
@@ -42,9 +46,25 @@ public class BrewingManager : MonoBehaviour {
 
         if (doTimerCount) {
             timerValue -= Time.deltaTime;
+            if (currentTemp > upperHeat || currentTemp < lowerTemp)
+
             UpdateScreen();
-            TimerHitZero();
+            if (timerValue <= 0f && !belowZero) {
+                belowZero = true;
+                TimerHitZero();
+            }
         }
+    }
+
+    public IEnumerator heatFire() {
+        float f = 0;
+        while (f < 1) {
+            currentTemp .
+            yield return new WaitForEndOfFrame();
+            f += Time.deltaTime;
+        }
+
+        
     }
 
     // called on place cauldron
@@ -74,7 +94,7 @@ public class BrewingManager : MonoBehaviour {
 
 
     void TimerHitZero() {
-
+        print("Hit Zero");
     }
 
     public void UpdateStation() {

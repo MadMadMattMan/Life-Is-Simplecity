@@ -49,6 +49,7 @@ public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEn
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = .6f;
         rectTransform.localScale = Vector3.one;
+        currentSlot.currentTicket = null;
         currentSlot = null;
     }
     public void OnEndDrag(PointerEventData eventData)
@@ -65,11 +66,17 @@ public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEn
     public TicketSlot GetClosestSlot()
     {
         TicketSlot[] slots = FindObjectsByType<TicketSlot>();
-        TicketSlot closest = slots[0];
+        TicketSlot closest;
+        foreach (TicketSlot slot in slots)
+        {
+            if (slot.currentTicket != null) continue;
+            closest = slot;
+        }
+        if (closest = null) return null;
         float currentDistance = (rectTransform.anchoredPosition - slots[0].GetComponent<RectTransform>().anchoredPosition).sqrMagnitude;
         foreach (TicketSlot slot in slots)
         {
-            if (slot == slots[0] || slot.currentTicket != null) continue;
+            if (slot.currentTicket != null) continue;
             float distance = (rectTransform.anchoredPosition - slot.GetComponent<RectTransform>().anchoredPosition).sqrMagnitude;
             if (distance < currentDistance)
             {
@@ -104,7 +111,7 @@ public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEn
         }
         yield return new WaitForSeconds(upTime / order.numberOfItems);
         TempretureImage.enabled = true;
-        Tempreture.anchoredPosition = new Vector2(Tempreture.anchoredPosition.x, Mathf.Lerp(-63f, 12f, order.Tempreture/100));
+        Tempreture.anchoredPosition = new Vector2(Tempreture.anchoredPosition.x, Mathf.Lerp(-63f, 12f, order.Tempreture));
         yield return new WaitForSeconds(upTime / order.numberOfItems);
         TicketSlot closest = GetClosestSlot();
         closest.SnapTo(gameObject);

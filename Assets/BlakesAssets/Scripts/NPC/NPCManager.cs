@@ -49,7 +49,7 @@ public class NPCManager : MonoBehaviour
         float timeToBrew = currentSettings.defaultTimeToBrew;
         float tempreture = currentSettings.defaultTempreture;
         layout.Liquid = new Color32(randomColourValue(), randomColourValue(), randomColourValue(),255);
-        for (int i = 0; i < currentSettings.minIngredients; i++)
+        for (int i = 0; i < Mathf.Clamp(currentSettings.minIngredients + extraIngredient(), 2,3); i++)
         {
             int randomInt = UnityEngine.Random.Range(0, (int)Ingredient.Count);
             Ingredient randomIngredient = (Ingredient)randomInt;
@@ -59,8 +59,14 @@ public class NPCManager : MonoBehaviour
         }
         layout.Contents = contents.ToArray();
         layout.BrewTime = timeToBrew;
-        layout.Tempreture = tempreture;
+        layout.Tempreture = Mathf.Clamp01(tempreture);
         return layout;
+    }
+    private int extraIngredient()
+    {
+        int rand = UnityEngine.Random.Range(0, 100);
+        if (rand <= currentSettings.chanceOfExtraIngredient*100) return 1;
+        return 0;
     }
     private byte randomColourValue()
     {
