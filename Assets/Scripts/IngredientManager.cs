@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class IngredientManager : MonoBehaviour {
 
-    [SerializeField] float spawnDelay = 1f;
     [SerializeField] GameObject[] ingredientSpawns;
     [SerializeField] GameObject[] ingredients;
 
@@ -11,6 +10,7 @@ public class IngredientManager : MonoBehaviour {
     public void RespawnObject(Ingredient objectToRespawn) {
         int i = (int)objectToRespawn;
         ingredients[i].GetComponent<Rigidbody>().position = ingredientSpawns[i].transform.position;
+        ingredients[i].GetComponent<Rigidbody>().rotation = ingredientSpawns[i].transform.rotation;
         ingredients[i].GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
     }
     
