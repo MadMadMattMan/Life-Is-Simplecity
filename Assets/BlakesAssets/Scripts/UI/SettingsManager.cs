@@ -45,25 +45,31 @@ public class SettingsManager : MonoBehaviour
     }
     public void OpenSettings(InputAction.CallbackContext context)
     {
-        if (context.started && !open)
+        if (context.started)
         {
-            Time.timeScale = 0;
-            settings.SetActive(true);
-            wasMouseVisable = Cursor.visible;
-            Cursor.visible = true;
-            previousCursorLockMode = Cursor.lockState;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else if (context.started)
-        {
-            Time.timeScale = 1;
-            settings.SetActive(false);
-            Cursor.lockState = previousCursorLockMode;
-            Cursor.visible = wasMouseVisable;
+            if (!open)
+            {
+                open = true;
+                Time.timeScale = 0;
+                settings.SetActive(true);
+                wasMouseVisable = Cursor.visible;
+                Cursor.visible = true;
+                previousCursorLockMode = Cursor.lockState;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                open = false;
+                Time.timeScale = 1;
+                settings.SetActive(false);
+                Cursor.lockState = previousCursorLockMode;
+                Cursor.visible = wasMouseVisable;
+            }
         }
     }
     public void CloseSettings()
     {
+        open = false;
         Time.timeScale = 1;
         settings.SetActive(false);
         Cursor.lockState = previousCursorLockMode;
