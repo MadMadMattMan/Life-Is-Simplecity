@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,16 +7,12 @@ public class GameManager : MonoBehaviour
     public GameObject ticketPrefab;
     [SerializeField] private NPCSettings[] SettingsList;
     [SerializeField] private NPCSettings CurrentSettings;
-    [Range(0, 5)] public float StarRating;
-    public GameObject Stars;
+    
     public void Start()
     {
         Invoke("SpawnNPC", 5f);
     }
-    private void FixedUpdate()
-    {
-        Stars.GetComponent<Image>().fillAmount = Mathf.Lerp(0.1f,0.9f,StarRating/5);
-    }
+
     public void WriteTicket(float upTime, Order order)
     {
         GameObject ticket = Instantiate(ticketPrefab, ticketPrefab.transform.position, ticketPrefab.transform.rotation);
