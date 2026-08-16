@@ -161,19 +161,19 @@ MonoBehaviour:
   IngredientSettings:
   - ingredient: 0
     addedTime: -5
-    addedTemp: 0.1
+    addedTemp: 0.25
   - ingredient: 1
     addedTime: -1
     addedTemp: 0
   - ingredient: 2
     addedTime: 5
-    addedTemp: -0.05
+    addedTemp: -0.1
   - ingredient: 3
     addedTime: -2
-    addedTemp: 0.05
+    addedTemp: 0.1
   - ingredient: 4
     addedTime: 5
-    addedTemp: -0.1
+    addedTemp: -0.25
   - ingredient: 5
     addedTime: 0
     addedTemp: 0
@@ -720,6 +720,7 @@ MonoBehaviour:
     m_Flags: 0
   OrderUI: {fileID: 946599900}
   currentNPC: {fileID: 0}
+  isShowingOrder: 0
 --- !u!65 &644830780
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22136,6 +22137,7 @@ GameObject:
   - component: {fileID: 5626771364442172955}
   - component: {fileID: 6634711298968136630}
   - component: {fileID: 1285952583072746101}
+  - component: {fileID: 8277928535738134394}
   m_Layer: 0
   m_Name: RGBStation
   m_TagString: Untagged
@@ -22143,6 +22145,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &8277928535738134394
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8277928535738134393}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4091423257479470914, guid: 1c1de019c81421b45bd5d73eb29c97d4, type: 3}
 --- !u!33 &8296928827050400359
 MeshFilter:
   m_ObjectHideFlags: 0
