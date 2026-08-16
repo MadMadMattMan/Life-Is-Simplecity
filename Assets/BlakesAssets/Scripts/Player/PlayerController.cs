@@ -9,13 +9,30 @@ public class PlayerController : MonoBehaviour
     private float xRotation = 0f;
     public bool isActive = true;
     List<Interactable> interactables = new List<Interactable>();
+    CauldronStack cauldronStack;
+    public GameObject inventorySlot;
+    public GameObject inventoryItem;
     private void Start()
     {
         cc = GetComponent<CharacterController>();
+        cauldronStack = FindAnyObjectByType<CauldronStack>();
         foreach (Interactable i in FindObjectsByType<Interactable>())
         {
             interactables.Add(i);
         }
+    }
+    public bool HasItem()
+    {
+        if (inventoryItem != null) return true;
+        return false;
+    }
+    public void CarryItem(GameObject item)
+    {
+        inventoryItem = item;
+        item.transform.SetParent(inventorySlot.transform);
+        item.transform.localPosition = Vector3.zero;
+        item.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        item.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
     }
     private void Update()
     {
@@ -36,6 +53,19 @@ public class PlayerController : MonoBehaviour
                     i.UnhoverInteraction();
                 }
             }
+            CauldronStack stack = null;
+            if (hit.transform.parent != null)
+            {
+                hit.transform.parent.TryGetComponent(out stack);
+            }
+            if (stack != null)
+            {
+                stack.HoverInteraction();
+            }
+            else
+            {
+                cauldronStack.UnhoverInteraction();
+            }
         }
         else
         {
@@ -43,6 +73,7 @@ public class PlayerController : MonoBehaviour
             {
                 i.UnhoverInteraction();
             }
+            cauldronStack.UnhoverInteraction();
         }
     }
     public void Move(Vector2 dir)

@@ -42,6 +42,11 @@ public class Interactable : MonoBehaviour
     }
     public void Interact(InputAction.CallbackContext context)
     {
+        if (PlayerController.Instance.HasItem() && context.started)
+        {
+            PopupManager.Instance.CreatePopup("Cant interact whilst carring cauldron!");
+            return;
+        }
         if (context.started && interactable && !beingInteractedWith)
         {
             PlayerController.Instance.isActive = false;
