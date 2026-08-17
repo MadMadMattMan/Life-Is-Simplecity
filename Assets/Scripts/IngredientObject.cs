@@ -6,7 +6,7 @@ public class IngredientObject : MonoBehaviour {
     [SerializeField] IngredientManager manager;
 
     private void Update() {
-        if (transform.position.y <= lowerY)
+        if (transform.localPosition.y <= lowerY)
             manager.RespawnObject(type);
     }
 

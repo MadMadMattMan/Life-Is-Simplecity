@@ -8,7 +8,7 @@ public class StarManager : MonoBehaviour
     public GameObject Stars;
     public float customersToFiveStars = 15f;
     public StarManager storeStars;
-    public GameManager gm;
+    GameManager gm;
 
     void FixedUpdate() {
         GameManager gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
