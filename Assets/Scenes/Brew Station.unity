@@ -453,6 +453,70 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8735165031009744201}
   m_Enabled: 1
+--- !u!1001 &4488624779246580500
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4767159074290288681, guid: 41ad4a730f6657b4b96c3a145102d2fb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767159074290288681, guid: 41ad4a730f6657b4b96c3a145102d2fb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.895
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767159074290288681, guid: 41ad4a730f6657b4b96c3a145102d2fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.493
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767159074290288681, guid: 41ad4a730f6657b4b96c3a145102d2fb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767159074290288681, guid: 41ad4a730f6657b4b96c3a145102d2fb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767159074290288681, guid: 41ad4a730f6657b4b96c3a145102d2fb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767159074290288681, guid: 41ad4a730f6657b4b96c3a145102d2fb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767159074290288681, guid: 41ad4a730f6657b4b96c3a145102d2fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767159074290288681, guid: 41ad4a730f6657b4b96c3a145102d2fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767159074290288681, guid: 41ad4a730f6657b4b96c3a145102d2fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434609451781392830, guid: 41ad4a730f6657b4b96c3a145102d2fb, type: 3}
+      propertyPath: m_Name
+      value: Brewing_Station
+      objectReference: {fileID: 0}
+    - target: {fileID: 8645025202958406634, guid: 41ad4a730f6657b4b96c3a145102d2fb, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 5618985391091362396}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 585031440933441392, guid: 41ad4a730f6657b4b96c3a145102d2fb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 41ad4a730f6657b4b96c3a145102d2fb, type: 3}
 --- !u!20 &5618985391091362396
 Camera:
   m_ObjectHideFlags: 0
@@ -504,70 +568,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1001 &6756091045542212464
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1628227413930715044, guid: 5b49376549014084f8865676f346e05f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628227413930715044, guid: 5b49376549014084f8865676f346e05f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.895
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628227413930715044, guid: 5b49376549014084f8865676f346e05f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.493
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628227413930715044, guid: 5b49376549014084f8865676f346e05f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628227413930715044, guid: 5b49376549014084f8865676f346e05f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628227413930715044, guid: 5b49376549014084f8865676f346e05f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628227413930715044, guid: 5b49376549014084f8865676f346e05f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628227413930715044, guid: 5b49376549014084f8865676f346e05f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628227413930715044, guid: 5b49376549014084f8865676f346e05f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1628227413930715044, guid: 5b49376549014084f8865676f346e05f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 1708302741446374468, guid: 5b49376549014084f8865676f346e05f, type: 3}
-      propertyPath: m_Name
-      value: Brewing_Station
-      objectReference: {fileID: 0}
-    - target: {fileID: 8801887818997872063, guid: 5b49376549014084f8865676f346e05f, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 5618985391091362396}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7126526469180941466, guid: 5b49376549014084f8865676f346e05f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-  m_SourcePrefab: {fileID: 100100000, guid: 5b49376549014084f8865676f346e05f, type: 3}
 --- !u!1 &8735165031009744201
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,5 +610,5 @@ SceneRoots:
   - {fileID: 1323663187778053258}
   - {fileID: 586832794}
   - {fileID: 1364719389}
-  - {fileID: 6756091045542212464}
+  - {fileID: 4488624779246580500}
   - {fileID: 1208759625}

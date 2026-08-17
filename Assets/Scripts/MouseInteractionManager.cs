@@ -65,10 +65,10 @@ public class MouseInteractionManager : MonoBehaviour {
     void mouseRelease() {
         isPressed = false;
 
-        if (raycastToMouse(out iItemInteraction iScript, out Vector3 mouseWorldspace)) {
+        if (raycastToMouse(out iItemInteraction iScript, out Vector3 mouseWorldspace))
             iScript.release();
-            snappedItem = null;
-        }
+
+        snappedItem = null;
     }
 
     [SerializeField] iItemInteraction snappedItem;
