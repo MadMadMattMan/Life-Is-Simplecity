@@ -4,6 +4,9 @@ public class PickupCounter : Interactable
 {
     public GameObject OrderUI;
     public GameObject OrderDrop;
+    public StarManager StarManager;
+
+
     public override void OnInteract()
     {
         base.OnInteract();
@@ -16,9 +19,16 @@ public class PickupCounter : Interactable
         OrderDrop.SetActive(false);
         OrderUI.SetActive(false);
     }
-    public void OnOrderComplete(GameObject ticket)
-    {
-
+    public void OnOrderComplete(GameObject ticket) {
+        try
+        {
+            StarManager.CauldronOrderToStars(Cauldron.GetComponentInChildren<CauldronManager>(),
+                                             ticket.GetComponent<Ticket>().order);
+            
+            // trigger customer leave
+        }
+        catch { }
+        
     }
     public static PickupCounter Instance { get; private set; }
     private void Awake()
