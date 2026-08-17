@@ -15,6 +15,7 @@ MonoBehaviour:
   defaultTimeToBrew: 15
   defaultTempreture: 0.5
   minIngredients: 2
+  chanceOfExtraIngredient: 0.25
   tolerance: 0.5
-  defaultSpawnTimer: 30
-  spawnTimerOffset: 3
+  defaultSpawnTimer: 45
+  spawnTimerOffset: 7

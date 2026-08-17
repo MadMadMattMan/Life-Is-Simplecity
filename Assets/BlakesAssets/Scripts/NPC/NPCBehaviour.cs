@@ -21,12 +21,17 @@ public class NPCBehaviour : MonoBehaviour
     public float rotationSpeed = 5.0f;
     public Button button;
     public AudioSource source;
+    public AudioClip clip1;
+    public AudioClip clip2;
     private NavMeshAgent agent;
     private Order order;
+    private bool die = false;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         order = GetComponent<Order>();
+        if (Random.Range(0,2) != 0) source.clip = clip1;
+        else source.clip = clip2;
         PickRandomOutfit();
         PickRandomAnimationSpeed();
     }
@@ -38,6 +43,7 @@ public class NPCBehaviour : MonoBehaviour
             {
                 if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                 {
+                    if (die) { Destroy(gameObject); }
                     Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
                     transform.rotation = Quaternion.Slerp(
                         transform.rotation,
@@ -47,6 +53,10 @@ public class NPCBehaviour : MonoBehaviour
                 }
             }
         }
+    }
+    public void DIE()
+    {
+        die = true;
     }
     private void PickRandomOutfit()
     {

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 5Star
   m_EditorClassIdentifier: Assembly-CSharp::NPCSettings
   defaultTimeToBrew: 15
-  defaultTempreture: 1
+  defaultTempreture: 0.5
   minIngredients: 3
   chanceOfExtraIngredient: 0.5
   tolerance: 0.5
-  defaultSpawnTimer: 30
+  defaultSpawnTimer: 25
   spawnTimerOffset: 3

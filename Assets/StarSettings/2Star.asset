@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 2Star
   m_EditorClassIdentifier: Assembly-CSharp::NPCSettings
   defaultTimeToBrew: 15
-  defaultTempreture: 50
+  defaultTempreture: 0.5
   minIngredients: 2
-  tolerence: 0.7
+  chanceOfExtraIngredient: 0.5
+  tolerance: 0.5
+  defaultSpawnTimer: 40
+  spawnTimerOffset: 6

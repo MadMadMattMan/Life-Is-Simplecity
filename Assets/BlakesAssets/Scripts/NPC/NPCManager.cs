@@ -98,9 +98,15 @@ public class NPCManager : MonoBehaviour
         OrderQueue.Remove(NPC);
         WaitingQueue.Add(NPC);
     }
-    public void NPCWaitInQueue()
+    public void NPCCollectOrder(GameObject NPC)
     {
-
+        WaitingQueue.Remove(NPC);
+        NPC.GetComponent<NPCBehaviour>().goTo(PickUpCounterPos.position);
+    }
+    public void NPCGoOutDoor(GameObject NPC)
+    {
+        NPC.GetComponent<NPCBehaviour>().goTo(SpawnPointPos.position);
+        NPC.GetComponent<NPCBehaviour>().DIE();
     }
     public void AddNPC()
     {

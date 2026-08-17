@@ -1049,6 +1049,8 @@ MonoBehaviour:
   rotationSpeed: 5
   button: {fileID: 1734017995362926656}
   source: {fileID: 1740396119835480087}
+  clip1: {fileID: 8300000, guid: 8b3993b7450eb3447ae46180ae9a5f8a, type: 3}
+  clip2: {fileID: 8300000, guid: c4cef1b0cd690074f8ed7035bf682054, type: 3}
 --- !u!114 &2871154291812080463
 MonoBehaviour:
   m_ObjectHideFlags: 0
