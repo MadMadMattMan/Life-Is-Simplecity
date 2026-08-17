@@ -19,14 +19,6 @@ public class PickupCounter : Interactable
     }
     public void OnOrderComplete(GameObject ticket)
     {
-<<<<<<< Updated upstream
-        if (Cauldron)
-
-        StarManager.CauldronOrderToStars(Cauldron.GetComponentInChildren<CauldronManager>(),
-                                         ticket.GetComponent<Ticket>().order);
-
-            // trigger customer leave
-=======
         StarManager.CauldronOrderToStars(Cauldron.GetComponent<CauldronManager>(),
                                              ticket.GetComponent<Ticket>().order);
         Ticket ticket1 = ticket.GetComponent<Ticket>();
@@ -35,7 +27,6 @@ public class PickupCounter : Interactable
         GameManager.Instance.activeOrders.Remove(ticket1.order);
         Destroy(Cauldron, 2f);
         Destroy(ticket, 2f);
->>>>>>> Stashed changes
     }
     public static PickupCounter Instance { get; private set; }
     private void Awake()
