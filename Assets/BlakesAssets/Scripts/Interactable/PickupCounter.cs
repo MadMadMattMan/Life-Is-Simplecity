@@ -19,13 +19,12 @@ public class PickupCounter : Interactable
     }
     public void OnOrderComplete(GameObject ticket)
     {
-        try {
-            StarManager.CauldronOrderToStars(Cauldron.GetComponentInChildren<CauldronManager>(),
-                                             ticket.GetComponent<Ticket>().order);
+        if (Cauldron)
+
+        StarManager.CauldronOrderToStars(Cauldron.GetComponentInChildren<CauldronManager>(),
+                                         ticket.GetComponent<Ticket>().order);
 
             // trigger customer leave
-        }
-        catch { }
     }
     public static PickupCounter Instance { get; private set; }
     private void Awake()

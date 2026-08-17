@@ -396,5 +396,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CauldronManager
   baseColor: {x: 1, y: 1, z: 1}
   addedIngredients: 
-  brewAmount: 0
-  brewQuality: 1
+  brewAmount: 10
+  brewQuality: 10

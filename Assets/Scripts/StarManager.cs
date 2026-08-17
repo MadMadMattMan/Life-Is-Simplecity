@@ -30,7 +30,7 @@ public class StarManager : MonoBehaviour
         // pour, 1 star
         float diff = (cauldron.baseColor - order.Liquid).magnitude;
         print(diff);
-        stars += 1 - diff;
+        stars += 1 - 2*diff;
 
         print("stars 1: " + stars);
 
@@ -59,6 +59,8 @@ public class StarManager : MonoBehaviour
         
 
         print("stars 3:" + stars);
+
+        UpdateStore(stars);
         UpdateStars(stars);
     }
 
