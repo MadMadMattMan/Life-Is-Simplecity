@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -51,14 +52,11 @@ public class BrewingManager : Interactable {
             h = false;
         }
 
+        if (currentTemp < upperHeat && currentTemp > lowerHeat)
+            doTimerCount = true;
+
         if (doTimerCount) {
             timerValue -= Time.deltaTime;
-
-            if (currentTemp > 0)
-                currentTemp -= Time.deltaTime/tempFalloff;
-            if (currentTemp < 0)
-                currentTemp = 0;
-            UpdateBar();
 
             if (currentTemp > upperHeat || currentTemp < lowerHeat)
                 degradeValue += Time.deltaTime;
@@ -69,11 +67,37 @@ public class BrewingManager : Interactable {
                 TimerHitZero();
             }
         }
+
+        if (currentTemp > 0) {
+            currentTemp -= Time.deltaTime / tempFalloff;
+
+            if (currentTemp < 0)
+                currentTemp = 0;
+            UpdateBar();
+        }
     }
 
     public void heatFire() {
         currentTemp += 0.075f;
         UpdateBar();
+    }
+
+    public override void PlaceCauldron() {
+        base.PlaceCauldron();
+        try {
+            GameObject t = GameObject.FindWithTag("MainTicket").GetComponent<TicketSlot>().currentTicket;
+            Order o = t.GetComponent<Ticket>().order;
+            addOrder(o, Cauldron.GetComponentInChildren<CauldronManager>());
+        }
+        catch (Exception e) {
+            Debug.LogWarning("Failed to start brewing for " + e);
+        }
+    }
+
+    public override void PickupCauldron()
+    {
+        base.PickupCauldron();
+        removeOrder();
     }
 
     // called on place cauldron
@@ -96,6 +120,7 @@ public class BrewingManager : Interactable {
         heatPercent = -1;
         timerStart = -1;
         timerValue = -1;
+        doTimerCount = false;
         UpdateStation();
 
         attachedCauldron.brewAmount = Mathf.Abs(timerValue) - brewTimeGrace;

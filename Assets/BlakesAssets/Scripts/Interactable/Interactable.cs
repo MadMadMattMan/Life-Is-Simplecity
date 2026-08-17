@@ -162,16 +162,21 @@ public class Interactable : MonoBehaviour
     }
     public IEnumerator UninteractionSequence()
     {
-        audioSource.PlayOneShot(Whoosh);
-        while ((cam.transform.position - camParent.position).sqrMagnitude > 0.01f)
+        if (cam != null && camParent != null)
         {
-            cam.transform.position = Vector3.SmoothDamp(cam.transform.position, camParent.position, ref currentVelocity, smoothTime);
-            cam.transform.rotation = Quaternion.RotateTowards(cam.transform.rotation, camParent.rotation, degreesPerSecond * Time.deltaTime);
-            yield return null;
+            audioSource.PlayOneShot(Whoosh);
+            while ((cam.transform.position - camParent.position).sqrMagnitude > 0.01f)
+            {
+                cam.transform.position = Vector3.SmoothDamp(cam.transform.position, camParent.position, ref currentVelocity, smoothTime);
+                cam.transform.rotation = Quaternion.RotateTowards(cam.transform.rotation, camParent.rotation, degreesPerSecond * Time.deltaTime);
+                yield return null;
+                if (camParent == null)
+                    break;
+            }
+            cam.transform.SetParent(camParent);
+            beingInteractedWith = false;
+            PlayerController.Instance.isActive = true;
         }
-        cam.transform.SetParent(camParent);
-        beingInteractedWith = false;
-        PlayerController.Instance.isActive = true;
     }
     public virtual void OnInteract()
     {
