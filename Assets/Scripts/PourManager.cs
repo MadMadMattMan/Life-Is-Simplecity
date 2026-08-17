@@ -19,7 +19,7 @@ public class PourManager : Interactable {
     float enlapsedTime = 0f;
     [SerializeField] float colorLerpTime = 5f;
 
-    Color potionColor = new Color(240, 255, 245);
+    Color potionColor;
 
     bool update = false;
 
@@ -45,12 +45,21 @@ public class PourManager : Interactable {
     }
 
     public void DisconnectCauldron() {
+        if (ConnectedCauldron == null) {
+            Debug.LogWarning("Cannot disconnect with no cauldron attached");
+            return;
+        }
         newColor = oldColor = connectedCauldronLiquid.color;
         cManager.SetColor(new Vector3(newColor.r, newColor.g, newColor.b));
         ConnectedCauldron = null;
     }
 
     public void AddColor(int color) {
+        if (ConnectedCauldron == null) {
+            Debug.LogWarning("Cannot disconnect with no cauldron attached");
+            return;
+        }
+
         if (color < 0 || color > 2) {
             Debug.LogWarning("Incorrect Color added " + color);
             return;
@@ -79,6 +88,8 @@ public class PourManager : Interactable {
             AddColor(c);
             u = false;
         }
+        if (ConnectedCauldron == null)
+            return;
 
         if (update) {
             oldColor = potionColor;

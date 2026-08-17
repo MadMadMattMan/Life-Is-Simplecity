@@ -1,10 +1,10 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class IngredientManager : Interactable {
 
     [SerializeField] GameObject[] ingredientSpawns;
     [SerializeField] GameObject[] ingredients;
-
 
     public void RespawnObject(Ingredient objectToRespawn) {
         int i = (int)objectToRespawn;
