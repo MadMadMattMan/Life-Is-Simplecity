@@ -4,6 +4,7 @@ public class TrashCan : MonoBehaviour
 {
     public InputAction interactAction;
     public GameObject interactionPopup;
+    public AudioSource source;
     private bool interactable;
     private void OnEnable()
     {
@@ -35,6 +36,7 @@ public class TrashCan : MonoBehaviour
         if (context.started && PlayerController.Instance.HasItem() && interactable)
         {
             PlayerController.Instance.TrashItem();
+            source.Play();
         }
     }
 }
