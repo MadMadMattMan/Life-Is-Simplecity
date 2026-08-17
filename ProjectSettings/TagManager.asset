@@ -6,9 +6,6 @@ TagManager:
   tags:
   - Cauldron
   - Ingredient
-  - GameManager
-  - NPC
-  - MainTicket
   layers:
   - Default
   - TransparentFX
