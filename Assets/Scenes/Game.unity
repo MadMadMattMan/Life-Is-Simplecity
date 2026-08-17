@@ -12274,8 +12274,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -29384,6 +29384,7 @@ MonoBehaviour:
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
   OrderUI: {fileID: 1204743418}
   OrderDrop: {fileID: 1653282531}
+  StarManager: {fileID: 5569182852694808545}
 --- !u!65 &1257563691
 BoxCollider:
   m_ObjectHideFlags: 0

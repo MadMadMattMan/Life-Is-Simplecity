@@ -16,11 +16,11 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void WriteTicket(float upTime, Order order)
+    public void WriteTicket(float upTime, Order order, NPCBehaviour npc)
     {
         GameObject ticket = Instantiate(ticketPrefab, ticketPrefab.transform.position, ticketPrefab.transform.rotation);
         ticket.transform.SetParent(transform.GetChild(0));
-        ticket.GetComponent<Ticket>().TakeOrder(upTime, order);
+        ticket.GetComponent<Ticket>().TakeOrder(upTime, order, npc);
     }
     public void SpawnNPC()
     {

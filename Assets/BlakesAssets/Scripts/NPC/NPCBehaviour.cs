@@ -86,7 +86,7 @@ public class NPCBehaviour : MonoBehaviour
         button.interactable = false;
         float upTime = 5f;
         StartCoroutine(PrintOrder(upTime, order));
-        GameManager.Instance.WriteTicket(upTime, order);
+        GameManager.Instance.WriteTicket(upTime, order, this);
     }
     IEnumerator PrintOrder(float upTime, Order order)
     {

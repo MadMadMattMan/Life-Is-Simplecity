@@ -9,6 +9,7 @@ public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEn
     private TicketSlot currentSlot;
     public Sprite[] ingredientSprites = new Sprite[5];
     public Order order;
+    public NPCBehaviour NPC;
     public TMP_Text OrderNumber;
     public Image Ingredient1;
     public Image Ingredient2;
@@ -86,9 +87,10 @@ public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEn
         }
         return closest;
     }
-    public void TakeOrder(float upTime, Order order)
+    public void TakeOrder(float upTime, Order order, NPCBehaviour npc)
     {
         this.order = order;
+        NPC = npc;
         StartCoroutine(PrintOrder(upTime));
     }
     IEnumerator PrintOrder(float upTime)
