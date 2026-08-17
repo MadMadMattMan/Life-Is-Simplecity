@@ -252,6 +252,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22261253}
   m_CullTransparentMesh: 1
+--- !u!1 &26203547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 26203548}
+  m_Layer: 0
+  m_Name: CauldronTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &26203548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26203547}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.378, y: -0.676, z: -0.704}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 252557877309464253}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &28217005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,7 +1576,7 @@ Transform:
   m_GameObject: {fileID: 385274146}
   serializedVersion: 2
   m_LocalRotation: {x: 0.09229593, y: -0.7010574, z: 0.09229593, w: 0.7010574}
-  m_LocalPosition: {x: 2.1930008, y: 1.5910001, z: 0}
+  m_LocalPosition: {x: 2.1930008, y: 1.5910001, z: -0.796}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2453,6 +2484,9 @@ MonoBehaviour:
   cam: {fileID: 920703062093830738}
   beingInteractedWith: 0
   playerLock: 0
+  canPlaceCauldron: 0
+  Cauldron: {fileID: 0}
+  CauldronParent: {fileID: 0}
   interactionPopup: {fileID: 1948307530}
   camTarget: {fileID: 319946980}
   interactAction:
@@ -2472,22 +2506,14 @@ MonoBehaviour:
       m_Action: Interact
       m_Flags: 0
     m_Flags: 0
-  uninteractAction:
-    m_Name: Uninteract
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: 6788a7eb-3565-4fd0-bdd7-b422361c0b36
+  placeCauldronAction:
+    m_Name: Place Cauldron
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b450168d-757a-49d0-95b8-20d399d2ce89
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 2a5daabf-947b-4e90-80fa-c1588e87e026
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Uninteract
-      m_Flags: 0
+    m_SingletonActionBindings: []
     m_Flags: 0
   OrderUI: {fileID: 946599900}
   currentNPC: {fileID: 0}
@@ -2691,7 +2717,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click on an order to complete it
+  m_text: Drag an order onto the book to complete the order
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3044,7 +3070,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '''E'' to complete order'
+  m_text: '''E'' to complete order
+
+    ''F'' to place cauldron'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3228,7 +3256,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.739}
+  m_AnchoredPosition: {x: 0, y: 0.926}
   m_SizeDelta: {x: 3, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &767510937
@@ -5377,8 +5405,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1257563694}
-  - component: {fileID: 1257563693}
-  - component: {fileID: 1257563692}
   - component: {fileID: 1257563691}
   - component: {fileID: 1257563690}
   m_Layer: 0
@@ -5403,6 +5429,9 @@ MonoBehaviour:
   cam: {fileID: 920703062093830738}
   beingInteractedWith: 0
   playerLock: 0
+  canPlaceCauldron: 1
+  Cauldron: {fileID: 0}
+  CauldronParent: {fileID: 1344251623}
   interactionPopup: {fileID: 767510935}
   camTarget: {fileID: 385274147}
   interactAction:
@@ -5422,21 +5451,21 @@ MonoBehaviour:
       m_Action: Interact
       m_Flags: 0
     m_Flags: 0
-  uninteractAction:
-    m_Name: Interact
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: 5535bf36-71e0-41f8-acaf-9fa846268a9c
+  placeCauldronAction:
+    m_Name: Place Cauldron
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 582a4222-6c94-4822-a64f-6a31823b5b98
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: b603c268-6757-4c7d-8a0b-4b62455a6e07
-      m_Path: <Keyboard>/e
+      m_Id: 9cc399e3-63c3-478c-831f-b4e5f658c9f4
+      m_Path: <Keyboard>/f
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Interact
+      m_Action: Place Cauldron
       m_Flags: 0
     m_Flags: 0
   OrderUI: {fileID: 1204743418}
@@ -5459,65 +5488,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1257563692
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257563689}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1257563693
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257563689}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 1, y: 1, z: 2.1022353}
+  m_Center: {x: 0, y: 0, z: -0.55111766}
 --- !u!4 &1257563694
 Transform:
   m_ObjectHideFlags: 0
@@ -5534,10 +5506,7 @@ Transform:
   - {fileID: 385274147}
   - {fileID: 767510936}
   - {fileID: 1204743419}
-<<<<<<< Updated upstream
-=======
   - {fileID: 1344251623}
->>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1270944434
@@ -6121,6 +6090,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1337388298}
   m_CullTransparentMesh: 1
+--- !u!1 &1344251622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1344251623}
+  m_Layer: 0
+  m_Name: CauldronParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1344251623
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344251622}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.337}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1257563694}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1352191454
 GameObject:
   m_ObjectHideFlags: 0
@@ -9055,6 +9055,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Interact
       m_Flags: 0
+    - m_Name: 
+      m_Id: d1479e9e-8851-4b1f-b69b-9e1ad462e8b5
+      m_Path: <Keyboard>/f
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact
+      m_Flags: 0
     m_Flags: 0
   interactionPopup: {fileID: 2138609042}
 --- !u!4 &1948181622
@@ -10242,6 +10250,7 @@ Transform:
   - {fileID: 2677476798429771247}
   - {fileID: 758826477}
   - {fileID: 697570567}
+  - {fileID: 26203548}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &286263705833719743
@@ -30908,6 +30917,9 @@ MonoBehaviour:
   cam: {fileID: 920703062093830738}
   beingInteractedWith: 0
   playerLock: 0
+  canPlaceCauldron: 1
+  Cauldron: {fileID: 0}
+  CauldronParent: {fileID: 0}
   interactionPopup: {fileID: 2036443544}
   camTarget: {fileID: 474702073}
   interactAction:
@@ -30927,27 +30939,14 @@ MonoBehaviour:
       m_Action: Interact
       m_Flags: 0
     m_Flags: 0
-<<<<<<< Updated upstream
-  uninteractAction:
-    m_Name: Interact
-=======
   placeCauldronAction:
-    m_Name: Place Cauldron
->>>>>>> Stashed changes
+    m_Name: 
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 966a0e3f-9d55-4cf2-806b-6116b8e42be8
+    m_Id: 49f4ec73-a4e1-4aeb-a651-f135be2ef0bb
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: b94957fc-1214-46e8-8f48-5987a041aa35
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
+    m_SingletonActionBindings: []
     m_Flags: 0
   ingredientSpawns:
   - {fileID: 8119054843388836090}
@@ -32615,6 +32614,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Interact
       m_Flags: 0
+    - m_Name: 
+      m_Id: c2f25389-4e22-4405-a32f-95521952e934
+      m_Path: <Keyboard>/f
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact
+      m_Flags: 0
     m_Flags: 0
   interactionPopup: {fileID: 1318465605}
 --- !u!23 &7797423192095893207
@@ -33478,6 +33485,9 @@ MonoBehaviour:
   cam: {fileID: 920703062093830738}
   beingInteractedWith: 0
   playerLock: 0
+  canPlaceCauldron: 1
+  Cauldron: {fileID: 0}
+  CauldronParent: {fileID: 26203548}
   interactionPopup: {fileID: 697570566}
   camTarget: {fileID: 758826477}
   interactAction:
@@ -33497,21 +33507,21 @@ MonoBehaviour:
       m_Action: Interact
       m_Flags: 0
     m_Flags: 0
-  uninteractAction:
-    m_Name: Interact
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: 5535bf36-71e0-41f8-acaf-9fa846268a9c
+  placeCauldronAction:
+    m_Name: Place Cauldron
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: eec122d4-47bb-4bc4-b5d3-5cccd9c5a03f
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: b603c268-6757-4c7d-8a0b-4b62455a6e07
-      m_Path: <Keyboard>/e
+      m_Id: a4bc5ee3-eca2-43a7-957d-7db5a277d095
+      m_Path: <Keyboard>/f
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Interact
+      m_Action: Place Cauldron
       m_Flags: 0
     m_Flags: 0
   RedPourParticles: {fileID: 3539810336029624704}

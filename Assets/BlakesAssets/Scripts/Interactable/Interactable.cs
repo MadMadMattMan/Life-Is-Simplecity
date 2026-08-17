@@ -8,10 +8,13 @@ public class Interactable : MonoBehaviour
     private bool interactable;
     [HideInInspector] public bool beingInteractedWith;
     [HideInInspector] public bool playerLock = false;
+    public bool canPlaceCauldron = true;
+    public GameObject Cauldron;
+    public Transform CauldronParent;
     public GameObject interactionPopup;
     public Transform camTarget;
     public InputAction interactAction;
-    public InputAction uninteractAction;
+    public InputAction placeCauldronAction;
     private float smoothTime = 0.3f;
     private float degreesPerSecond = 360.0f;
     private Transform camParent;
@@ -19,15 +22,15 @@ public class Interactable : MonoBehaviour
     private void OnEnable()
     {
         interactAction.started += Interact;
-        uninteractAction.started += Uninteract;
-        uninteractAction.Enable();
+        placeCauldronAction.started += InteractCauldron;
+        placeCauldronAction.Enable();
         interactAction.Enable();
     }
     private void OnDisable()
     {
         interactAction.started -= Interact;
-        uninteractAction.started -= Uninteract;
-        uninteractAction.Disable();
+        placeCauldronAction.started -= InteractCauldron;
+        placeCauldronAction.Disable();
         interactAction.Disable();
     }
     public void UnhoverInteraction()
@@ -40,27 +43,101 @@ public class Interactable : MonoBehaviour
         interactionPopup.SetActive(true);
         interactable = true;
     }
-    public void Interact(InputAction.CallbackContext context)
+    private void PlaceCauldron()
     {
-        if (PlayerController.Instance.HasItem() && context.started && interactable)
+        Cauldron = PlayerController.Instance.PlaceItem();
+        Cauldron.transform.parent = CauldronParent;
+        Cauldron.transform.localPosition = Vector3.zero;
+        Cauldron.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        Cauldron.transform.localScale = Vector3.one;
+    }
+    public void InteractCauldron(InputAction.CallbackContext context)
+    {
+        if (context.started && interactable)
         {
-            PopupManager.Instance.CreatePopup("Cant interact whilst carring cauldron!");
-            return;
-        }
-        if (context.started && interactable && !beingInteractedWith)
-        {
-            PlayerController.Instance.isActive = false;
-            camParent = cam.transform.parent;
-            cam.transform.SetParent(null);
-            StartCoroutine(nameof(InteractionSequence));
+            if (canPlaceCauldron)
+            {
+                if (Cauldron != null)
+                {
+                    if (!PlayerController.Instance.HasItem())
+                    {
+                        Cauldron.transform.SetParent(null);
+                        PlayerController.Instance.CarryItem(Cauldron);
+                        Cauldron = null;
+                    }
+                    else
+                    {
+                        PopupManager.Instance.CreatePopup("Cannot place another cauldron here!");
+                    }
+                }
+                else
+                {
+                    if (PlayerController.Instance.HasItem())
+                    {
+                        PlaceCauldron();
+                    }
+                    else
+                    {
+                        PopupManager.Instance.CreatePopup("Nothing to place!");
+                    }
+                }
+            }
+            else
+            {
+                PopupManager.Instance.CreatePopup("Cant place a cauldron here!");
+            }
         }
     }
-    public void Uninteract(InputAction.CallbackContext context)
+    public void Interact(InputAction.CallbackContext context)
     {
         if (context.started && beingInteractedWith && !playerLock)
         {
             OnUninteract();
             StartCoroutine(nameof(UninteractionSequence));
+        }
+        if (context.started && interactable)
+        {
+            if (canPlaceCauldron)
+            {
+                bool playerHasItem = PlayerController.Instance.HasItem();
+                if (playerHasItem && Cauldron == null)
+                {
+                    PlaceCauldron();
+                    PlayerController.Instance.isActive = false;
+                    camParent = cam.transform.parent;
+                    cam.transform.SetParent(null);
+                    StartCoroutine(nameof(InteractionSequence));
+                }
+                else if (playerHasItem && Cauldron != null)
+                {
+                    PopupManager.Instance.CreatePopup("Cant interact whilst carring cauldron!");
+                }
+                else
+                {
+                    PlayerController.Instance.isActive = false;
+                    camParent = cam.transform.parent;
+                    cam.transform.SetParent(null);
+                    StartCoroutine(nameof(InteractionSequence));
+                }
+            }
+            else
+            {
+                if (!beingInteractedWith)
+                {
+                    bool playerHasItem = PlayerController.Instance.HasItem();
+                    if (playerHasItem)
+                    {
+                        PopupManager.Instance.CreatePopup("Cant interact whilst carring cauldron!");
+                    }
+                    else
+                    {
+                        PlayerController.Instance.isActive = false;
+                        camParent = cam.transform.parent;
+                        cam.transform.SetParent(null);
+                        StartCoroutine(nameof(InteractionSequence));
+                    }
+                }
+            }
         }
     }
     public IEnumerator InteractionSequence()
