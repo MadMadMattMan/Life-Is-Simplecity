@@ -14,6 +14,7 @@ public class TicketSlot : MonoBehaviour, IDropHandler
             rectTransform.anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             rectTransform.localScale = TicketScale;
             currentTicket.GetComponent<Ticket>().SetTicketSlot(this);
+            CompleteOrder();
         }
     }
     public void SnapTo(GameObject ticket)
@@ -23,5 +24,13 @@ public class TicketSlot : MonoBehaviour, IDropHandler
         rectTransform.anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
         rectTransform.localScale = TicketScale;
         currentTicket.GetComponent<Ticket>().SetTicketSlot(this);
+        CompleteOrder();
+    }
+    public void CompleteOrder()
+    {
+        if (gameObject.name == "ItemSlotComplete")
+        {
+            PickupCounter.Instance.OnOrderComplete(currentTicket);
+        }
     }
 }

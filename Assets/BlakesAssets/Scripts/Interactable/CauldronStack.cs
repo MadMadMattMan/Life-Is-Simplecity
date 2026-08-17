@@ -6,6 +6,8 @@ public class CauldronStack : MonoBehaviour
     public InputAction interactAction;
     public GameObject interactionPopup;
     private bool interactable;
+    public AudioSource audioSource;
+    public AudioClip clip;
     private void OnEnable()
     {
         interactAction.started += Interact;
@@ -32,6 +34,7 @@ public class CauldronStack : MonoBehaviour
         {
             GameObject prefab = Instantiate(CauldronPrefab);
             PlayerController.Instance.CarryItem(prefab);
+            audioSource.PlayOneShot(clip);
         }
     }
 }

@@ -51,7 +51,7 @@ public class Interactable : MonoBehaviour
         Cauldron = PlayerController.Instance.PlaceItem();
         Cauldron.transform.parent = CauldronParent;
         Cauldron.transform.localPosition = Vector3.zero;
-        Cauldron.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        Cauldron.transform.rotation = Quaternion.Euler(Vector3.zero);
         Cauldron.transform.localScale = Vector3.one;
         audioSource.PlayOneShot(MetalClunk);
     }

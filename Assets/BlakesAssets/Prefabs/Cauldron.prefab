@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2993624693044260360}
   - component: {fileID: 2702063810864314992}
   - component: {fileID: 3861285006879309589}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cauldron_Lid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 8573542334432850745}
   - component: {fileID: 1862831753208448216}
   - component: {fileID: 3648885134727651748}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cauldron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 4018822870966772395}
   - component: {fileID: 3596287723966827696}
   - component: {fileID: 1417344075250317257}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Liquid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 102847736254417648}
   - component: {fileID: 3996432703999705743}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Eater
   m_TagString: Cauldron
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6145317176824161722}
   - component: {fileID: 3001115899980387267}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cauldron
   m_TagString: Cauldron
   m_Icon: {fileID: 0}

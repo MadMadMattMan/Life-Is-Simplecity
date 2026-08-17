@@ -1,8 +1,7 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class BrewingManager : MonoBehaviour {
+public class BrewingManager : Interactable {
 
     [Header("Current Settings")]
     public Order attachedOrder;
