@@ -10,8 +10,8 @@ public class StarManager : MonoBehaviour
     public StarManager storeStars;
     GameManager gm;
 
-    void FixedUpdate() {
-        GameManager gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+    void Awake() {
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         if (gm == null)
             Debug.LogWarning("Failed to get GameManager for stars");
 

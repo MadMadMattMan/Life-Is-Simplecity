@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     public GameObject ticketPrefab;
     [SerializeField] private NPCSettings[] SettingsList;
     [SerializeField] private NPCSettings CurrentSettings;
-
     public float storeRating = 0.5f;
     
     public void Start()
