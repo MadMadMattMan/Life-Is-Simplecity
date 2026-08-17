@@ -46,7 +46,7 @@ public class Interactable : MonoBehaviour
         interactionPopup.SetActive(true);
         interactable = true;
     }
-    private void PlaceCauldron()
+    public virtual void PlaceCauldron()
     {
         Cauldron = PlayerController.Instance.PlaceItem();
         Cauldron.transform.parent = CauldronParent;
@@ -63,12 +63,9 @@ public class Interactable : MonoBehaviour
             {
                 if (Cauldron != null)
                 {
-                    if (!PlayerController.Instance.HasItem())
+                    if (!PlayerController.Instance.HasItem()) 
                     {
-                        Cauldron.transform.SetParent(null);
-                        PlayerController.Instance.CarryItem(Cauldron);
-                        Cauldron = null;
-                        audioSource.PlayOneShot(MetalClunk);
+                        PickupCauldron();
                     }
                     else
                     {
@@ -93,6 +90,13 @@ public class Interactable : MonoBehaviour
             }
         }
     }
+    public virtual void PickupCauldron() {
+        Cauldron.transform.SetParent(null);
+        PlayerController.Instance.CarryItem(Cauldron);
+        Cauldron = null;
+        audioSource.PlayOneShot(MetalClunk);
+    }
+
     public void Interact(InputAction.CallbackContext context)
     {
         if (context.started && beingInteractedWith && !playerLock)

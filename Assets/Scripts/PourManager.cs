@@ -35,6 +35,17 @@ public class PourManager : Interactable {
         }
     }
 
+    public override void PlaceCauldron()
+    {
+        base.PlaceCauldron();
+        ConnectCauldron(Cauldron);
+    }
+    public override void PickupCauldron()
+    {
+        base.PickupCauldron();
+        DisconnectCauldron();
+    }
+
     public void ConnectCauldron(GameObject obj) {
         ConnectedCauldron = obj;
         connectedCauldronLiquid = obj.GetComponentInChildren<MeshRenderer>().material;
