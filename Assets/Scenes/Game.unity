@@ -7760,7 +7760,7 @@ GameObject:
   - component: {fileID: 230802498}
   m_Layer: 0
   m_Name: ItemSlotMain
-  m_TagString: Untagged
+  m_TagString: MainTicket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8959,7 +8959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccfc26281f576de49b9edc71c3f39295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrewButtonInteraction
-  manager: {fileID: 0}
+  manager: {fileID: 470951408}
 --- !u!65 &368799879
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10042,7 +10042,7 @@ GameObject:
   - component: {fileID: 470951408}
   - component: {fileID: 470951407}
   m_Layer: 0
-  m_Name: Brewing_Station (5)
+  m_Name: Brewing_Station (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15182,6 +15182,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937320995}
   m_Mesh: {fileID: -4930194293119932124, guid: 77120aaae23de37428906191e70bfc1a, type: 3}
+--- !u!1001 &943101244
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.189
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.617
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287386885689362488, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_Name
+      value: FireLight
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
 --- !u!1 &946599900
 GameObject:
   m_ObjectHideFlags: 0
@@ -20676,6 +20733,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1650571364}
   m_LocalEulerAnglesHint: {x: -105, y: 0, z: 180}
+--- !u!1001 &995022976
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.189
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.617
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.319
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287386885689362488, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_Name
+      value: FireLight (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
 --- !u!1 &999017914
 GameObject:
   m_ObjectHideFlags: 0
@@ -30975,6 +31089,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352191454}
   m_Mesh: {fileID: 7540299172982220769, guid: 3a362b53464bf7e449c94aed278b6945, type: 3}
+--- !u!1001 &1355648795
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.189
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.617
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.214
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287386885689362488, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_Name
+      value: FireLight (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
 --- !u!1 &1362531332
 GameObject:
   m_ObjectHideFlags: 0
@@ -31680,7 +31851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccfc26281f576de49b9edc71c3f39295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrewButtonInteraction
-  manager: {fileID: 0}
+  manager: {fileID: 1650571366}
 --- !u!65 &1396405408
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38298,6 +38469,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1159743183}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1525306887
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.189
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.617
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.861
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623423663488793957, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287386885689362488, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
+      propertyPath: m_Name
+      value: FireLight (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72cfdaef24d5e0e40927eb64e185d490, type: 3}
 --- !u!1 &1530932450
 GameObject:
   m_ObjectHideFlags: 0
@@ -39719,7 +39947,7 @@ GameObject:
   - component: {fileID: 1650571366}
   - component: {fileID: 1650571365}
   m_Layer: 0
-  m_Name: Brewing_Station (4)
+  m_Name: Brewing_Station (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58928,7 +59156,7 @@ GameObject:
   - component: {fileID: 1938677023}
   - component: {fileID: 1938677022}
   m_Layer: 0
-  m_Name: Brewing_Station (6)
+  m_Name: Brewing_Station (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65445,7 +65673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccfc26281f576de49b9edc71c3f39295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrewButtonInteraction
-  manager: {fileID: 0}
+  manager: {fileID: 1938677023}
 --- !u!65 &2084144828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -89064,7 +89292,7 @@ GameObject:
   - component: {fileID: 6873453571779665957}
   - component: {fileID: 6873453571779665959}
   m_Layer: 0
-  m_Name: Brewing_Station (3)
+  m_Name: Brewing_Station (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90829,7 +91057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccfc26281f576de49b9edc71c3f39295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrewButtonInteraction
-  manager: {fileID: 0}
+  manager: {fileID: 6873453571779665957}
 --- !u!33 &7373284217357398074
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -93286,3 +93514,7 @@ SceneRoots:
   - {fileID: 847098284}
   - {fileID: 26572870}
   - {fileID: 1252713598}
+  - {fileID: 943101244}
+  - {fileID: 995022976}
+  - {fileID: 1355648795}
+  - {fileID: 1525306887}
