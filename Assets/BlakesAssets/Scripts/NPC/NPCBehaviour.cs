@@ -20,6 +20,7 @@ public class NPCBehaviour : MonoBehaviour
     public Vector3 lookDirection;
     public float rotationSpeed = 5.0f;
     public Button button;
+    public AudioSource source;
     private NavMeshAgent agent;
     private Order order;
     void Start()
@@ -79,6 +80,8 @@ public class NPCBehaviour : MonoBehaviour
     }
     IEnumerator PrintOrder(float upTime, Order order)
     {
+        source.pitch = Random.Range(0.8f, 1.2f);
+        source.Play();
         yield return new WaitForSeconds(upTime / order.numberOfItems);
         speechBubble.sprite = white;
         speechBubble.color = new Color(order.Liquid.x, order.Liquid.y, order.Liquid.z);
@@ -95,6 +98,7 @@ public class NPCBehaviour : MonoBehaviour
         OrderCounter.Instance.isShowingOrder = false;
         OrderCounter.Instance.playerLock = false;
         NPCManager.Instance.NPCTakeOrder();
+        source.Stop();
     }
     public void HideOrder()
     {

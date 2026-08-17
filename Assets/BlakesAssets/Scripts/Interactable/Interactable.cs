@@ -15,6 +15,9 @@ public class Interactable : MonoBehaviour
     public Transform camTarget;
     public InputAction interactAction;
     public InputAction placeCauldronAction;
+    public AudioSource audioSource;
+    public AudioClip MetalClunk;
+    public AudioClip Whoosh;
     private float smoothTime = 0.3f;
     private float degreesPerSecond = 360.0f;
     private Transform camParent;
@@ -50,6 +53,7 @@ public class Interactable : MonoBehaviour
         Cauldron.transform.localPosition = Vector3.zero;
         Cauldron.transform.localRotation = Quaternion.Euler(Vector3.zero);
         Cauldron.transform.localScale = Vector3.one;
+        audioSource.PlayOneShot(MetalClunk);
     }
     public void InteractCauldron(InputAction.CallbackContext context)
     {
@@ -64,6 +68,7 @@ public class Interactable : MonoBehaviour
                         Cauldron.transform.SetParent(null);
                         PlayerController.Instance.CarryItem(Cauldron);
                         Cauldron = null;
+                        audioSource.PlayOneShot(MetalClunk);
                     }
                     else
                     {
@@ -142,7 +147,8 @@ public class Interactable : MonoBehaviour
     }
     public IEnumerator InteractionSequence()
     {
-        while((cam.transform.position - camTarget.position).sqrMagnitude > 0.01f)
+        audioSource.PlayOneShot(Whoosh);
+        while ((cam.transform.position - camTarget.position).sqrMagnitude > 0.01f)
         {
             cam.transform.position = Vector3.SmoothDamp(cam.transform.position, camTarget.position, ref currentVelocity, smoothTime);
             cam.transform.rotation = Quaternion.RotateTowards(cam.transform.rotation, camTarget.rotation, degreesPerSecond * Time.deltaTime);
@@ -152,6 +158,7 @@ public class Interactable : MonoBehaviour
     }
     public IEnumerator UninteractionSequence()
     {
+        audioSource.PlayOneShot(Whoosh);
         while ((cam.transform.position - camParent.position).sqrMagnitude > 0.01f)
         {
             cam.transform.position = Vector3.SmoothDamp(cam.transform.position, camParent.position, ref currentVelocity, smoothTime);
