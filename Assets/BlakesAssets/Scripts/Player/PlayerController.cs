@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
+
 public class PlayerController : MonoBehaviour
 {
     private CharacterController cc;
@@ -10,14 +12,34 @@ public class PlayerController : MonoBehaviour
     public bool isActive = true;
     bool moving = false;
     bool pastmove = false;
+    public InputAction interactAction;
+    public InputAction placeCauldronAction;
     List<Interactable> interactables = new List<Interactable>();
     CauldronStack cauldronStack;
     TrashCan trashCan;
     public GameObject inventorySlot;
     public GameObject inventoryItem;
     public FootstepSFX footstepSFX;
+    private bool interacting;
+    Interactable lastInteractable;
+    RaycastHit hit;
+    private void OnEnable()
+    {
+        interactAction.started += Interact;
+        placeCauldronAction.started += InteractCauldron;
+        placeCauldronAction.Enable();
+        interactAction.Enable();
+    }
+    private void OnDisable()
+    {
+        interactAction.started -= Interact;
+        placeCauldronAction.started -= InteractCauldron;
+        placeCauldronAction.Disable();
+        interactAction.Disable();
+    }
     private void Start()
     {
+        interacting = false;
         cc = GetComponent<CharacterController>();
         cauldronStack = FindAnyObjectByType<CauldronStack>();
         trashCan = FindAnyObjectByType<TrashCan>();
@@ -51,10 +73,48 @@ public class PlayerController : MonoBehaviour
         Destroy(inventoryItem);
         inventoryItem = null;
     }
+
+    public void Interact(InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+        if (interacting)
+        {
+            lastInteractable.Interact();
+            interacting = false;
+            lastInteractable = null;
+            return;
+        }
+        Interactable interactable;
+        if (hit.transform != null)
+        {
+            hit.transform.TryGetComponent(out interactable);
+            if (interactable != null)
+            {
+                interactable.Interact();
+                lastInteractable = interactable;
+                interacting = true;
+            }
+        }
+    }
+
+    public void InteractCauldron(InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+        Interactable interactable;
+        if (hit.transform != null)
+        {
+            hit.transform.TryGetComponent(out interactable);
+            if (interactable != null)
+            {
+                interactable.InteractCauldron();
+            }
+        }
+    }
+
     private void Update()
     {
-        // foostep
-        if (moving != pastmove) {
+        if (moving != pastmove)
+        {
             if (moving) footstepSFX.Play();
             else footstepSFX.Stop();
         }
@@ -62,7 +122,8 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit hit;
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        if (Physics.Raycast(ray, out hit, maxRayDistance))
+        Physics.Raycast(ray, out hit, maxRayDistance);
+        if (hit.transform != null)
         {
             Interactable interactable;
             hit.transform.TryGetComponent(out interactable);
@@ -118,7 +179,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!isActive) return;
         Vector3 move = transform.forward * dir.y + transform.right * dir.x;
-        if (move.magnitude > 0.1f) {
+        if (move.magnitude > 0.1f)
+        {
             moving = true;
             move = move * MoveSpeed * Time.deltaTime;
             Vector3 moveDirection = new Vector3(move.x, 0f, move.z);

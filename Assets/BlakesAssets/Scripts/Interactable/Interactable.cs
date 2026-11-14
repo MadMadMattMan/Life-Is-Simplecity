@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.InputSystem;
+using UnityEngine.Events;
 public class Interactable : MonoBehaviour
 {
     [Header("Inherited")]
@@ -13,8 +13,8 @@ public class Interactable : MonoBehaviour
     public Transform CauldronParent;
     public GameObject interactionPopup;
     public Transform camTarget;
-    public InputAction interactAction;
-    public InputAction placeCauldronAction;
+    public UnityEvent interactAction;
+    public UnityEvent placeCauldronAction;
     public AudioSource audioSource;
     public AudioClip MetalClunk;
     public AudioClip Whoosh;
@@ -24,17 +24,13 @@ public class Interactable : MonoBehaviour
     private Vector3 currentVelocity = Vector3.zero;
     private void OnEnable()
     {
-        interactAction.started += Interact;
-        placeCauldronAction.started += InteractCauldron;
-        placeCauldronAction.Enable();
-        interactAction.Enable();
+        interactAction.AddListener(Interact);
+        placeCauldronAction.AddListener(InteractCauldron);
     }
     private void OnDisable()
     {
-        interactAction.started -= Interact;
-        placeCauldronAction.started -= InteractCauldron;
-        placeCauldronAction.Disable();
-        interactAction.Disable();
+        interactAction.RemoveListener(Interact);
+        placeCauldronAction.RemoveListener(InteractCauldron);
     }
     public void UnhoverInteraction()
     {
@@ -55,15 +51,15 @@ public class Interactable : MonoBehaviour
         Cauldron.transform.localScale = Vector3.one;
         audioSource.PlayOneShot(MetalClunk);
     }
-    public void InteractCauldron(InputAction.CallbackContext context)
+    public void InteractCauldron()
     {
-        if (context.started && interactable)
+        if (interactable)
         {
             if (canPlaceCauldron)
             {
                 if (Cauldron != null)
                 {
-                    if (!PlayerController.Instance.HasItem()) 
+                    if (!PlayerController.Instance.HasItem())
                     {
                         PickupCauldron();
                     }
@@ -90,21 +86,22 @@ public class Interactable : MonoBehaviour
             }
         }
     }
-    public virtual void PickupCauldron() {
+    public virtual void PickupCauldron()
+    {
         Cauldron.transform.SetParent(null);
         PlayerController.Instance.CarryItem(Cauldron);
         Cauldron = null;
         audioSource.PlayOneShot(MetalClunk);
     }
 
-    public void Interact(InputAction.CallbackContext context)
+    public void Interact()
     {
-        if (context.started && beingInteractedWith && !playerLock)
+        if (beingInteractedWith && !playerLock)
         {
             OnUninteract();
             StartCoroutine(nameof(UninteractionSequence));
         }
-        if (context.started && interactable)
+        if (interactable)
         {
             if (canPlaceCauldron)
             {
