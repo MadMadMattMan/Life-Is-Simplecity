@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Collections;
 
-public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class Ticket : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     private TicketSlot currentSlot;
     public TicketSlot[] slots;
@@ -24,10 +24,7 @@ public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEn
     private RectTransform rectTransform;
     private void Awake()
     {
-        while (slots.Length == 0)
-        {
-            slots = FindObjectsByType<TicketSlot>();
-        }
+        slots = FindObjectsByType<TicketSlot>(FindObjectsSortMode.None);
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
@@ -45,10 +42,6 @@ public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEn
         if (!DraggingEnabled) return;
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (!DraggingEnabled) return;
-    }
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (!DraggingEnabled) return;
@@ -64,20 +57,20 @@ public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEn
         if (currentSlot == null)
         {
             TicketSlot closest = GetClosestSlot();
-            closest.SnapTo(gameObject);
+            if (closest != null) closest.SnapTo(gameObject);
         }
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
     }
     public TicketSlot GetClosestSlot()
     {
-        TicketSlot closest;
+        TicketSlot closest = null;
         foreach (TicketSlot slot in slots)
         {
             if (slot.currentTicket != null) continue;
             closest = slot;
         }
-        if (closest = null) return null;
+        if (closest == null) return null;
         float currentDistance = (rectTransform.anchoredPosition - slots[0].GetComponent<RectTransform>().anchoredPosition).sqrMagnitude;
         foreach (TicketSlot slot in slots)
         {
@@ -121,7 +114,7 @@ public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEn
         Tempreture.anchoredPosition = new Vector2(Tempreture.anchoredPosition.x, Mathf.Lerp(-63f, 12f, order.Tempreture));
         yield return new WaitForSeconds(upTime / order.numberOfItems);
         TicketSlot closest = GetClosestSlot();
-        closest.SnapTo(gameObject);
+        if (closest != null) closest.SnapTo(gameObject);
         EnableDragging(true);
     }
 }
