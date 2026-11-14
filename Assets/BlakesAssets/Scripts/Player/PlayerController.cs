@@ -120,7 +120,6 @@ public class PlayerController : MonoBehaviour
         }
         pastmove = moving;
 
-        RaycastHit hit;
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         Physics.Raycast(ray, out hit, maxRayDistance);
         if (hit.transform != null)

@@ -7176,39 +7176,11 @@ MonoBehaviour:
   interactionPopup: {fileID: 570426067}
   camTarget: {fileID: 1274949355}
   interactAction:
-    m_Name: Interact
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 966a0e3f-9d55-4cf2-806b-6116b8e42be8
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: b94957fc-1214-46e8-8f48-5987a041aa35
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   placeCauldronAction:
-    m_Name: Place Cauldron
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 49f4ec73-a4e1-4aeb-a651-f135be2ef0bb
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 1eee937d-0370-4345-9362-caa8ec1ac50e
-      m_Path: <Keyboard>/f
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Cauldron
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   audioSource: {fileID: 175833480}
   MetalClunk: {fileID: 8300000, guid: f3dcdec9eff6f6440b4a6ecb1d845384, type: 3}
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
@@ -10338,39 +10310,11 @@ MonoBehaviour:
   interactionPopup: {fileID: 999017914}
   camTarget: {fileID: 1764883970}
   interactAction:
-    m_Name: Interact
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: f7ebd782-93b8-4bc0-a89a-9f682d76707a
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 426c5f3e-8098-4866-bc6a-c8b91d469c56
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   placeCauldronAction:
-    m_Name: Place Cauldron
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: b76a72c9-694c-4f41-805d-b6d789eefa07
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 6315f40c-b9e0-4f59-9d8e-462dac988c5e
-      m_Path: <Keyboard>/f
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Cauldron
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   audioSource: {fileID: 470951407}
   MetalClunk: {fileID: 8300000, guid: f3dcdec9eff6f6440b4a6ecb1d845384, type: 3}
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
@@ -11873,31 +11817,11 @@ MonoBehaviour:
   interactionPopup: {fileID: 1948307530}
   camTarget: {fileID: 319946980}
   interactAction:
-    m_Name: Interact
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: 5535bf36-71e0-41f8-acaf-9fa846268a9c
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: b603c268-6757-4c7d-8a0b-4b62455a6e07
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   placeCauldronAction:
-    m_Name: Place Cauldron
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: b450168d-757a-49d0-95b8-20d399d2ce89
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   audioSource: {fileID: 644830784}
   MetalClunk: {fileID: 0}
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
@@ -21700,39 +21624,11 @@ MonoBehaviour:
   interactionPopup: {fileID: 1391795404}
   camTarget: {fileID: 1340179428}
   interactAction:
-    m_Name: Interact
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: 5535bf36-71e0-41f8-acaf-9fa846268a9c
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: b603c268-6757-4c7d-8a0b-4b62455a6e07
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   placeCauldronAction:
-    m_Name: Place Cauldron
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: eec122d4-47bb-4bc4-b5d3-5cccd9c5a03f
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: a4bc5ee3-eca2-43a7-957d-7db5a277d095
-      m_Path: <Keyboard>/f
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Cauldron
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   audioSource: {fileID: 1056225047}
   MetalClunk: {fileID: 8300000, guid: f3dcdec9eff6f6440b4a6ecb1d845384, type: 3}
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
@@ -22137,39 +22033,11 @@ MonoBehaviour:
   interactionPopup: {fileID: 1865426997}
   camTarget: {fileID: 987231328}
   interactAction:
-    m_Name: Interact
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: 5535bf36-71e0-41f8-acaf-9fa846268a9c
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: b603c268-6757-4c7d-8a0b-4b62455a6e07
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   placeCauldronAction:
-    m_Name: Place Cauldron
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: eec122d4-47bb-4bc4-b5d3-5cccd9c5a03f
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: a4bc5ee3-eca2-43a7-957d-7db5a277d095
-      m_Path: <Keyboard>/f
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Cauldron
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   audioSource: {fileID: 1074098950}
   MetalClunk: {fileID: 8300000, guid: f3dcdec9eff6f6440b4a6ecb1d845384, type: 3}
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
@@ -22739,39 +22607,11 @@ MonoBehaviour:
   interactionPopup: {fileID: 1857767410}
   camTarget: {fileID: 348196261}
   interactAction:
-    m_Name: Interact
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: 5535bf36-71e0-41f8-acaf-9fa846268a9c
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: b603c268-6757-4c7d-8a0b-4b62455a6e07
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   placeCauldronAction:
-    m_Name: Place Cauldron
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: eec122d4-47bb-4bc4-b5d3-5cccd9c5a03f
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: a4bc5ee3-eca2-43a7-957d-7db5a277d095
-      m_Path: <Keyboard>/f
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Cauldron
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   audioSource: {fileID: 1113303895}
   MetalClunk: {fileID: 8300000, guid: f3dcdec9eff6f6440b4a6ecb1d845384, type: 3}
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
@@ -29918,39 +29758,11 @@ MonoBehaviour:
   interactionPopup: {fileID: 767510935}
   camTarget: {fileID: 385274147}
   interactAction:
-    m_Name: Interact
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: 5535bf36-71e0-41f8-acaf-9fa846268a9c
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: b603c268-6757-4c7d-8a0b-4b62455a6e07
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   placeCauldronAction:
-    m_Name: Place Cauldron
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 582a4222-6c94-4822-a64f-6a31823b5b98
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 9cc399e3-63c3-478c-831f-b4e5f658c9f4
-      m_Path: <Keyboard>/f
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Cauldron
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   audioSource: {fileID: 1257563695}
   MetalClunk: {fileID: 8300000, guid: f3dcdec9eff6f6440b4a6ecb1d845384, type: 3}
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
@@ -39912,39 +39724,11 @@ MonoBehaviour:
   interactionPopup: {fileID: 644737664}
   camTarget: {fileID: 337633657}
   interactAction:
-    m_Name: Interact
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 966a0e3f-9d55-4cf2-806b-6116b8e42be8
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: b94957fc-1214-46e8-8f48-5987a041aa35
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   placeCauldronAction:
-    m_Name: Place Cauldron
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 49f4ec73-a4e1-4aeb-a651-f135be2ef0bb
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 1eee937d-0370-4345-9362-caa8ec1ac50e
-      m_Path: <Keyboard>/f
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Cauldron
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   audioSource: {fileID: 1573420703}
   MetalClunk: {fileID: 8300000, guid: f3dcdec9eff6f6440b4a6ecb1d845384, type: 3}
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
@@ -40972,39 +40756,11 @@ MonoBehaviour:
   interactionPopup: {fileID: 2094938536}
   camTarget: {fileID: 990152785}
   interactAction:
-    m_Name: Interact
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: f7ebd782-93b8-4bc0-a89a-9f682d76707a
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 426c5f3e-8098-4866-bc6a-c8b91d469c56
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   placeCauldronAction:
-    m_Name: Place Cauldron
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: b76a72c9-694c-4f41-805d-b6d789eefa07
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 6315f40c-b9e0-4f59-9d8e-462dac988c5e
-      m_Path: <Keyboard>/f
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Cauldron
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   audioSource: {fileID: 1650571365}
   MetalClunk: {fileID: 8300000, guid: f3dcdec9eff6f6440b4a6ecb1d845384, type: 3}
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
@@ -41350,39 +41106,11 @@ MonoBehaviour:
   interactionPopup: {fileID: 700581088}
   camTarget: {fileID: 1132688198}
   interactAction:
-    m_Name: Interact
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 966a0e3f-9d55-4cf2-806b-6116b8e42be8
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: b94957fc-1214-46e8-8f48-5987a041aa35
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   placeCauldronAction:
-    m_Name: Place Cauldron
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 49f4ec73-a4e1-4aeb-a651-f135be2ef0bb
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 1eee937d-0370-4345-9362-caa8ec1ac50e
-      m_Path: <Keyboard>/f
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Cauldron
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   audioSource: {fileID: 1663102403}
   MetalClunk: {fileID: 8300000, guid: f3dcdec9eff6f6440b4a6ecb1d845384, type: 3}
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
@@ -60523,39 +60251,11 @@ MonoBehaviour:
   interactionPopup: {fileID: 409941026}
   camTarget: {fileID: 815821993}
   interactAction:
-    m_Name: Interact
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: f7ebd782-93b8-4bc0-a89a-9f682d76707a
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 426c5f3e-8098-4866-bc6a-c8b91d469c56
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   placeCauldronAction:
-    m_Name: Place Cauldron
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: b76a72c9-694c-4f41-805d-b6d789eefa07
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 6315f40c-b9e0-4f59-9d8e-462dac988c5e
-      m_Path: <Keyboard>/f
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Cauldron
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   audioSource: {fileID: 1938677022}
   MetalClunk: {fileID: 8300000, guid: f3dcdec9eff6f6440b4a6ecb1d845384, type: 3}
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
@@ -90236,7 +89936,7 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 0
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -91444,39 +91144,11 @@ MonoBehaviour:
   interactionPopup: {fileID: 2036443544}
   camTarget: {fileID: 474702073}
   interactAction:
-    m_Name: Interact
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 966a0e3f-9d55-4cf2-806b-6116b8e42be8
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: b94957fc-1214-46e8-8f48-5987a041aa35
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   placeCauldronAction:
-    m_Name: Place Cauldron
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 49f4ec73-a4e1-4aeb-a651-f135be2ef0bb
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 1eee937d-0370-4345-9362-caa8ec1ac50e
-      m_Path: <Keyboard>/f
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Cauldron
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   audioSource: {fileID: 6533257448161123703}
   MetalClunk: {fileID: 8300000, guid: f3dcdec9eff6f6440b4a6ecb1d845384, type: 3}
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
@@ -92110,39 +91782,11 @@ MonoBehaviour:
   interactionPopup: {fileID: 984803739}
   camTarget: {fileID: 1610777717}
   interactAction:
-    m_Name: Interact
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: f7ebd782-93b8-4bc0-a89a-9f682d76707a
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 426c5f3e-8098-4866-bc6a-c8b91d469c56
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   placeCauldronAction:
-    m_Name: Place Cauldron
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: b76a72c9-694c-4f41-805d-b6d789eefa07
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 6315f40c-b9e0-4f59-9d8e-462dac988c5e
-      m_Path: <Keyboard>/f
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Cauldron
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   audioSource: {fileID: 6873453571779665959}
   MetalClunk: {fileID: 8300000, guid: f3dcdec9eff6f6440b4a6ecb1d845384, type: 3}
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
@@ -93961,39 +93605,11 @@ MonoBehaviour:
   interactionPopup: {fileID: 697570566}
   camTarget: {fileID: 758826477}
   interactAction:
-    m_Name: Interact
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: 5535bf36-71e0-41f8-acaf-9fa846268a9c
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: b603c268-6757-4c7d-8a0b-4b62455a6e07
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   placeCauldronAction:
-    m_Name: Place Cauldron
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: eec122d4-47bb-4bc4-b5d3-5cccd9c5a03f
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: a4bc5ee3-eca2-43a7-957d-7db5a277d095
-      m_Path: <Keyboard>/f
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Cauldron
-      m_Flags: 0
-    m_Flags: 0
+    m_PersistentCalls:
+      m_Calls: []
   audioSource: {fileID: 8277928535738134397}
   MetalClunk: {fileID: 8300000, guid: f3dcdec9eff6f6440b4a6ecb1d845384, type: 3}
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
@@ -94597,6 +94213,40 @@ MonoBehaviour:
   RotationSpeed: 10
   maxRayDistance: 2.5
   isActive: 1
+  interactAction:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c69bea01-e0df-40c6-b4eb-6b32d28ed5ae
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: db928418-3e07-4e5a-b029-9b87047812e1
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact
+      m_Flags: 0
+    m_Flags: 0
+  placeCauldronAction:
+    m_Name: Place Cauldron
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 747dec6c-f375-4179-aff1-591534a0a291
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a52234e4-2e9b-48e9-b61e-169431fb6648
+      m_Path: <Keyboard>/f
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Place Cauldron
+      m_Flags: 0
+    m_Flags: 0
   inventorySlot: {fileID: 973376647}
   inventoryItem: {fileID: 0}
   footstepSFX: {fileID: 1813790897}
