@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class PopupManager : MonoBehaviour
 {
     public GameObject popupPrefab;

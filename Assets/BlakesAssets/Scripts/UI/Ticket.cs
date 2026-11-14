@@ -64,24 +64,20 @@ public class Ticket : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
     }
     public TicketSlot GetClosestSlot()
     {
+        slots = FindObjectsByType<TicketSlot>(FindObjectsSortMode.None);
         TicketSlot closest = null;
+        float bestDistance = float.MaxValue;
+
         foreach (TicketSlot slot in slots)
         {
-            if (slot.currentTicket != null) continue;
-            closest = slot;
-        }
-        if (closest == null) {
-            Debug.LogWarning("All ticket slots are full");
-            return null;
-        }
-        float currentDistance = (rectTransform.anchoredPosition - slots[0].GetComponent<RectTransform>().anchoredPosition).sqrMagnitude;
-        foreach (TicketSlot slot in slots)
-        {
-            if (slot.currentTicket != null) continue;
-            float distance = (rectTransform.anchoredPosition - slot.GetComponent<RectTransform>().anchoredPosition).sqrMagnitude;
-            if (distance < currentDistance)
+            if (slot == null || slot.currentTicket != null) continue;
+
+            float distance = (rectTransform.anchoredPosition -
+                slot.GetComponent<RectTransform>().anchoredPosition).sqrMagnitude;
+
+            if (distance < bestDistance)
             {
-                currentDistance = distance;
+                bestDistance = distance;
                 closest = slot;
             }
         }

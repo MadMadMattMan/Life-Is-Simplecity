@@ -22,6 +22,13 @@ public class Interactable : MonoBehaviour
     private float degreesPerSecond = 360.0f;
     private Transform camParent;
     private Vector3 currentVelocity = Vector3.zero;
+    public bool IsTransitioning => state == State.Entering || state == State.Exiting;
+    private enum State { Idle, Entering, Active, Exiting }
+    private State state = State.Idle;
+    private void Start()
+    {
+        camParent = cam.transform.parent;
+    }
     private void OnEnable()
     {
         interactAction.AddListener(Interact);
@@ -96,56 +103,62 @@ public class Interactable : MonoBehaviour
 
     public void Interact()
     {
-        if (beingInteractedWith && !playerLock)
+        switch (state)
         {
-            OnUninteract();
-            StartCoroutine(nameof(UninteractionSequence));
+            case State.Active:
+                ExitInteraction();
+                return;
+            case State.Entering:
+            case State.Exiting:
+                return;
         }
-        if (interactable)
+        if (!interactable) return;
+        bool playerHasItem = PlayerController.Instance.HasItem();
+        if (canPlaceCauldron)
         {
-            if (canPlaceCauldron)
+            if (playerHasItem && Cauldron != null)
             {
-                bool playerHasItem = PlayerController.Instance.HasItem();
-                if (playerHasItem && Cauldron == null)
-                {
-                    PlaceCauldron();
-                    PlayerController.Instance.isActive = false;
-                    camParent = cam.transform.parent;
-                    cam.transform.SetParent(null);
-                    StartCoroutine(nameof(InteractionSequence));
-                }
-                else if (playerHasItem && Cauldron != null)
-                {
-                    PopupManager.Instance.CreatePopup("Cant interact whilst carring cauldron!");
-                }
-                else
-                {
-                    PlayerController.Instance.isActive = false;
-                    camParent = cam.transform.parent;
-                    cam.transform.SetParent(null);
-                    StartCoroutine(nameof(InteractionSequence));
-                }
+                PopupManager.Instance.CreatePopup("Cant interact whilst carring cauldron!");
+                return;
             }
-            else
-            {
-                if (!beingInteractedWith)
-                {
-                    bool playerHasItem = PlayerController.Instance.HasItem();
-                    if (playerHasItem)
-                    {
-                        PopupManager.Instance.CreatePopup("Cant interact whilst carring cauldron!");
-                    }
-                    else
-                    {
-                        PlayerController.Instance.isActive = false;
-                        camParent = cam.transform.parent;
-                        cam.transform.SetParent(null);
-                        StartCoroutine(nameof(InteractionSequence));
-                    }
-                }
-            }
+            if (playerHasItem && Cauldron == null)
+                PlaceCauldron();
         }
+        else if (playerHasItem)
+        {
+            PopupManager.Instance.CreatePopup("Cant interact whilst carring cauldron!");
+            return;
+        }
+        EnterInteraction();
     }
+    private void EnterInteraction()
+    {
+        state = State.Entering;
+        beingInteractedWith = true;
+        interactable = false;
+        PlayerController.Instance.isActive = false;
+
+        camParent = cam.transform.parent;
+        cam.transform.SetParent(null);
+        currentVelocity = Vector3.zero;
+        StartCoroutine(InteractionSequence());
+    }
+
+    private void ExitInteraction()
+    {
+        if (camParent == null)
+        {
+            Debug.LogError($"{name}: camParent is null on exit", this);
+        }
+
+        state = State.Exiting;
+        beingInteractedWith = false;
+        OnUninteract();
+        currentVelocity = Vector3.zero;
+        StartCoroutine(UninteractionSequence());
+    }
+
+
     public IEnumerator InteractionSequence()
     {
         audioSource.PlayOneShot(Whoosh);
@@ -155,24 +168,26 @@ public class Interactable : MonoBehaviour
             cam.transform.rotation = Quaternion.RotateTowards(cam.transform.rotation, camTarget.rotation, degreesPerSecond * Time.deltaTime);
             yield return null;
         }
+        state = State.Active;
         OnInteract();
     }
+
     public IEnumerator UninteractionSequence()
     {
         audioSource.PlayOneShot(Whoosh);
-        while (cam && camParent && (cam.transform.position - camParent.position).sqrMagnitude > 0.01f)
+        while (camParent != null && (cam.transform.position - camParent.position).sqrMagnitude > 0.01f)
         {
             cam.transform.position = Vector3.SmoothDamp(cam.transform.position, camParent.position, ref currentVelocity, smoothTime);
             cam.transform.rotation = Quaternion.RotateTowards(cam.transform.rotation, camParent.rotation, degreesPerSecond * Time.deltaTime);
             yield return null;
         }
-        cam.transform.SetParent(camParent);
-        beingInteractedWith = false;
+        if (camParent != null) cam.transform.SetParent(camParent);
         PlayerController.Instance.isActive = true;
+        state = State.Idle;
     }
+
     public virtual void OnInteract()
     {
-        beingInteractedWith = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }

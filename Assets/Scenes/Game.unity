@@ -29790,6 +29790,7 @@ MonoBehaviour:
   OrderUI: {fileID: 1204743418}
   OrderDrop: {fileID: 1653282531}
   StarManager: {fileID: 5569182852694808545}
+  ticketSlot: {fileID: 1653282531}
 --- !u!65 &1257563691
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40940,7 +40941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1653282532
 RectTransform:
   m_ObjectHideFlags: 0

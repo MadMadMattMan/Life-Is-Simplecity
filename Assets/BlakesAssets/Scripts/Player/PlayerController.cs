@@ -79,18 +79,19 @@ public class PlayerController : MonoBehaviour
         if (!context.started) return;
         if (interacting)
         {
+            if (lastInteractable == null) { interacting = false; return; }
+            if (lastInteractable.IsTransitioning) return;
             lastInteractable.Interact();
             interacting = false;
             lastInteractable = null;
             return;
         }
-        Interactable interactable;
-        if (hit.transform != null)
+
+        if (hit.transform != null && hit.transform.TryGetComponent(out Interactable interactable))
         {
-            hit.transform.TryGetComponent(out interactable);
-            if (interactable != null)
+            interactable.Interact();
+            if (interactable.beingInteractedWith)
             {
-                interactable.Interact();
                 lastInteractable = interactable;
                 interacting = true;
             }
