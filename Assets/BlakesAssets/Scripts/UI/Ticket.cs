@@ -70,7 +70,10 @@ public class Ticket : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
             if (slot.currentTicket != null) continue;
             closest = slot;
         }
-        if (closest == null) return null;
+        if (closest == null) {
+            Debug.LogWarning("All ticket slots are full");
+            return null;
+        }
         float currentDistance = (rectTransform.anchoredPosition - slots[0].GetComponent<RectTransform>().anchoredPosition).sqrMagnitude;
         foreach (TicketSlot slot in slots)
         {

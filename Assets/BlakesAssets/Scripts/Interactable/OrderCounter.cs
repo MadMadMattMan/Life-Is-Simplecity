@@ -7,9 +7,11 @@ public class OrderCounter : Interactable
     public NPCBehaviour currentNPC;
     private bool isInteractedWith = false;
     public bool isShowingOrder = false;
+    public bool isChatting = false;
     private bool TakenFirstOrder = false;
     public override void OnInteract()
     {
+        print("interacting");
         base.OnInteract();
         isInteractedWith = true;
         if (!TakenFirstOrder)
@@ -19,31 +21,28 @@ public class OrderCounter : Interactable
         }
         if (NPCManager.Instance.OrderQueue.Count <= 0) { PopupManager.Instance.CreatePopup("Not a person in sight"); return; }
     }
-    private void Update()
-    {
-        if (isInteractedWith)
-        {
-            if (!isShowingOrder)
-            {
-                if (NPCManager.Instance.OrderQueue.Count > 0)
-                {
-                    currentNPC = NPCManager.Instance.GetFirstNPC();
-                    currentNPC.ShowOrder();
-                    isShowingOrder = true;
-                    playerLock = true;
-                }
-                else
-                {
-                    currentNPC = null;
-                    isShowingOrder = false;
-                    playerLock = false;
-                }
+    private void Update() {
+        if (isInteractedWith && !isShowingOrder) {
+            if (NPCManager.Instance.OrderQueue.Count > 0) {
+                currentNPC = NPCManager.Instance.GetFirstNPC();
+                currentNPC.ShowOrder(this);
+                isShowingOrder = true;
+            }
+            else {
+                currentNPC = null;
+                isShowingOrder = false;
             }
         }
+
+        if (isChatting && !playerLock)
+            playerLock = true;
+        if (!isChatting && playerLock)
+            playerLock = false;
     }
+
     public override void OnUninteract()
     {
-        if (isShowingOrder) return;
+        if (isChatting) return;
         base.OnUninteract();
         isInteractedWith = false;
         isShowingOrder = false;

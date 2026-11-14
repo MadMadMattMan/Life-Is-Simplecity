@@ -31,6 +31,8 @@ public class NPCBehaviour : MonoBehaviour
     bool moving = false;
     bool pastmove= false;
     FootstepSFX footstepSFX;
+
+    OrderCounter counter;
     void Start()
     {
         footstepSFX = GetComponentInChildren<FootstepSFX>();
@@ -95,8 +97,9 @@ public class NPCBehaviour : MonoBehaviour
     {
         agent.SetDestination(position);
     }
-    public void ShowOrder()
+    public void ShowOrder(OrderCounter counter)
     {
+        this.counter = counter;
         speechBubbleCanvas.SetActive(true);
     }
     public void DisplayOrder()
@@ -108,6 +111,7 @@ public class NPCBehaviour : MonoBehaviour
     }
     IEnumerator PrintOrder(float upTime, Order order)
     {
+        counter.isChatting = true;
         source.pitch = Random.Range(0.8f, 1.2f);
         source.Play();
         yield return new WaitForSeconds(upTime / order.numberOfItems);
@@ -129,6 +133,7 @@ public class NPCBehaviour : MonoBehaviour
         source.Stop();
         source.pitch = 1;
         source.PlayOneShot(kaching);
+        counter.isChatting = false;
     }
     public void HideOrder()
     {

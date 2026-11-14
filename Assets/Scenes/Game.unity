@@ -310,7 +310,11 @@ MonoBehaviour:
   lowerY: -1.5
   type: 0
   manager: {fileID: 175833479}
-  splashClips: []
+  splashClips:
+  - {fileID: 8300000, guid: b761d579119348e41b246cf4bd170e85, type: 3}
+  - {fileID: 8300000, guid: db0ab57666e872a4db7119c5a3fdf45a, type: 3}
+  - {fileID: 8300000, guid: ffbcbca858afe124d99be4781ae3eb42, type: 3}
+  - {fileID: 8300000, guid: d523c7da2b7098d498c3e73f28d51aec, type: 3}
 --- !u!114 &14936703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,7 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
   spring: 75
   dampening: 5
-  dragSFX: {fileID: 0}
+  dragSFX: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!64 &14936704
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7196,7 +7200,7 @@ MonoBehaviour:
   - {fileID: 1560776317}
   - {fileID: 1812385294}
   - {fileID: 1454711628}
-  pop: {fileID: 0}
+  pop: {fileID: 8300000, guid: 26094db6d3626c34a903ab2bb3f2907e, type: 3}
 --- !u!82 &175833480
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8891,7 +8895,11 @@ MonoBehaviour:
   lowerY: -1.5
   type: 3
   manager: {fileID: 1663102402}
-  splashClips: []
+  splashClips:
+  - {fileID: 8300000, guid: b761d579119348e41b246cf4bd170e85, type: 3}
+  - {fileID: 8300000, guid: db0ab57666e872a4db7119c5a3fdf45a, type: 3}
+  - {fileID: 8300000, guid: ffbcbca858afe124d99be4781ae3eb42, type: 3}
+  - {fileID: 8300000, guid: d523c7da2b7098d498c3e73f28d51aec, type: 3}
 --- !u!114 &367604127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8906,7 +8914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
   spring: 75
   dampening: 5
-  dragSFX: {fileID: 0}
+  dragSFX: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!54 &367604128
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9452,7 +9460,11 @@ MonoBehaviour:
   lowerY: -1.5
   type: 2
   manager: {fileID: 1573420702}
-  splashClips: []
+  splashClips:
+  - {fileID: 8300000, guid: b761d579119348e41b246cf4bd170e85, type: 3}
+  - {fileID: 8300000, guid: db0ab57666e872a4db7119c5a3fdf45a, type: 3}
+  - {fileID: 8300000, guid: ffbcbca858afe124d99be4781ae3eb42, type: 3}
+  - {fileID: 8300000, guid: d523c7da2b7098d498c3e73f28d51aec, type: 3}
 --- !u!114 &391001590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9467,7 +9479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
   spring: 75
   dampening: 5
-  dragSFX: {fileID: 0}
+  dragSFX: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!64 &391001591
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11828,6 +11840,7 @@ MonoBehaviour:
   OrderUI: {fileID: 946599900}
   currentNPC: {fileID: 0}
   isShowingOrder: 0
+  isChatting: 0
 --- !u!65 &644830780
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12017,7 +12030,11 @@ MonoBehaviour:
   lowerY: -1.5
   type: 4
   manager: {fileID: 1573420702}
-  splashClips: []
+  splashClips:
+  - {fileID: 8300000, guid: b761d579119348e41b246cf4bd170e85, type: 3}
+  - {fileID: 8300000, guid: db0ab57666e872a4db7119c5a3fdf45a, type: 3}
+  - {fileID: 8300000, guid: ffbcbca858afe124d99be4781ae3eb42, type: 3}
+  - {fileID: 8300000, guid: d523c7da2b7098d498c3e73f28d51aec, type: 3}
 --- !u!114 &647519936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12032,7 +12049,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
   spring: 75
   dampening: 5
-  dragSFX: {fileID: 0}
+  dragSFX: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!54 &647519937
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20760,7 +20777,11 @@ MonoBehaviour:
   lowerY: -1.5
   type: 0
   manager: {fileID: 1573420702}
-  splashClips: []
+  splashClips:
+  - {fileID: 8300000, guid: b761d579119348e41b246cf4bd170e85, type: 3}
+  - {fileID: 8300000, guid: db0ab57666e872a4db7119c5a3fdf45a, type: 3}
+  - {fileID: 8300000, guid: ffbcbca858afe124d99be4781ae3eb42, type: 3}
+  - {fileID: 8300000, guid: d523c7da2b7098d498c3e73f28d51aec, type: 3}
 --- !u!114 &985085117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20775,7 +20796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
   spring: 75
   dampening: 5
-  dragSFX: {fileID: 0}
+  dragSFX: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!64 &985085118
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30208,7 +30229,11 @@ MonoBehaviour:
   lowerY: -1.5
   type: 4
   manager: {fileID: 1663102402}
-  splashClips: []
+  splashClips:
+  - {fileID: 8300000, guid: b761d579119348e41b246cf4bd170e85, type: 3}
+  - {fileID: 8300000, guid: db0ab57666e872a4db7119c5a3fdf45a, type: 3}
+  - {fileID: 8300000, guid: ffbcbca858afe124d99be4781ae3eb42, type: 3}
+  - {fileID: 8300000, guid: d523c7da2b7098d498c3e73f28d51aec, type: 3}
 --- !u!114 &1294494249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30223,7 +30248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
   spring: 75
   dampening: 5
-  dragSFX: {fileID: 0}
+  dragSFX: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!54 &1294494250
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30459,7 +30484,11 @@ MonoBehaviour:
   lowerY: -1.5
   type: 3
   manager: {fileID: 1573420702}
-  splashClips: []
+  splashClips:
+  - {fileID: 8300000, guid: b761d579119348e41b246cf4bd170e85, type: 3}
+  - {fileID: 8300000, guid: db0ab57666e872a4db7119c5a3fdf45a, type: 3}
+  - {fileID: 8300000, guid: ffbcbca858afe124d99be4781ae3eb42, type: 3}
+  - {fileID: 8300000, guid: d523c7da2b7098d498c3e73f28d51aec, type: 3}
 --- !u!114 &1307012921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30474,7 +30503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
   spring: 75
   dampening: 5
-  dragSFX: {fileID: 0}
+  dragSFX: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!54 &1307012922
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -38165,7 +38194,11 @@ MonoBehaviour:
   lowerY: -1.5
   type: 4
   manager: {fileID: 175833479}
-  splashClips: []
+  splashClips:
+  - {fileID: 8300000, guid: b761d579119348e41b246cf4bd170e85, type: 3}
+  - {fileID: 8300000, guid: db0ab57666e872a4db7119c5a3fdf45a, type: 3}
+  - {fileID: 8300000, guid: ffbcbca858afe124d99be4781ae3eb42, type: 3}
+  - {fileID: 8300000, guid: d523c7da2b7098d498c3e73f28d51aec, type: 3}
 --- !u!114 &1454711631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38180,7 +38213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
   spring: 75
   dampening: 5
-  dragSFX: {fileID: 0}
+  dragSFX: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!54 &1454711632
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -38324,7 +38357,11 @@ MonoBehaviour:
   lowerY: -1.5
   type: 1
   manager: {fileID: 1663102402}
-  splashClips: []
+  splashClips:
+  - {fileID: 8300000, guid: b761d579119348e41b246cf4bd170e85, type: 3}
+  - {fileID: 8300000, guid: db0ab57666e872a4db7119c5a3fdf45a, type: 3}
+  - {fileID: 8300000, guid: ffbcbca858afe124d99be4781ae3eb42, type: 3}
+  - {fileID: 8300000, guid: d523c7da2b7098d498c3e73f28d51aec, type: 3}
 --- !u!114 &1475215253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38339,7 +38376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
   spring: 75
   dampening: 5
-  dragSFX: {fileID: 0}
+  dragSFX: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!54 &1475215254
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -38806,7 +38843,11 @@ MonoBehaviour:
   lowerY: -1.5
   type: 0
   manager: {fileID: 1663102402}
-  splashClips: []
+  splashClips:
+  - {fileID: 8300000, guid: b761d579119348e41b246cf4bd170e85, type: 3}
+  - {fileID: 8300000, guid: db0ab57666e872a4db7119c5a3fdf45a, type: 3}
+  - {fileID: 8300000, guid: ffbcbca858afe124d99be4781ae3eb42, type: 3}
+  - {fileID: 8300000, guid: d523c7da2b7098d498c3e73f28d51aec, type: 3}
 --- !u!114 &1494926868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38821,7 +38862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
   spring: 75
   dampening: 5
-  dragSFX: {fileID: 0}
+  dragSFX: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!64 &1494926869
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39431,7 +39472,11 @@ MonoBehaviour:
   lowerY: -1.5
   type: 2
   manager: {fileID: 175833479}
-  splashClips: []
+  splashClips:
+  - {fileID: 8300000, guid: b761d579119348e41b246cf4bd170e85, type: 3}
+  - {fileID: 8300000, guid: db0ab57666e872a4db7119c5a3fdf45a, type: 3}
+  - {fileID: 8300000, guid: ffbcbca858afe124d99be4781ae3eb42, type: 3}
+  - {fileID: 8300000, guid: d523c7da2b7098d498c3e73f28d51aec, type: 3}
 --- !u!114 &1560776319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39446,7 +39491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
   spring: 75
   dampening: 5
-  dragSFX: {fileID: 0}
+  dragSFX: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!64 &1560776320
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39744,7 +39789,7 @@ MonoBehaviour:
   - {fileID: 391001588}
   - {fileID: 1307012919}
   - {fileID: 647519933}
-  pop: {fileID: 0}
+  pop: {fileID: 8300000, guid: 26094db6d3626c34a903ab2bb3f2907e, type: 3}
 --- !u!82 &1573420703
 AudioSource:
   m_ObjectHideFlags: 0
@@ -40087,7 +40132,11 @@ MonoBehaviour:
   lowerY: -1.5
   type: 1
   manager: {fileID: 1573420702}
-  splashClips: []
+  splashClips:
+  - {fileID: 8300000, guid: b761d579119348e41b246cf4bd170e85, type: 3}
+  - {fileID: 8300000, guid: db0ab57666e872a4db7119c5a3fdf45a, type: 3}
+  - {fileID: 8300000, guid: ffbcbca858afe124d99be4781ae3eb42, type: 3}
+  - {fileID: 8300000, guid: d523c7da2b7098d498c3e73f28d51aec, type: 3}
 --- !u!114 &1581180025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40102,7 +40151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
   spring: 75
   dampening: 5
-  dragSFX: {fileID: 0}
+  dragSFX: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!54 &1581180026
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -41126,7 +41175,7 @@ MonoBehaviour:
   - {fileID: 1857098657}
   - {fileID: 367604125}
   - {fileID: 1294494246}
-  pop: {fileID: 0}
+  pop: {fileID: 8300000, guid: 26094db6d3626c34a903ab2bb3f2907e, type: 3}
 --- !u!82 &1663102403
 AudioSource:
   m_ObjectHideFlags: 0
@@ -48555,7 +48604,11 @@ MonoBehaviour:
   lowerY: -1.5
   type: 3
   manager: {fileID: 175833479}
-  splashClips: []
+  splashClips:
+  - {fileID: 8300000, guid: b761d579119348e41b246cf4bd170e85, type: 3}
+  - {fileID: 8300000, guid: db0ab57666e872a4db7119c5a3fdf45a, type: 3}
+  - {fileID: 8300000, guid: ffbcbca858afe124d99be4781ae3eb42, type: 3}
+  - {fileID: 8300000, guid: d523c7da2b7098d498c3e73f28d51aec, type: 3}
 --- !u!114 &1812385296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48570,7 +48623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
   spring: 75
   dampening: 5
-  dragSFX: {fileID: 0}
+  dragSFX: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!54 &1812385297
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -54235,7 +54288,11 @@ MonoBehaviour:
   lowerY: -1.5
   type: 2
   manager: {fileID: 1663102402}
-  splashClips: []
+  splashClips:
+  - {fileID: 8300000, guid: b761d579119348e41b246cf4bd170e85, type: 3}
+  - {fileID: 8300000, guid: db0ab57666e872a4db7119c5a3fdf45a, type: 3}
+  - {fileID: 8300000, guid: ffbcbca858afe124d99be4781ae3eb42, type: 3}
+  - {fileID: 8300000, guid: d523c7da2b7098d498c3e73f28d51aec, type: 3}
 --- !u!114 &1857098659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54250,7 +54307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
   spring: 75
   dampening: 5
-  dragSFX: {fileID: 0}
+  dragSFX: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!64 &1857098660
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71915,7 +71972,11 @@ MonoBehaviour:
   lowerY: -1.5
   type: 1
   manager: {fileID: 175833479}
-  splashClips: []
+  splashClips:
+  - {fileID: 8300000, guid: b761d579119348e41b246cf4bd170e85, type: 3}
+  - {fileID: 8300000, guid: db0ab57666e872a4db7119c5a3fdf45a, type: 3}
+  - {fileID: 8300000, guid: ffbcbca858afe124d99be4781ae3eb42, type: 3}
+  - {fileID: 8300000, guid: d523c7da2b7098d498c3e73f28d51aec, type: 3}
 --- !u!114 &2134055318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71930,7 +71991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableItem
   spring: 75
   dampening: 5
-  dragSFX: {fileID: 0}
+  dragSFX: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!54 &2134055319
 Rigidbody:
   m_ObjectHideFlags: 0
