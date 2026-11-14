@@ -7,6 +7,7 @@ using System.Collections;
 public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     private TicketSlot currentSlot;
+    public TicketSlot[] slots;
     public Sprite[] ingredientSprites = new Sprite[5];
     public Order order;
     public NPCBehaviour NPC;
@@ -23,6 +24,10 @@ public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEn
     private RectTransform rectTransform;
     private void Awake()
     {
+        while (slots.Length == 0)
+        {
+            slots = FindObjectsByType<TicketSlot>();
+        }
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
@@ -66,7 +71,6 @@ public class Ticket : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEn
     }
     public TicketSlot GetClosestSlot()
     {
-        TicketSlot[] slots = FindObjectsByType<TicketSlot>();
         TicketSlot closest;
         foreach (TicketSlot slot in slots)
         {
