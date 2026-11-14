@@ -4,6 +4,7 @@ public class TrashCan : MonoBehaviour
 {
     public InputAction interactAction;
     public GameObject interactionPopup;
+    public AudioSource source;
     private bool interactable;
     public AudioSource source;
     private void OnEnable()
