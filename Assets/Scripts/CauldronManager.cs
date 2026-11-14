@@ -7,7 +7,6 @@ public class CauldronManager : MonoBehaviour {
     // for comparison for grade
     public Vector3 baseColor = Vector3.one;
 
-
     // for comparison for grade
     public List<Ingredient> addedIngredients = new List<Ingredient>();
 
@@ -16,6 +15,12 @@ public class CauldronManager : MonoBehaviour {
     public float brewAmount = 0f;
     public float brewQuality = 1f;
 
+    private void Start() {
+        baseColor = Vector3.one;
+        addedIngredients.Clear();
+        brewAmount = 0f;
+        brewQuality = 1f;
+    }
 
     public void SetColor(Vector3 c) {
         baseColor = c;

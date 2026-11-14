@@ -1,4 +1,5 @@
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,12 +7,16 @@ public class StarManager : MonoBehaviour
 {
     [Range(0, 5)] public float StarRating;
     public GameObject Stars;
-    public float customersToFiveStars = 15f;
+    public float customersToFiveStars = 10f;
     public StarManager storeStars;
     GameManager gm;
+    AudioSource audioSource;
+    [SerializeField] AudioClip goodSFX;
+    [SerializeField] AudioClip badSFX;
 
-    void FixedUpdate() {
-        GameManager gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+    void Awake() {
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        audioSource = GetComponent<AudioSource>();
         if (gm == null)
             Debug.LogWarning("Failed to get GameManager for stars");
 
@@ -30,7 +35,7 @@ public class StarManager : MonoBehaviour
         // pour, 1 star
         float diff = (cauldron.baseColor - order.Liquid).magnitude;
         print(diff);
-        stars += 1 - diff;
+        stars += 1 - 2*diff;
 
         print("stars 1: " + stars);
 
@@ -55,15 +60,23 @@ public class StarManager : MonoBehaviour
         penalty += cauldron.brewAmount;
         penalty += cauldron.brewQuality;
         penalty = Mathf.Clamp01(penalty / 5f); // 5 seconds of decline
-        stars += -3*penalty + 3;
+        stars += -3f*penalty + 3f;
         
 
-        print("stars 3:" + stars);
+        print("stars 3: " + stars);
+
+        stars = Mathf.Round(stars * 2f) / 2f;
+
+        UpdateStore(stars);
         UpdateStars(stars);
     }
 
     public void UpdateStars(float newStars) {
         StarRating = newStars;
+        if (StarRating >= 3)
+            audioSource.PlayOneShot(goodSFX);
+        else
+            audioSource.PlayOneShot(badSFX);
         DisplayStars();
     }
 
@@ -71,7 +84,11 @@ public class StarManager : MonoBehaviour
         if (storeStars == null)
             return;
 
-        gm.storeRating += newStars / customersToFiveStars;
+        // scale stars so after n 5 stars have store reach 5 stars
+        float diff = (newStars - 3f)/(customersToFiveStars/2.5f);
+
+
+        gm.storeRating += diff;
         storeStars.UpdateStars(gm.storeRating);
     }
 }

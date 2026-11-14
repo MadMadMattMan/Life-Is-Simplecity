@@ -23,11 +23,18 @@ public class NPCBehaviour : MonoBehaviour
     public AudioSource source;
     public AudioClip clip1;
     public AudioClip clip2;
+    public AudioClip kaching;
     private NavMeshAgent agent;
     private Order order;
     private bool die = false;
+
+    bool moving = false;
+    bool pastmove= false;
+    FootstepSFX footstepSFX;
     void Start()
     {
+        footstepSFX = GetComponentInChildren<FootstepSFX>();
+
         agent = GetComponent<NavMeshAgent>();
         order = GetComponent<Order>();
         if (Random.Range(0,2) != 0) source.clip = clip1;
@@ -53,6 +60,17 @@ public class NPCBehaviour : MonoBehaviour
                 }
             }
         }
+
+        if (agent.velocity.magnitude >= 0.1f)
+            moving = true;
+        else moving = false;
+
+        // foostep
+        if (moving != pastmove) {
+            if (moving) footstepSFX.Play(0.5f);
+            else footstepSFX.Stop();
+        }
+        pastmove = moving;
     }
     public void DIE()
     {
@@ -86,7 +104,7 @@ public class NPCBehaviour : MonoBehaviour
         button.interactable = false;
         float upTime = 5f;
         StartCoroutine(PrintOrder(upTime, order));
-        GameManager.Instance.WriteTicket(upTime, order);
+        GameManager.Instance.WriteTicket(upTime, order, this);
     }
     IEnumerator PrintOrder(float upTime, Order order)
     {
@@ -109,6 +127,8 @@ public class NPCBehaviour : MonoBehaviour
         OrderCounter.Instance.playerLock = false;
         NPCManager.Instance.NPCTakeOrder();
         source.Stop();
+        source.pitch = 1;
+        source.PlayOneShot(kaching);
     }
     public void HideOrder()
     {
