@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class OrderCounter : Interactable
 {
+    [Header("Order Counter")]
     public GameObject OrderUI;
     public NPCBehaviour currentNPC;
     private bool isInteractedWith = false;

@@ -8,11 +8,14 @@ public class PlayerController : MonoBehaviour
     private float yRotation = 0f;
     private float xRotation = 0f;
     public bool isActive = true;
+    bool moving = false;
+    bool pastmove = false;
     List<Interactable> interactables = new List<Interactable>();
     CauldronStack cauldronStack;
     TrashCan trashCan;
     public GameObject inventorySlot;
     public GameObject inventoryItem;
+    public FootstepSFX footstepSFX;
     private void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -50,6 +53,13 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        // foostep
+        if (moving != pastmove) {
+            if (moving) footstepSFX.Play();
+            else footstepSFX.Stop();
+        }
+        pastmove = moving;
+
         RaycastHit hit;
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         if (Physics.Raycast(ray, out hit, maxRayDistance))
@@ -108,9 +118,13 @@ public class PlayerController : MonoBehaviour
     {
         if (!isActive) return;
         Vector3 move = transform.forward * dir.y + transform.right * dir.x;
-        move = move * MoveSpeed * Time.deltaTime;
-        Vector3 moveDirection = new Vector3(move.x, 0f, move.z);
-        cc.Move(moveDirection);
+        if (move.magnitude > 0.1f) {
+            moving = true;
+            move = move * MoveSpeed * Time.deltaTime;
+            Vector3 moveDirection = new Vector3(move.x, 0f, move.z);
+            cc.Move(moveDirection);
+        }
+        else moving = false;
     }
     public void Rotate(Vector2 dir)
     {

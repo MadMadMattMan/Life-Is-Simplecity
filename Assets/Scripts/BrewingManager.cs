@@ -10,7 +10,7 @@ public class BrewingManager : Interactable {
     float lowerHeat, upperHeat;
     public float timerStart = -1f;
     public float brewTimeGrace = 5f;
-    public float degradeGrace = 2f;
+    public float degradeGrace = 3f;
     public float tempFalloff = 15f;
 
 
@@ -31,9 +31,15 @@ public class BrewingManager : Interactable {
     public Transform Indicator;
 
 
+    [Header("Audio")]
+    [SerializeField] AudioClip doneAlarm;
+    [SerializeField] AudioSource brewingSound;
+    [SerializeField] AudioClip burningSound;
+
+
     [Header("Testing")]
-    public bool u = false;
-    public bool h = false;
+    public bool update = false;
+    public bool heat = false;
 
 
     private void Awake() {
@@ -41,39 +47,47 @@ public class BrewingManager : Interactable {
     }
 
     private void Update() {
-        if (u) {
+        if (update) {
             timerValue = timerStart;
             UpdateStation();
-            u = false;
+            update = false;
             doTimerCount = true;
         }
-        if (h) {
+        if (heat) {
             heatFire();
-            h = false;
+            heat = false;
         }
 
-        if (currentTemp < upperHeat && currentTemp > lowerHeat && !doTimerCount && timerStart != -1)
+        // Start count when in range
+        if (currentTemp < upperHeat && currentTemp > lowerHeat && !doTimerCount && timerStart != -1) {
+            brewingSound.Play();
             doTimerCount = true;
+        }
+            
 
+
+        // Count timer down if active
         if (doTimerCount) {
             timerValue -= Time.deltaTime;
-
-        if (currentTemp > upperHeat || currentTemp < lowerHeat)
-                degradeValue += Time.deltaTime;
-
             UpdateScreen();
+
+            // if out of range
+            if (currentTemp > upperHeat || currentTemp < lowerHeat)
+                    degradeValue += Time.deltaTime;
+
+            // if done
             if (timerValue <= 0f && !belowZero) {
                 belowZero = true;
                 TimerHitZero();
             }
+        }
 
-            if (currentTemp > 0)
-            {
-                currentTemp -= Time.deltaTime / tempFalloff;
-                if (currentTemp < 0)
-                    currentTemp = 0;
-                UpdateBar();
-            }
+        // cool flame
+        if (currentTemp > 0) {
+            currentTemp -= Time.deltaTime / tempFalloff;
+            if (currentTemp < 0)
+                currentTemp = 0;
+            UpdateBar();
         }
     }
 
@@ -121,6 +135,8 @@ public class BrewingManager : Interactable {
 
     // called on remove cauldron
     public void removeOrder() {
+        brewingSound.Stop();
+
         attachedOrder = null;
         heatPercent = -1;
         timerStart = -1;
@@ -136,7 +152,7 @@ public class BrewingManager : Interactable {
 
 
     void TimerHitZero() {
-        print("Hit Zero");
+        audioSource.PlayOneShot(doneAlarm);
     }
 
     public void UpdateStation() {

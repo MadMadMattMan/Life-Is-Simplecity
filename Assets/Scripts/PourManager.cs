@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PourManager : Interactable {
     [SerializeField] ParticleSystem RedPourParticles;
@@ -21,6 +22,9 @@ public class PourManager : Interactable {
 
     Color potionColor;
 
+    AudioSource pourAudio;
+    AudioClip clip;
+
     bool update = false;
 
 
@@ -33,6 +37,8 @@ public class PourManager : Interactable {
             ConnectCauldron(ConnectedCauldron);
             update = true;
         }
+        pourAudio = GetComponent<AudioSource>();
+        clip = pourAudio.clip;
     }
 
     public override void PlaceCauldron()
@@ -75,7 +81,10 @@ public class PourManager : Interactable {
             Debug.LogWarning("Incorrect Color added " + color);
             return;
         }
+        if (!clip)
+            clip = pourAudio.clip;
 
+        pourAudio.PlayOneShot(clip);
         if (color == 0) {
             addedColor = new Vector3(1, 0, 0);
             RedPourParticles.Play();

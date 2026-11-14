@@ -5,14 +5,21 @@ public class DraggableItem : MonoBehaviour, iItemInteraction {
     Rigidbody rb;
     public float spring = 75f;
     public float dampening = 5f;
+    [SerializeField] AudioClip dragSFX;
+    AudioSource audio;
 
     void Awake() {
         rb = GetComponent<Rigidbody>();
+        audio = gameObject.AddComponent<AudioSource>();
     }
 
-    public void click() {}
+    public void click() {
+        audio.PlayOneShot(dragSFX, 0.25f);
+    }
 
-    public void release() {}
+    public void release() {
+        audio.PlayOneShot(dragSFX, 0.25f);
+    }
 
     public void drag(Vector3 snapPosition) {
         Vector3 vect = snapPosition - transform.position;
