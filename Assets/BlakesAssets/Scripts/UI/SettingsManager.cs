@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
@@ -91,5 +92,9 @@ public class SettingsManager : MonoBehaviour
     {
         Resolution resolution = resolutions[_resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+    public void Home()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
