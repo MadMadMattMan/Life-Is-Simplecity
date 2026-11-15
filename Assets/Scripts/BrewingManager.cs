@@ -98,6 +98,7 @@ public class BrewingManager : Interactable {
     }
 
     public void heatFire() {
+        Tutorial.UsedFlame = true;
         currentTemp += 0.075f;
         Mathf.Clamp01(currentTemp);
         UpdateBar();
@@ -128,6 +129,7 @@ public class BrewingManager : Interactable {
 
     // called on place cauldron
     public void addOrder(Order newOrder, CauldronManager newCauldron) {
+        Tutorial.TicketDragged = true;
         attachedOrder = newOrder;
         orderNumber.text = orderPrefix + newOrder.OrderNumber;
 
@@ -167,7 +169,7 @@ public class BrewingManager : Interactable {
 
     void TimerHitZero() {
         dingSource.PlayOneShot(doneAlarm);
-        Tutorial.UsedFlame = true;
+        Tutorial.DoneBrewing = true;
     }
 
     public void UpdateStation() {
