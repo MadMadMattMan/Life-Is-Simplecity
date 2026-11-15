@@ -59,6 +59,7 @@ public class PourManager : Interactable {
 
         newColor = connectedCauldronLiquid.color;
         oldColor = newColor;
+        Tutorial.PlacedCauldronOnPourStation = true;
     }
 
     public void DisconnectCauldron() {
@@ -100,6 +101,7 @@ public class PourManager : Interactable {
             BluePourParticles.Play();
             update = true;
         }
+        Tutorial.UsedBase = true;
     }
 
 

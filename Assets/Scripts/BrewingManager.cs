@@ -104,6 +104,7 @@ public class BrewingManager : Interactable {
             GameObject t = GameObject.FindWithTag("MainTicket").GetComponent<TicketSlot>().currentTicket;
             Order o = t.GetComponent<Ticket>().order;
             addOrder(o, Cauldron.GetComponentInChildren<CauldronManager>());
+            Tutorial.PlacedCauldronOnBrewStation = true;
         }
         catch (Exception e)
         {
@@ -153,6 +154,7 @@ public class BrewingManager : Interactable {
 
     void TimerHitZero() {
         audioSource.PlayOneShot(doneAlarm);
+        Tutorial.UsedFlame = true;
     }
 
     public void UpdateStation() {

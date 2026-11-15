@@ -2,22 +2,20 @@ using UnityEngine;
 using System.Collections;
 public class PickupCounter : Interactable
 {
-    public GameObject OrderUI;
     public StarManager StarManager;
     public GameObject ticketSlot;
     public override void OnInteract()
     {
         base.OnInteract();
-        OrderUI.SetActive(true);
         if (Cauldron) 
         {
             ticketSlot.SetActive(true); 
         }
+        Tutorial.InteractedWithPickupCounter = true;
     }
     public override void OnUninteract()
     {
         base.OnUninteract();
-        OrderUI.SetActive(false);
         ticketSlot.SetActive(false);
     }
     public void OnOrderComplete(GameObject ticket)
@@ -28,6 +26,7 @@ public class PickupCounter : Interactable
         NPCManager.Instance.NPCGoOutDoor(ticket1.NPC.gameObject);
         NPCManager.Instance.NPCCollectOrder(ticket1.NPC.gameObject);
         GameManager.Instance.activeOrders.Remove(ticket1.order);
+        Tutorial.CompletedOrder = true;
         Destroy(Cauldron, 2f);
         Destroy(ticket, 2f);
     }

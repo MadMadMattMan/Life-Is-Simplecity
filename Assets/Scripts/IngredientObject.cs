@@ -29,6 +29,7 @@ public class IngredientObject : MonoBehaviour {
              
             AudioClip clip = splashClips[i];
             splashAudio.PlayOneShot(clip);
+            Tutorial.UsedIngredients = true;
         }
     }
 }

@@ -134,6 +134,7 @@ public class NPCBehaviour : MonoBehaviour
         source.pitch = 1;
         source.PlayOneShot(kaching);
         counter.isChatting = false;
+        Tutorial.InteractedWithCustomer = true;
     }
     public void HideOrder()
     {

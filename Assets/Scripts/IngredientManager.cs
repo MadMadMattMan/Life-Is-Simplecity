@@ -18,4 +18,9 @@ public class IngredientManager : Interactable {
         ingredients[i].GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         audio.PlayOneShot(pop, 0.025f);
     }
+    public override void PlaceCauldron()
+    {
+        base.PlaceCauldron();
+        Tutorial.InteractedWithIngredientCounter = true;
+    }
 }

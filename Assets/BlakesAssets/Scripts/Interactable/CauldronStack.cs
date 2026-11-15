@@ -35,6 +35,7 @@ public class CauldronStack : MonoBehaviour
             GameObject prefab = Instantiate(CauldronPrefab);
             PlayerController.Instance.CarryItem(prefab);
             audioSource.PlayOneShot(clip);
+            Tutorial.TakenCauldron = true;
         }
     }
 }

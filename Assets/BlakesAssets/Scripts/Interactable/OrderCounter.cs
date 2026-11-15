@@ -3,23 +3,16 @@ using UnityEngine;
 public class OrderCounter : Interactable
 {
     [Header("Order Counter")]
-    public GameObject OrderUI;
     public NPCBehaviour currentNPC;
     private bool isInteractedWith = false;
     public bool isShowingOrder = false;
     public bool isChatting = false;
-    private bool TakenFirstOrder = false;
     public override void OnInteract()
     {
-        print("interacting");
         base.OnInteract();
         isInteractedWith = true;
-        if (!TakenFirstOrder)
-        {
-            OrderUI.SetActive(true);
-            TakenFirstOrder = true;
-        }
         if (NPCManager.Instance.OrderQueue.Count <= 0) { PopupManager.Instance.CreatePopup("Not a person in sight"); return; }
+        Tutorial.InteractedWithOrderCounter = true;
     }
     private void Update() {
         if (isInteractedWith && !isShowingOrder) {
@@ -46,7 +39,6 @@ public class OrderCounter : Interactable
         base.OnUninteract();
         isInteractedWith = false;
         isShowingOrder = false;
-        OrderUI.SetActive(false);
         if (currentNPC != null) currentNPC.HideOrder();
     }
     public static OrderCounter Instance { get; private set; }
