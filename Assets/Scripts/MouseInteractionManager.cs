@@ -38,6 +38,8 @@ public class MouseInteractionManager : MonoBehaviour {
         iScript = null;
         mouseWorldspace = Vector3.zero;
         Vector3 mousePos = Mouse.current.position.ReadValue();
+        if (!mainCamera)
+            return false;
         Ray raycast = mainCamera.ScreenPointToRay(mousePos);
 
         Debug.DrawRay(raycast.origin, raycast.direction * raycastDistance, Color.wheat, 0.1f);

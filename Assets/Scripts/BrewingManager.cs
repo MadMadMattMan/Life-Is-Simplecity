@@ -12,8 +12,8 @@ public class BrewingManager : Interactable {
     public float heatPercent = -1f;
     float lowerHeat, upperHeat;
     public float timerStart = -1f;
-    public float brewTimeGrace = 5f;
-    public float degradeGrace = 3f;
+    public float brewTimeGrace = 2f;
+    public float degradeGrace = 1f;
     public float tempFalloff = 15f;
 
 
@@ -157,8 +157,8 @@ public class BrewingManager : Interactable {
         doTimerCount = false;
         UpdateStation();
 
-        attachedCauldron.brewAmount = Mathf.Abs(timerValue) - brewTimeGrace;
-        attachedCauldron.brewQuality = Mathf.Abs(degradeValue) - degradeGrace;
+        attachedCauldron.brewAmount = Mathf.Max(Mathf.Abs(timerValue) - brewTimeGrace, 0);
+        attachedCauldron.brewQuality = Mathf.Max(Mathf.Abs(degradeValue) - degradeGrace, 0);
 
         attachedCauldron = null;
     }
