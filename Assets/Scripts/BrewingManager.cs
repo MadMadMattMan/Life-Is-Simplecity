@@ -14,7 +14,7 @@ public class BrewingManager : Interactable {
     public float timerStart = -1f;
     public float brewTimeGrace = 2f;
     public float degradeGrace = 1f;
-    public float tempFalloff = 15f;
+    public float tempFalloff = 25f;
 
 
     [Header("Tracking")]
@@ -128,7 +128,6 @@ public class BrewingManager : Interactable {
     public void addOrder(Order newOrder, CauldronManager newCauldron) {
         attachedOrder = newOrder;
         orderNumber.text = orderPrefix + newOrder.OrderNumber;
-
 
         heatPercent = attachedOrder.Tempreture;
         upperHeat = heatPercent + 0.1f;

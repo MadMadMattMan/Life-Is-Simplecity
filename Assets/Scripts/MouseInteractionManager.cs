@@ -9,7 +9,8 @@ public class MouseInteractionManager : MonoBehaviour {
     public float dragDistance = 1.5f;
     public float raycastDistance = 3f;
 
-    InputAction click;
+    public static InputAction click;
+    InputAction oldClick;
 
     bool isPressed = false;
     Vector2 oldMousePos = Vector2.zero;
@@ -25,12 +26,19 @@ public class MouseInteractionManager : MonoBehaviour {
         click = InputSystem.actions.FindAction("Click", true);
         click.started += ctx => mouseClick();
         click.canceled += ctx => mouseRelease();
+        oldClick = click;
     }
 
 
     private void Update() {
         if (isPressed) {
             mouseDrag();
+        }
+        if (click != oldClick) {
+            click.started += ctx => mouseClick();
+            click.canceled += ctx => mouseRelease();
+            oldClick = click;
+
         }
     }
 

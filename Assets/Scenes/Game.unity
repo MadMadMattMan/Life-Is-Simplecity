@@ -1148,7 +1148,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0003921693, y: 0.00084104214, z: 0.00039216963}
+  m_Size: {x: 0.0005, y: 0.0025, z: 0.004}
   m_Center: {x: -0.0052939486, y: 0.000032257434, z: 0.0035031196}
 --- !u!23 &51088999
 MeshRenderer:
@@ -9401,6 +9401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrewButtonInteraction
   manager: {fileID: 470951408}
+  blow: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!65 &368799879
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10384,7 +10385,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.00034379633, y: 0.0007373009, z: 0.00034379648}
+  m_Size: {x: 0.0005, y: 0.0025, z: 0.004}
   m_Center: {x: -0.0021654572, y: 0.00005500715, z: 0.004024665}
 --- !u!23 &450597956
 MeshRenderer:
@@ -13260,7 +13261,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0003921693, y: 0.00084104214, z: 0.00039216963}
+  m_Size: {x: 0.0005, y: 0.0025, z: 0.004}
   m_Center: {x: -0.0052939486, y: 0.000032257434, z: 0.0035031196}
 --- !u!23 &740806046
 MeshRenderer:
@@ -14436,7 +14437,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.00024078885, y: 0.0005163925, z: 0.00024078875}
+  m_Size: {x: 0.0005, y: 0.0025, z: 0.004}
   m_Center: {x: -0.0029176087, y: 0.000050538052, z: 0.0042618313}
 --- !u!23 &824947942
 MeshRenderer:
@@ -14822,7 +14823,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0003921693, y: 0.00084104214, z: 0.00039216963}
+  m_Size: {x: 0.0005, y: 0.0025, z: 0.004}
   m_Center: {x: -0.0052939486, y: 0.000032257434, z: 0.0035031196}
 --- !u!23 &855545238
 MeshRenderer:
@@ -14949,7 +14950,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.00034379633, y: 0.0007373009, z: 0.00034379648}
+  m_Size: {x: 0.0005, y: 0.0025, z: 0.004}
   m_Center: {x: -0.0021654572, y: 0.00005500715, z: 0.004024665}
 --- !u!23 &870126421
 MeshRenderer:
@@ -15689,7 +15690,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.00034379633, y: 0.0007373009, z: 0.00034379648}
+  m_Size: {x: 0.0005, y: 0.0025, z: 0.004}
   m_Center: {x: -0.0021654572, y: 0.00005500715, z: 0.004024665}
 --- !u!23 &937320999
 MeshRenderer:
@@ -30229,6 +30230,7 @@ MonoBehaviour:
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
   StarManager: {fileID: 5569182852694808545}
   ticketSlot: {fileID: 1653282531}
+  boo: {fileID: 0}
 --- !u!65 &1257563691
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31278,7 +31280,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.00024078885, y: 0.0005163925, z: 0.00024078875}
+  m_Size: {x: 0.0005, y: 0.0025, z: 0.004}
   m_Center: {x: -0.0029176087, y: 0.000050538052, z: 0.0042618313}
 --- !u!23 &1314030716
 MeshRenderer:
@@ -32650,6 +32652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrewButtonInteraction
   manager: {fileID: 1650571366}
+  blow: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!65 &1396405408
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43622,7 +43625,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.00024078885, y: 0.0005163925, z: 0.00024078875}
+  m_Size: {x: 0.0005, y: 0.0025, z: 0.004}
   m_Center: {x: -0.0029176087, y: 0.000050538052, z: 0.0042618313}
 --- !u!23 &1744386882
 MeshRenderer:
@@ -67759,6 +67762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrewButtonInteraction
   manager: {fileID: 1938677023}
+  blow: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!65 &2084144828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -84780,7 +84784,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0003921693, y: 0.00084104214, z: 0.00039216963}
+  m_Size: {x: 0.0005, y: 0.0025, z: 0.004}
   m_Center: {x: -0.0052939486, y: 0.000032257434, z: 0.0035031196}
 --- !u!4 &2677476798429771247
 Transform:
@@ -91270,7 +91274,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.00024078885, y: 0.0005163925, z: 0.00024078875}
+  m_Size: {x: 0.0005, y: 0.0025, z: 0.004}
   m_Center: {x: -0.0029176087, y: 0.000050538052, z: 0.0042618313}
 --- !u!222 &5110779368066360245
 CanvasRenderer:
@@ -91608,11 +91612,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StarManager
   StarRating: 0
   Stars: {fileID: 6029241845968345189}
-  customersToFiveStars: 15
+  customersToFiveStars: 5
   storeStars: {fileID: 8105966152519121314}
   goodSFX: {fileID: 8300000, guid: d10edea3574fb57418bce1305985cd88, type: 3}
   badSFX: {fileID: 8300000, guid: f2942df1e87798648aecbc092d2306c1, type: 3}
-  brewPunishment: 15
 --- !u!82 &5569182852694808546
 AudioSource:
   m_ObjectHideFlags: 0
@@ -93261,6 +93264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrewButtonInteraction
   manager: {fileID: 6873453571779665957}
+  blow: {fileID: 8300000, guid: 08844d29dd9b7ff479bc08d871622f16, type: 3}
 --- !u!33 &7373284217357398074
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -94329,7 +94333,6 @@ MonoBehaviour:
   storeStars: {fileID: 0}
   goodSFX: {fileID: 0}
   badSFX: {fileID: 0}
-  brewPunishment: 15
 --- !u!1 &8119054843388836090
 GameObject:
   m_ObjectHideFlags: 0
@@ -95278,8 +95281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98cd40d784cf8864a972c9ed4b57e9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  MoveSpeed: 4
-  RotationSpeed: 10
+  MoveSpeed: 10
+  RotationSpeed: 20
   maxRayDistance: 2.5
   isActive: 1
   interactAction:
@@ -95673,7 +95676,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.00034379633, y: 0.0007373009, z: 0.00034379648}
+  m_Size: {x: 0.0005, y: 0.0025, z: 0.004}
   m_Center: {x: -0.0021654572, y: 0.00005500715, z: 0.004024665}
 --- !u!4 &9027835104635985024
 Transform:

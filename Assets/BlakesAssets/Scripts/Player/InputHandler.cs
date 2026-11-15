@@ -34,6 +34,7 @@ public class InputHandler : MonoBehaviour
         actionMap.Enable();
         MoveAction = actionMap.FindAction("Move");
         LookAction = actionMap.FindAction("Look");
+        MouseInteractionManager.click = actionMap.FindAction("Click");
     }
     void Update()
     {

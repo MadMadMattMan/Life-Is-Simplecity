@@ -4,6 +4,10 @@ public class PickupCounter : Interactable
 {
     public StarManager StarManager;
     public GameObject ticketSlot;
+    [SerializeField] AudioClip boo;
+    AudioSource booSource;
+
+
     public override void OnInteract()
     {
         base.OnInteract();
@@ -28,6 +32,7 @@ public class PickupCounter : Interactable
         GameManager.Instance.activeOrders.Remove(ticket1.order);
         Tutorial.CompletedOrder = true;
         InputHandler.Instance.RandomKeybinds();
+        booSource.PlayOneShot(boo, 1f);
         Destroy(Cauldron, 2f);
         Destroy(ticket, 2f);
     }
@@ -36,5 +41,6 @@ public class PickupCounter : Interactable
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+        booSource = GetComponent<AudioSource>();
     }
 }

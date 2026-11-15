@@ -7,7 +7,7 @@ public class StarManager : MonoBehaviour
 {
     [Range(0, 5)] public float StarRating;
     public GameObject Stars;
-    public float customersToFiveStars = 10f;
+    public float customersToFiveStars = 5f;
     public StarManager storeStars;
     GameManager gm;
     AudioSource audioSource;
@@ -78,7 +78,7 @@ public class StarManager : MonoBehaviour
         return Mathf.Clamp01(ranking);
     }
 
-    [SerializeField] float brewPunishment = 15f; // seconds before failed brew
+    float brewPunishment = 10f; // seconds before failed brew
     // returns the ranking of the pour station between 0 and 1
     float BrewingStationRating(CauldronManager cauldron, Order order) {
         float ranking = 1f;
@@ -95,7 +95,7 @@ public class StarManager : MonoBehaviour
 
     public void UpdateStars(float newStars) {
         StarRating = newStars;
-        if (StarRating >= 3)
+        if (StarRating >= 2.5)
             audioSource.PlayOneShot(goodSFX);
         else
             audioSource.PlayOneShot(badSFX);
@@ -107,7 +107,7 @@ public class StarManager : MonoBehaviour
             return;
 
         // scale stars so after n 5 stars have store reach 5 stars
-        float diff = (newStars - 3f)/(customersToFiveStars/2.5f);
+        float diff = 2 * (newStars - 2.5f) / customersToFiveStars;
 
 
         gm.storeRating += diff;

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6e957d710aa7842a8361691c496aff, type: 3}
   m_Name: 4Star
   m_EditorClassIdentifier: Assembly-CSharp::NPCSettings
-  defaultTimeToBrew: 15
-  defaultTempreture: 0.5
-  minIngredients: 3
-  chanceOfExtraIngredient: 0.5
+  defaultTimeToBrew: 30
+  defaultTempreture: 0.65
+  minIngredients: 2
+  chanceOfExtraIngredient: 0.8
   tolerance: 0.5
   defaultSpawnTimer: 30
   spawnTimerOffset: 4
