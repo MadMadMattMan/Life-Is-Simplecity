@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public List<Order> activeOrders = new List<Order>();
     public GameObject ticketPrefab;
+    public Transform ticketParent;
     [SerializeField] private NPCSettings[] SettingsList;
     [SerializeField] private NPCSettings CurrentSettings;
     public float storeRating = 0.5f;
@@ -19,6 +20,9 @@ public class GameManager : MonoBehaviour
     {
         GameObject ticket = Instantiate(ticketPrefab, ticketPrefab.transform.position, ticketPrefab.transform.rotation);
         ticket.transform.SetParent(transform.GetChild(0));
+        ticket.GetComponent<RectTransform>().anchorMin = new Vector2(0.93132f, 0.39600f);
+        ticket.GetComponent<RectTransform>().anchorMax = new Vector2(0.93132f, 0.39600f);
+        ticket.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         ticket.GetComponent<Ticket>().TakeOrder(upTime, order, npc);
     }
     public void SpawnNPC()

@@ -112,6 +112,9 @@ public class Ticket : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
         TempretureImage.enabled = true;
         Tempreture.anchoredPosition = new Vector2(Tempreture.anchoredPosition.x, Mathf.Lerp(-63f, 12f, order.Tempreture));
         yield return new WaitForSeconds(upTime / order.numberOfItems);
+        rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+        rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+        rectTransform.anchoredPosition = new Vector2(9999999,0);
         TicketSlot closest = GetClosestSlot();
         if (closest != null) closest.SnapTo(gameObject);
         EnableDragging(true);
