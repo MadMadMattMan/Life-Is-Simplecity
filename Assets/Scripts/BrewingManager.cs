@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BrewingManager : Interactable {
@@ -98,6 +99,7 @@ public class BrewingManager : Interactable {
 
     public void heatFire() {
         currentTemp += 0.075f;
+        Mathf.Clamp01(currentTemp);
         UpdateBar();
     }
 

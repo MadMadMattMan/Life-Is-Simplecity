@@ -51,8 +51,8 @@ public class StarManager : MonoBehaviour
     // returns the ranking of the pour station between 0 and 1
     float PourStationRating(CauldronManager cauldron, Order order) {
         Vector3 color = cauldron.colorAdditions == Vector3.zero ?
-                            new Vector3(0.3f, 0.3f, 0.3f).normalized : cauldron.colorAdditions;
-        float ranking = 1-(color - order.Liquid).magnitude;
+                            new Vector3(0.3f, 0.3f, 0.3f).normalized : cauldron.colorAdditions.normalized;
+        float ranking = 1-(color - order.Liquid.normalized).magnitude;
 
         print("stars 1: | r: " + ranking + " | s: " + ranking * 1.5);
         return Mathf.Clamp01(ranking);

@@ -15,7 +15,7 @@ public class BrewButtonInteraction : MonoBehaviour, iItemInteraction {
 
     public void click() {
         manager.heatFire();
-        blowSource.PlayOneShot(blow, 0.25f);
+        blowSource.PlayOneShot(blow, 0.4f);
     }
 
     public void release() { return; }

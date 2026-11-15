@@ -56,6 +56,7 @@ public class Ticket : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
         if (BrewingManager.interactedStation != -1) {
             BrewingManager.brewManagers[BrewingManager.interactedStation].OnTicketReleased(this);
             currentSlot.SnapTo(gameObject);
+            currentSlot.currentTicket = gameObject;
             canvasGroup.blocksRaycasts = true;
             canvasGroup.alpha = 1f;
             return;

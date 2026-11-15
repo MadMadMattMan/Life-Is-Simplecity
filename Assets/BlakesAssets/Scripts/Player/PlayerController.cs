@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     private bool interacting;
     Interactable lastInteractable;
     RaycastHit hit;
+    Vector3 spawn;
+
     private void OnEnable()
     {
         interactAction.started += Interact;
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
+        spawn = transform.position;
         interacting = false;
         cc = GetComponent<CharacterController>();
         cauldronStack = FindAnyObjectByType<CauldronStack>();
@@ -110,6 +113,12 @@ public class PlayerController : MonoBehaviour
                 interactable.InteractCauldron();
             }
         }
+    }
+
+    public void UNSTUCK()
+    {
+        print("UNSTUCKING");
+        transform.position = spawn;
     }
 
     private void Update()
