@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -52,7 +50,9 @@ public class StarManager : MonoBehaviour
 
     // returns the ranking of the pour station between 0 and 1
     float PourStationRating(CauldronManager cauldron, Order order) {
-        float ranking = 1-(cauldron.colorAdditions - order.Liquid).magnitude;
+        Vector3 color = cauldron.colorAdditions == Vector3.zero ?
+                            new Vector3(0.3f, 0.3f, 0.3f).normalized : cauldron.colorAdditions;
+        float ranking = 1-(color - order.Liquid).magnitude;
 
         print("stars 1: | r: " + ranking + " | s: " + ranking * 1.5);
         return Mathf.Clamp01(ranking);
@@ -83,8 +83,8 @@ public class StarManager : MonoBehaviour
     float BrewingStationRating(CauldronManager cauldron, Order order) {
         float ranking = 1f;
 
-        float oc  = Mathf.Abs(cauldron.brewAmount/ brewPunishment);  // overcooking time
-        float ins = Mathf.Abs(cauldron.brewQuality/ brewPunishment); // inaccuracy score 
+        float oc  = Mathf.Abs(cauldron.brewAmount/brewPunishment);  // overcooking time
+        float ins = Mathf.Abs(cauldron.brewQuality/brewPunishment); // inaccuracy score 
         ranking -= ins;
         ranking -= oc;
 

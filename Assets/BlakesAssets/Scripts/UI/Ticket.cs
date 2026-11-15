@@ -22,6 +22,7 @@ public class Ticket : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
     private Canvas canvas;
     private CanvasGroup canvasGroup;
     private RectTransform rectTransform;
+
     private void Awake()
     {
         slots = FindObjectsByType<TicketSlot>();
@@ -49,16 +50,21 @@ public class Ticket : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
         canvasGroup.alpha = .6f;
         rectTransform.localScale = Vector3.one;
         currentSlot.currentTicket = null;
-        currentSlot = null;
     }
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (!DraggingEnabled) return;
-        if (currentSlot == null)
-        {
-            TicketSlot closest = GetClosestSlot();
-            if (closest != null) closest.SnapTo(gameObject);
+        if (BrewingManager.interactedStation != -1) {
+            BrewingManager.brewManagers[BrewingManager.interactedStation].OnTicketReleased(this);
+            currentSlot.SnapTo(gameObject);
+            canvasGroup.blocksRaycasts = true;
+            canvasGroup.alpha = 1f;
+            return;
         }
+
+
+        if (!DraggingEnabled) return;
+        TicketSlot closest = GetClosestSlot();
+        if (closest != null) closest.SnapTo(gameObject);
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
     }

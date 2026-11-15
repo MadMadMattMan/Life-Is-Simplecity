@@ -3,6 +3,9 @@ using TMPro;
 using UnityEngine;
 
 public class BrewingManager : Interactable {
+    public static int interactedStation = -1;
+    public static BrewingManager[] brewManagers = new BrewingManager[4];
+    public int stationID = -1;
 
     [Header("Current Settings")]
     public Order attachedOrder;
@@ -23,6 +26,8 @@ public class BrewingManager : Interactable {
 
     public bool doTimerCount = false;
     public CauldronManager attachedCauldron;
+    public TextMeshPro orderNumber;
+    string orderPrefix = "Order:\r\n#";
 
 
     [Header("Internal References")]
@@ -34,7 +39,7 @@ public class BrewingManager : Interactable {
     [Header("Audio")]
     [SerializeField] AudioClip doneAlarm;
     [SerializeField] AudioSource brewingSound;
-    [SerializeField] AudioClip burningSound;
+    [SerializeField] AudioSource dingSource;
 
 
     [Header("Testing")]
@@ -44,6 +49,8 @@ public class BrewingManager : Interactable {
 
     private void Awake() {
         UpdateStation();
+        dingSource=GetComponent<AudioSource>();
+        BrewingManager.brewManagers[stationID] = this;
     }
 
     private void Update() {
@@ -63,8 +70,6 @@ public class BrewingManager : Interactable {
             brewingSound.Play();
             doTimerCount = true;
         }
-            
-
 
         // Count timer down if active
         if (doTimerCount) {
@@ -73,7 +78,7 @@ public class BrewingManager : Interactable {
 
             // if out of range
             if (currentTemp > upperHeat || currentTemp < lowerHeat)
-                    degradeValue += Time.deltaTime;
+                degradeValue += Time.deltaTime;
 
             // if done
             if (timerValue <= 0f && !belowZero) {
@@ -99,17 +104,8 @@ public class BrewingManager : Interactable {
     public override void PlaceCauldron()
     {
         base.PlaceCauldron();
-        try
-        {
-            GameObject t = GameObject.FindWithTag("MainTicket").GetComponent<TicketSlot>().currentTicket;
-            Order o = t.GetComponent<Ticket>().order;
-            addOrder(o, Cauldron.GetComponentInChildren<CauldronManager>());
-            Tutorial.PlacedCauldronOnBrewStation = true;
-        }
-        catch (Exception e)
-        {
-            Debug.LogWarning("Failed to start brewing for " + e);
-        }
+        Tutorial.PlacedCauldronOnBrewStation = true;
+
     }
 
     public override void PickupCauldron()
@@ -119,16 +115,31 @@ public class BrewingManager : Interactable {
     }
 
 
+    public void OnTicketReleased(Ticket ticket) {
+        try {
+            addOrder(ticket.order, Cauldron.GetComponentInChildren<CauldronManager>());
+        }
+        catch (Exception e) {
+            Debug.LogWarning("Failed to start brewing for " + e);
+        }
+    }
+
     // called on place cauldron
     public void addOrder(Order newOrder, CauldronManager newCauldron) {
         attachedOrder = newOrder;
+        orderNumber.text = orderPrefix + newOrder.OrderNumber;
+
+
         heatPercent = attachedOrder.Tempreture;
         upperHeat = heatPercent + 0.1f;
         lowerHeat = heatPercent - 0.1f;
-        doTimerCount = false;
-
         timerStart = attachedOrder.BrewTime;
         timerValue = timerStart;
+
+        doTimerCount = false;
+        degradeValue = 0f;
+        inZone = false;
+        belowZero = false;
         UpdateStation();
 
         attachedCauldron = newCauldron;
@@ -137,6 +148,7 @@ public class BrewingManager : Interactable {
     // called on remove cauldron
     public void removeOrder() {
         brewingSound.Stop();
+        orderNumber.text = "No Order";
 
         attachedOrder = null;
         heatPercent = -1;
@@ -153,7 +165,7 @@ public class BrewingManager : Interactable {
 
 
     void TimerHitZero() {
-        audioSource.PlayOneShot(doneAlarm);
+        dingSource.PlayOneShot(doneAlarm);
         Tutorial.UsedFlame = true;
     }
 
@@ -164,7 +176,7 @@ public class BrewingManager : Interactable {
 
     void UpdateScreen() {
         string text = ((int)timerValue).ToString();
-        if (timerValue < 0)
+        if (timerValue <= 0)
             text = "--";
         TimerScreen.text = text + "s";
     }
@@ -178,5 +190,16 @@ public class BrewingManager : Interactable {
 
     void UpdateBar() {
         Indicator.localPosition = new Vector3(0.02562021f, Mathf.Lerp(-0.01097f, 0.01236f, currentTemp), 0.0103f);
+    }
+
+
+
+    public override void OnInteract() {
+        base.OnInteract();
+        BrewingManager.interactedStation = stationID;
+    }
+    public override void OnUninteract() {
+        base.OnUninteract();
+        BrewingManager.interactedStation = -1;
     }
 }
