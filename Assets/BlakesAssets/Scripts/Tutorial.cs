@@ -86,6 +86,8 @@ public class Tutorial : MonoBehaviour
                     yield return new WaitForSeconds(4.25f);
                     PopupManager.Instance.CreatePopup("Go to a brewing station with your cauldron");
                     while (!PlacedCauldronOnBrewStation) yield return null;
+                    PopupManager.Instance.CreatePopup("Drag your order ticket onto the brewing station to start");
+                    yield return new WaitForSeconds(4.25f);
                     PopupManager.Instance.CreatePopup("Press the red button until the arrow is in the green range");
                     yield return new WaitForSeconds(4.25f);
                     PopupManager.Instance.CreatePopup("You have to keep the arrow in the green range until the timer is up");
