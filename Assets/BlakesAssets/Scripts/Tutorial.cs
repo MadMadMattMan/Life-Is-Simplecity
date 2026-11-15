@@ -64,7 +64,6 @@ public class Tutorial : MonoBehaviour
                     State = TutorialState.TakenCauldron;
                     break;
                 case TutorialState.TakenCauldron:
-                    yield return new WaitForSeconds(longDelay);
                     PopupManager.Instance.CreatePopup("Now pick up a cauldron from the stack", delayTime, true);
                     while (!TakenCauldron) yield return null;
                     PopupManager.Instance.CreatePopup("Good, now you can start brewing!", delayTime);
@@ -72,7 +71,6 @@ public class Tutorial : MonoBehaviour
                     State = TutorialState.UsedBase;
                     break;
                 case TutorialState.UsedBase:
-                    yield return new WaitForSeconds(longDelay);
                     PopupManager.Instance.CreatePopup("Go ahead and place the cauldron on a pour station", delayTime, true);
                     while (!PlacedCauldronOnPourStation) yield return null;
                     PopupManager.Instance.CreatePopup("Now, try and pour out the colour you see on the ticket", delayTime, true);
@@ -82,7 +80,6 @@ public class Tutorial : MonoBehaviour
                     State = TutorialState.UsedFlame;
                     break;
                 case TutorialState.UsedFlame:
-                    yield return new WaitForSeconds(longDelay);
                     PopupManager.Instance.CreatePopup("Now you have to boil the liquid", delayTime);
                     yield return new WaitForSeconds(delayTime);
                     PopupManager.Instance.CreatePopup("Go to a brewing station with your cauldron", delayTime, true);
@@ -109,7 +106,6 @@ public class Tutorial : MonoBehaviour
                     State = TutorialState.CompletedOrder;
                     break;
                 case TutorialState.CompletedOrder:
-                    yield return new WaitForSeconds(longDelay);
                     PopupManager.Instance.CreatePopup("Go over to the pickup counter to give the customer your order", delayTime, true);
                     while (!InteractedWithPickupCounter) yield return null;
                     PopupManager.Instance.CreatePopup("Now drag your ticket onto the cauldron to complete the order", delayTime, true);

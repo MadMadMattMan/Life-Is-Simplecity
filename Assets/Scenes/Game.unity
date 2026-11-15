@@ -99047,6 +99047,8 @@ MonoBehaviour:
   isEnabled: 1
   dragDistance: 1.75
   raycastDistance: 3
+  mouseUp: {fileID: 2800000, guid: b1b6531e7a7ed274e94501cb45eac247, type: 3}
+  mouseDown: {fileID: 2800000, guid: ee87d8f97cf86894187e3f637145c78a, type: 3}
 --- !u!33 &8539805621153070350
 MeshFilter:
   m_ObjectHideFlags: 0

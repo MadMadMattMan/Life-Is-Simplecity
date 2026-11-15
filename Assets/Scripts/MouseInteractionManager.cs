@@ -12,6 +12,9 @@ public class MouseInteractionManager : MonoBehaviour {
     public static InputAction click;
     InputAction oldClick;
 
+    [SerializeField] Texture2D mouseUp;
+    [SerializeField] Texture2D mouseDown;
+
     bool isPressed = false;
     Vector2 oldMousePos = Vector2.zero;
 
@@ -65,7 +68,7 @@ public class MouseInteractionManager : MonoBehaviour {
 
     void mouseClick() {
         isPressed = true;
-
+        Cursor.SetCursor(mouseDown, new Vector2(0.5f, 0.5f), CursorMode.Auto);
         if (raycastToMouse(out iItemInteraction iScript, out Vector3 mouseWorldspace)) {
             iScript.click();
             snappedItem = iScript;
@@ -74,6 +77,7 @@ public class MouseInteractionManager : MonoBehaviour {
 
     void mouseRelease() {
         isPressed = false;
+        Cursor.SetCursor(mouseUp, new Vector2(0.5f, 0.5f), CursorMode.Auto);
 
         if (raycastToMouse(out iItemInteraction iScript, out Vector3 mouseWorldspace))
             iScript.release();
