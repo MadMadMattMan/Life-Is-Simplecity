@@ -111,7 +111,11 @@ public class Tutorial : MonoBehaviour
                     while (!InteractedWithPickupCounter) yield return null;
                     PopupManager.Instance.CreatePopup("Now drag your ticket onto the cauldron to complete the order");
                     while (!CompletedOrder) yield return null;
-                    PopupManager.Instance.CreatePopup("Well done, a few more notes before you start though");
+                    PopupManager.Instance.CreatePopup("OH NO! A GHOST HAS CHANGED YOUR KEYBINDS!!!");
+                    yield return new WaitForSeconds(4.25f);
+                    PopupManager.Instance.CreatePopup("Try and find your new keybinds after completing each customer");
+                    yield return new WaitForSeconds(4.25f);
+                    PopupManager.Instance.CreatePopup("Well done, just a few more notes before you start though");
                     yield return new WaitForSeconds(4.25f);
                     State = TutorialState.FinishingNotes;
                     break;

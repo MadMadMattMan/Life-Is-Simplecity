@@ -4,7 +4,6 @@ using UnityEngine.Events;
 public class Interactable : MonoBehaviour
 {
     [Header("Inherited")]
-    [SerializeField] private Camera cam;
     private bool interactable;
     [HideInInspector] public bool beingInteractedWith;
     [HideInInspector] public bool playerLock = false;
@@ -27,7 +26,7 @@ public class Interactable : MonoBehaviour
     private State state = State.Idle;
     private void Start()
     {
-        camParent = cam.transform.parent;
+        camParent = Camera.main.transform.parent;
     }
     private void OnEnable()
     {
@@ -138,8 +137,8 @@ public class Interactable : MonoBehaviour
         interactable = false;
         PlayerController.Instance.isActive = false;
 
-        camParent = cam.transform.parent;
-        cam.transform.SetParent(null);
+        camParent = Camera.main.transform.parent;
+        Camera.main.transform.SetParent(null);
         currentVelocity = Vector3.zero;
         StartCoroutine(InteractionSequence());
     }
@@ -162,10 +161,10 @@ public class Interactable : MonoBehaviour
     public IEnumerator InteractionSequence()
     {
         audioSource.PlayOneShot(Whoosh);
-        while ((cam.transform.position - camTarget.position).sqrMagnitude > 0.01f)
+        while ((Camera.main.transform.position - camTarget.position).sqrMagnitude > 0.01f)
         {
-            cam.transform.position = Vector3.SmoothDamp(cam.transform.position, camTarget.position, ref currentVelocity, smoothTime);
-            cam.transform.rotation = Quaternion.RotateTowards(cam.transform.rotation, camTarget.rotation, degreesPerSecond * Time.deltaTime);
+            Camera.main.transform.position = Vector3.SmoothDamp(Camera.main.transform.position, camTarget.position, ref currentVelocity, smoothTime);
+            Camera.main.transform.rotation = Quaternion.RotateTowards(Camera.main.transform.rotation, camTarget.rotation, degreesPerSecond * Time.deltaTime);
             yield return null;
         }
         state = State.Active;
@@ -175,13 +174,13 @@ public class Interactable : MonoBehaviour
     public IEnumerator UninteractionSequence()
     {
         audioSource.PlayOneShot(Whoosh);
-        while (camParent != null && (cam.transform.position - camParent.position).sqrMagnitude > 0.01f)
+        while (camParent != null && (Camera.main.transform.position - camParent.position).sqrMagnitude > 0.01f)
         {
-            cam.transform.position = Vector3.SmoothDamp(cam.transform.position, camParent.position, ref currentVelocity, smoothTime);
-            cam.transform.rotation = Quaternion.RotateTowards(cam.transform.rotation, camParent.rotation, degreesPerSecond * Time.deltaTime);
+            Camera.main.transform.position = Vector3.SmoothDamp(Camera.main.transform.position, camParent.position, ref currentVelocity, smoothTime);
+            Camera.main.transform.rotation = Quaternion.RotateTowards(Camera.main.transform.rotation, camParent.rotation, degreesPerSecond * Time.deltaTime);
             yield return null;
         }
-        if (camParent != null) cam.transform.SetParent(camParent);
+        if (camParent != null) Camera.main.transform.SetParent(camParent);
         PlayerController.Instance.isActive = true;
         state = State.Idle;
     }

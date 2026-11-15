@@ -27,6 +27,7 @@ public class PickupCounter : Interactable
         NPCManager.Instance.NPCCollectOrder(ticket1.NPC.gameObject);
         GameManager.Instance.activeOrders.Remove(ticket1.order);
         Tutorial.CompletedOrder = true;
+        InputHandler.Instance.RandomKeybinds();
         Destroy(Cauldron, 2f);
         Destroy(ticket, 2f);
     }
