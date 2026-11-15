@@ -126,7 +126,11 @@ public class Tutorial : MonoBehaviour
         yield return new WaitForSeconds(4.25f);
         PopupManager.Instance.CreatePopup("If you mess up an order you can throw it in the trash");
         yield return new WaitForSeconds(4.25f);
-        PopupManager.Instance.CreatePopup("You also don't have a wage or breaks. Good luck!");
+        PopupManager.Instance.CreatePopup("You can refer to the posters on the walls if your stuck");
+        yield return new WaitForSeconds(4.25f);
+        PopupManager.Instance.CreatePopup("You also don't have a wage or any breaks");
+        yield return new WaitForSeconds(4.25f);
+        PopupManager.Instance.CreatePopup("Good luck!");
         Destroy(gameObject);
     }
 }
