@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,43 +34,63 @@ public class StarManager : MonoBehaviour
 
     public void CauldronOrderToStars(CauldronManager cauldron, Order order) {
         float stars = 0;
-        // pour, 1 star
-        float diff = (cauldron.baseColor - order.Liquid).magnitude;
-        print(diff);
-        stars += 1 - 2*diff;
-
-        print("stars 1: " + stars);
+        // pour, 1.5 stars
+        stars = PourStationRating(cauldron, order) * 1.5f;
 
         // ingredient, 1 star
-        if (cauldron.addedIngredients.Equals(order.Contents.ToList()))
-            stars += 1;
-        else {
-            float pain = 0f;
-            for (int i = 0; i < cauldron.addedIngredients.Count; i++) {
-                if (i > order.Contents.Length)
-                    pain += 0.75f;
-                else if (cauldron.addedIngredients[i] != order.Contents[i])
-                    pain += 0.5f;
-            }
-            stars += Mathf.Clamp01(1 - pain);
-        }
-        print("stars 2: " + stars);
+        stars += IngredientStationRating(cauldron, order) * 1f;
 
+        // brew, 2.5 stars
+        stars += BrewingStationRating(cauldron, order) * 2.5f;
 
-        // brew, 3 stars
-        float penalty = 0f;
-        penalty += cauldron.brewAmount;
-        penalty += cauldron.brewQuality;
-        penalty = Mathf.Clamp01(penalty / 5f); // 5 seconds of decline
-        stars += -3f*penalty + 3f;
-        
-
-        print("stars 3: " + stars);
-
+        // round to snap to nearest .5 star
         stars = Mathf.Round(stars * 2f) / 2f;
 
         UpdateStore(stars);
         UpdateStars(stars);
+    }
+
+    // returns the ranking of the pour station between 0 and 1
+    float PourStationRating(CauldronManager cauldron, Order order) {
+        float ranking = 1-(cauldron.colorAdditions - order.Liquid).magnitude;
+
+        print("stars 1: | r: " + ranking + " | s: " + ranking * 1.5);
+        return Mathf.Clamp01(ranking);
+    }
+    // returns the ranking of the pour station between 0 and 1
+    float IngredientStationRating(CauldronManager cauldron, Order order) {
+        float ranking = 1;
+        List<Ingredient> ingredients = order.Contents.ToList();
+        if (cauldron.addedIngredients.Equals(ingredients))
+            return 1f;
+        else {
+            int amount = order.Contents.Length;
+            foreach (Ingredient i in cauldron.addedIngredients) {
+                if (ingredients.Contains(i))
+                    ingredients.Remove(i);
+                else
+                    ranking -= 0.3f;
+            }
+            ranking -= ingredients.Count / amount;
+        }
+
+        print("stars 2: | r: " + ranking + " | s: " + ranking*1);
+        return Mathf.Clamp01(ranking);
+    }
+
+    [SerializeField] float brewPunishment = 15f; // seconds before failed brew
+    // returns the ranking of the pour station between 0 and 1
+    float BrewingStationRating(CauldronManager cauldron, Order order) {
+        float ranking = 1f;
+
+        float oc  = Mathf.Abs(cauldron.brewAmount/ brewPunishment);  // overcooking time
+        float ins = Mathf.Abs(cauldron.brewQuality/ brewPunishment); // inaccuracy score 
+        ranking -= ins;
+        ranking -= oc;
+
+        print("Stars 3: oc=" + oc + " ins=" + ins);
+        print("stars 3: | r: " + ranking + " | s: " + ranking * 2.5);
+        return Mathf.Clamp01(ranking);
     }
 
     public void UpdateStars(float newStars) {

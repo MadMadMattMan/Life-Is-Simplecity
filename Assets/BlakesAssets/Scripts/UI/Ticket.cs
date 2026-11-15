@@ -24,7 +24,7 @@ public class Ticket : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
     private RectTransform rectTransform;
     private void Awake()
     {
-        slots = FindObjectsByType<TicketSlot>(FindObjectsSortMode.None);
+        slots = FindObjectsByType<TicketSlot>();
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
@@ -64,7 +64,7 @@ public class Ticket : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
     }
     public TicketSlot GetClosestSlot()
     {
-        slots = FindObjectsByType<TicketSlot>(FindObjectsSortMode.None);
+        slots = FindObjectsByType<TicketSlot>();
         TicketSlot closest = null;
         float bestDistance = float.MaxValue;
 

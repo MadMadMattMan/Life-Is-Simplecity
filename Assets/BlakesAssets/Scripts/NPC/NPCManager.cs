@@ -68,23 +68,26 @@ public class NPCManager : MonoBehaviour
         if (rand <= currentSettings.chanceOfExtraIngredient*100) return 1;
         return 0;
     }
+
+    Vector3[] brewColors;
     private Vector3 randomColourValue()
     {
-        List<Vector3> colors = new List<Vector3>();
-        colors.Add(new Vector3(0.4047886f, 0.4956911f, 0.7683987f));
-        colors.Add((colors[0] + new Vector3(1.5f, -0.5f, -0.5f)).normalized); //1r0g0b
-        colors.Add((colors[1] + new Vector3(-0.5f, 1.5f, -0.5f)).normalized); //1r1g0b
-        colors.Add((colors[2] + new Vector3(-0.5f, -0.5f, 1.5f)).normalized); //1r1g1b
-        colors.Add((colors[1] + new Vector3(-0.5f, -0.5f, 1.5f)).normalized); //1r0g1b
+        if (brewColors == null || brewColors.Length <= 0) {
+            List<Vector3> colors = new List<Vector3>();
 
-        colors.Add((colors[0] + new Vector3(-0.5f, 1.5f, -0.5f)).normalized); //0r1g0b
-        colors.Add((colors[5] + new Vector3(-0.5f, -0.5f, 1.5f)).normalized); //0r1g1b
+            colors.Add(new Vector3(1, 0, 0)); //1r0g0b - red
+            colors.Add(new Vector3(0, 1, 0).normalized); //0r1g0b - green
+            colors.Add(new Vector3(0, 0, 1).normalized); //0r0g1b - blue
+            
+            colors.Add(new Vector3(0.5f, 0.5f, 0).normalized); //1r1g0b - yellow
+            colors.Add(new Vector3(0.5f, 0, 0.5f).normalized); //1r0g1b - purple
+            colors.Add(new Vector3(0, 0.5f, 0.5f).normalized); //0r1g1b - cyan
 
+            colors.Add(new Vector3(0.3f, 0.3f, 0.3f).normalized); //1r1g1b - white
+            brewColors = colors.ToArray();
+        }
 
-        colors.Add((colors[0] + new Vector3(-0.5f, -0.5f, 1.5f)).normalized); //0r0g1b
-
-
-        return colors[UnityEngine.Random.Range(0, colors.Count - 1)];
+        return brewColors[UnityEngine.Random.Range(0, brewColors.Length)];
     }
     public NPCBehaviour GetFirstNPC()
     {

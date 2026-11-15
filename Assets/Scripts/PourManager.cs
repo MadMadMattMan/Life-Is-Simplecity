@@ -39,6 +39,10 @@ public class PourManager : Interactable {
         }
         pourAudio = GetComponent<AudioSource>();
         clip = pourAudio.clip;
+
+        oldColor = new Color(0.8f, 0.85f, 1f);
+        newColor = new Color(0.8f, 0.85f, 1f);
+        potionColor = newColor;
     }
 
     public override void PlaceCauldron()
@@ -68,7 +72,6 @@ public class PourManager : Interactable {
             return;
         }
         newColor = oldColor = connectedCauldronLiquid.color;
-        cManager.SetColor(new Vector3(newColor.r, newColor.g, newColor.b));
         ConnectedCauldron = null;
     }
 
@@ -87,17 +90,17 @@ public class PourManager : Interactable {
 
         pourAudio.PlayOneShot(clip);
         if (color == 0) {
-            addedColor = new Vector3(1, 0, 0);
+            cManager.colorAdditions.x++;
             RedPourParticles.Play();
             update = true;
         }
         if (color == 1) {
-            addedColor = new Vector3(0, 1, 0);
+            cManager.colorAdditions.y++;
             GreenPourParticles.Play();
             update = true;
         }
         if (color == 2) {
-            addedColor = new Vector3(0, 0, 1);
+            cManager.colorAdditions.z++;
             BluePourParticles.Play();
             update = true;
         }
@@ -106,18 +109,22 @@ public class PourManager : Interactable {
 
 
     private void Update() {
+        if (ConnectedCauldron == null)
+            return;
+
         if (u) {
             AddColor(c);
             u = false;
         }
-        if (ConnectedCauldron == null)
-            return;
 
         if (update) {
             oldColor = potionColor;
-            newColorVector += (addedColor*2 + new Vector3(-0.5f, -0.5f, -0.5f)).normalized;
-            newColorVector.Normalize();
-            newColor = new Color(newColorVector.x, newColorVector.y, newColorVector.z);
+            Vector3 col = new Vector3(0.5f, 0.2f, 0f);
+            print(cManager.colorAdditions);
+            if (cManager.GetColorSum() < 3)
+                col = cManager.GetAdditions();
+            newColor = new Color(col.x, col.y, col.z);
+
             enlapsedTime = 0f;
             update = false;
             lerpingColor = true;

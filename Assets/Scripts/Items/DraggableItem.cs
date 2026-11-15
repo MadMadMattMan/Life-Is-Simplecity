@@ -6,19 +6,19 @@ public class DraggableItem : MonoBehaviour, iItemInteraction {
     public float spring = 75f;
     public float dampening = 5f;
     [SerializeField] AudioClip dragSFX;
-    AudioSource audio;
+    AudioSource aSource;
 
     void Awake() {
         rb = GetComponent<Rigidbody>();
-        audio = gameObject.AddComponent<AudioSource>();
+        aSource = gameObject.AddComponent<AudioSource>();
     }
 
     public void click() {
-        audio.PlayOneShot(dragSFX, 0.25f);
+        aSource.PlayOneShot(dragSFX, 0.25f);
     }
 
     public void release() {
-        audio.PlayOneShot(dragSFX, 0.25f);
+        aSource.PlayOneShot(dragSFX, 0.25f);
     }
 
     public void drag(Vector3 snapPosition) {

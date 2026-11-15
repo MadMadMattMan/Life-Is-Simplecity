@@ -5,10 +5,12 @@ public class IngredientManager : Interactable {
     [SerializeField] GameObject[] ingredientSpawns;
     [SerializeField] GameObject[] ingredients;
     [SerializeField] AudioClip pop;
-    AudioSource audio;
+    AudioSource aSource;
 
     void Start(){
-        audio = GetComponent<AudioSource>();    
+        aSource = GetComponent<AudioSource>(); 
+        if (!aSource)
+            aSource = gameObject.AddComponent<AudioSource>();
     }
 
     public void RespawnObject(Ingredient objectToRespawn) {
@@ -16,7 +18,7 @@ public class IngredientManager : Interactable {
         ingredients[i].GetComponent<Rigidbody>().position = ingredientSpawns[i].transform.position;
         ingredients[i].GetComponent<Rigidbody>().rotation = ingredientSpawns[i].transform.rotation;
         ingredients[i].GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-        audio.PlayOneShot(pop, 0.025f);
+        aSource.PlayOneShot(pop, 0.025f);
     }
     public override void PlaceCauldron()
     {

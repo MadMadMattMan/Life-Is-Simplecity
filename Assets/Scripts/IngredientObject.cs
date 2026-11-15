@@ -11,6 +11,9 @@ public class IngredientObject : MonoBehaviour {
 
     private void Start() {
         splashAudio = GetComponent<AudioSource>();
+        splashAudio = GetComponent<AudioSource>();
+        if (!splashAudio)
+            splashAudio = gameObject.AddComponent<AudioSource>();
     }
 
     private void Update() {
