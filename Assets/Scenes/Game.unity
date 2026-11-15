@@ -30230,7 +30230,7 @@ MonoBehaviour:
   Whoosh: {fileID: 8300000, guid: 598c67f74fbe9154e98f75fefa84f26a, type: 3}
   StarManager: {fileID: 5569182852694808545}
   ticketSlot: {fileID: 1653282531}
-  boo: {fileID: 0}
+  boo: {fileID: 8300000, guid: 5ceb2cb3e00c75943bbd3990eb2eaaaf, type: 3}
 --- !u!65 &1257563691
 BoxCollider:
   m_ObjectHideFlags: 0

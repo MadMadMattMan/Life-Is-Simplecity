@@ -109,7 +109,6 @@ public class StarManager : MonoBehaviour
         // scale stars so after n 5 stars have store reach 5 stars
         float diff = 2 * (newStars - 2.5f) / customersToFiveStars;
 
-
         gm.storeRating += diff;
         storeStars.UpdateStars(gm.storeRating);
     }

@@ -11,14 +11,14 @@ public class CauldronManager : MonoBehaviour {
 
 
     // how bad the brew was (higher number is bad)
-    public float brewAmount = 0f;
-    public float brewQuality = 1f;
+    public float brewAmount = 10f;
+    public float brewQuality = 10f;
 
     private void Start() {
         colorAdditions = Vector3.zero;
         addedIngredients.Clear();
-        brewAmount = 0f;
-        brewQuality = 1f;
+        brewAmount = 10f;
+        brewQuality = 10f;
     }
 
     public Vector3 GetAdditions() {
