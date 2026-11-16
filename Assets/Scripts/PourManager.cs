@@ -120,7 +120,7 @@ public class PourManager : Interactable {
 
         if (update) {
             oldColor = potionColor;
-            Vector3 col = new Vector3(0.5f, 0.2f, 0f);
+            Vector3 col = new Vector3(0.3f, 0.3f, 0.3f).normalized;
             print(cManager.colorAdditions);
             if (cManager.GetColorSum() < 3)
                 col = cManager.GetAdditions().normalized;

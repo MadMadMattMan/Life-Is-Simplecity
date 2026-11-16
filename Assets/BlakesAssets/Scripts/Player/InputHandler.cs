@@ -15,17 +15,8 @@ public class InputHandler : MonoBehaviour
     }
     public void RandomKeybinds()
     {
-        InputActionMap currentMap = null;
-        foreach (InputActionMap map in inputActions.actionMaps)
-        {
-            if (map.enabled)
-            {
-                currentMap = map;
-                map.Disable();
-            }
-        }
-        string newMap = currentMap.name;
-        while (newMap == currentMap.name && newMap == "UI")
+        string newMap = null;
+        while (newMap == null || newMap == "UI")
         {
             newMap = inputActions.actionMaps[Random.Range(0, inputActions.actionMaps.Count - 1)].name;
         }
