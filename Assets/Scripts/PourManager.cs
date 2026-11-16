@@ -20,6 +20,7 @@ public class PourManager : Interactable {
     [SerializeField] float colorLerpTime = 5f;
 
     Color potionColor;
+    Vector3 whiteVec = new Vector3(0.3f, 0.3f, 0.3f).normalized;
 
     AudioSource pourAudio;
     AudioClip clip;
@@ -39,8 +40,9 @@ public class PourManager : Interactable {
         pourAudio = GetComponent<AudioSource>();
         clip = pourAudio.clip;
 
-        oldColor = new Color(0.8f, 0.85f, 1f);
-        newColor = new Color(0.8f, 0.85f, 1f);
+       
+        oldColor = new Color(whiteVec.x, whiteVec.y, whiteVec.z);
+        newColor = oldColor;
         potionColor = newColor;
     }
 
@@ -121,7 +123,7 @@ public class PourManager : Interactable {
             Vector3 col = new Vector3(0.5f, 0.2f, 0f);
             print(cManager.colorAdditions);
             if (cManager.GetColorSum() < 3)
-                col = cManager.GetAdditions();
+                col = cManager.GetAdditions().normalized;
             newColor = new Color(col.x, col.y, col.z);
 
             enlapsedTime = 0f;

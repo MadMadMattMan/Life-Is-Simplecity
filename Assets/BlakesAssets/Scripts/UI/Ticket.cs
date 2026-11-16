@@ -64,8 +64,11 @@ public class Ticket : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
 
 
         if (!DraggingEnabled) return;
-        TicketSlot closest = GetClosestSlot();
-        if (closest != null) closest.SnapTo(gameObject);
+        if (currentSlot == null)
+        {
+            TicketSlot closest = GetClosestSlot();
+            if (closest != null) closest.SnapTo(gameObject);
+        }
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
     }

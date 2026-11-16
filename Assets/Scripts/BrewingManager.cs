@@ -129,6 +129,8 @@ public class BrewingManager : Interactable {
 
     // called on place cauldron
     public void addOrder(Order newOrder, CauldronManager newCauldron) {
+        if (attachedOrder == newOrder)
+            return;
         Tutorial.TicketDragged = true;
         attachedOrder = newOrder;
         orderNumber.text = orderPrefix + newOrder.OrderNumber;

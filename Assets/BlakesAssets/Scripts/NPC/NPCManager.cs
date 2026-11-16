@@ -69,6 +69,7 @@ public class NPCManager : MonoBehaviour
         return 0;
     }
 
+    static bool first = true;
     Vector3[] brewColors;
     private Vector3 randomColourValue()
     {
@@ -86,7 +87,10 @@ public class NPCManager : MonoBehaviour
             colors.Add(new Vector3(0.3f, 0.3f, 0.3f).normalized); //1r1g1b - white
             brewColors = colors.ToArray();
         }
-
+        if (first) {
+            first = false;
+            return brewColors[UnityEngine.Random.Range(0, brewColors.Length - 1)];
+        }
         return brewColors[UnityEngine.Random.Range(0, brewColors.Length)];
     }
     public NPCBehaviour GetFirstNPC()
