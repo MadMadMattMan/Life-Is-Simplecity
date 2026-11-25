@@ -68,7 +68,7 @@ public class MouseInteractionManager : MonoBehaviour {
 
     void mouseClick() {
         isPressed = true;
-        Cursor.SetCursor(mouseDown, new Vector2(0.5f, 0.5f), CursorMode.ForceSoftware);
+        Cursor.SetCursor(mouseDown, new Vector2(0.5f, 0.5f), CursorMode.Auto);
         if (raycastToMouse(out iItemInteraction iScript, out Vector3 mouseWorldspace)) {
             iScript.click();
             snappedItem = iScript;
@@ -77,7 +77,7 @@ public class MouseInteractionManager : MonoBehaviour {
 
     void mouseRelease() {
         isPressed = false;
-        Cursor.SetCursor(mouseUp, new Vector2(0.5f, 0.5f), CursorMode.ForceSoftware);
+        Cursor.SetCursor(mouseUp, new Vector2(0.5f, 0.5f), CursorMode.Auto);
 
         if (raycastToMouse(out iItemInteraction iScript, out Vector3 mouseWorldspace))
             iScript.release();
